@@ -52,6 +52,29 @@ df.a = df.a.str.title()
 
 ### SQL Connection ###
 ````python
+### pyodbc
+# SQL Server
+import pyodbc
+args = '''
+        Driver={ODBC Driver 13 for SQL Server};
+        Server=myServer;
+        Database=myDB;
+        UID=*****; # system user
+        PWD=*****;
+       '''
+conn_mssql = pyodbc.connect(args)
+cursor_mssql = conn_mssql.cursor()
+
+# PostgreSQL on RDS
+import psycopg2
+connection_psql = psycopg2.connect( user="vvAdmin"
+                                  , password="***"
+                                  , port="5432"
+                                  , database="myDB"
+                                  , host="[ENDPOINT]")
+cursor_psql = connection.cursor()
+
+### sqlalchemy
 import sqlalchemy as sa
 import urllib
 params = urllib.parse.quote_plus("DRIVER={SQL Server Native Client 11.0};"
