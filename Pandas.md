@@ -60,15 +60,18 @@ params = urllib.parse.quote_plus("DRIVER={SQL Server Native Client 11.0};"
                                  "Trusted_Connection=yes")
 engine = sa.create_engine("mssql+pyodbc:///?odbc_connect={}".format(params))
 # engine_rds_pgsql = sa.create_engine("postgresql+psycopg2://[USER]:[ENDPOINT]/[TABLE_NAME]")
-
-# read from SQL
+````
+### Read from SQL
+```python
 df_read = pd.read_sql(table_name='tbl_name',  # or a query
                       con=engine,
                       columns=['x','y'],
                       chunksize=1000000
                      )
-
-# write to SQL
+```
+### Write to SQL
+```python
+# small data
 df_write.to_sql('tbl_name', con=engine, index=False, if_exists='append')
 
 # Write to SQL Server (big data)
