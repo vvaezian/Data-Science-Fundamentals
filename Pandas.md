@@ -101,7 +101,7 @@ subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='d
                                                                             sep='\t'), 
                 shell=True)
 
-#  Postgres 
+# Postgres 
 conn_pgsql = engine_pgsql.raw_connection()
 cursor_pgsql = conn_pgsql.cursor()
 output = io.StringIO()
