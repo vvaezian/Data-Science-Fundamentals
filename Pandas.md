@@ -63,18 +63,35 @@ engine = sa.create_engine("mssql+pyodbc:///?odbc_connect={}".format(params))
 ````
 ### Read from SQL
 ```python
+### small data
 df_read = pd.read_sql(table_name='tbl_name',  # or a query
                       con=engine,
                       columns=['x','y'],
                       chunksize=1000000
                      )
+
+### big data
+# Pandas data storage is not as efficient as H2O, so after importing each chunk, 
+# we convert it to H2O dataframe (we cannot do it directly because H2O doesn't have ODBC connection yet)
+# note that when we use chunksize, Pandas sometimes reads a few more lines (see: https://github.com/pandas-dev/pandas/issues/28153)
+# so we need to take that into consideration
+
+pd_frame_generator = pd.read_sql_table(table_name='tbl_name', con=engine, chunksize=500000)
+
+pd_df_chunk = next(pd_frame_generator)
+h2o_df_all = h2o.H2OFrame(pd_df_chunk, column_types={'col3':'enum', 'col5':'enum'})
+
+for pd_df_chunk in pd_frame_generator:
+  h2o_df_chunk = h2o.H2OFrame(pd_df_chunk, column_types={'col3':'enum', 'col5':'enum'})
+  h2o_df_all = h2o_df_all.rbind(h2o_df_chunk)
 ```
 ### Write to SQL
 ```python
-# small data
+### small data
 df_write.to_sql('tbl_name', con=engine, index=False, if_exists='append')
 
-# Write to SQL Server (big data)
+### big data
+# SQL Server 
 pd_df.to_csv('test.csv', sep='\t', header=False, index=False)
 subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='db.dbo.tbl_name',   # to
                                                                             f='/PATH/TO/FILE/test.csv', # from
@@ -84,7 +101,7 @@ subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='d
                                                                             sep='\t'), 
                 shell=True)
 
-# Write to Postgres (big data)
+#  Postgres 
 conn_pgsql = engine_pgsql.raw_connection()
 cursor_pgsql = conn_pgsql.cursor()
 output = io.StringIO()
@@ -94,7 +111,7 @@ contents = output.getvalue()
 cursor_pgsql.copy_from(output, 'destination_table', null='None')
 conn_pgsql.commit()
 ````
-#### Write to CSV
+### Write to CSV
 ```python
 conn = pyodbc.connect(' ... ')
 cursor = conn.cursor()
