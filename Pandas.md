@@ -71,7 +71,7 @@ df_read = pd.read_sql(table_name='tbl_name',  # or a query
 # write to SQL
 df_write.to_sql('tbl_name', con=engine, index=False, if_exists='append')
 
-# Write to SQL (big data)
+# Write to SQL Server (big data)
 pd_df.to_csv('test.csv', sep='\t', header=False, index=False)
 subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='db.dbo.tbl_name',   # to
                                                                             f='/PATH/TO/FILE/test.csv', # from
@@ -80,6 +80,16 @@ subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='d
                                                                             p="YYY", 
                                                                             sep='\t'), 
                 shell=True)
+
+# Write to Postgres (big data)
+conn_pgsql = engine_pgsql.raw_connection()
+cursor_pgsql = conn_pgsql.cursor()
+output = io.StringIO()
+df.to_csv(output, sep='\t', na_rep='None', header=False, index=False)
+output.seek(0)
+contents = output.getvalue()
+cursor_pgsql.copy_from(output, 'destination_table', null='None')
+conn_pgsql.commit()
 ````
 #### Write to CSV
 ```python
