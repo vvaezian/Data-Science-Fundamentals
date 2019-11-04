@@ -92,6 +92,9 @@ df_read = pd.read_sql(table_name='tbl_name',  # or a query
                       columns=['x','y'],
                       chunksize=1000000
                      )
+# If a column had int data type and had NULL values in SQL Server, it gets imported as float. 
+# We can use the Int64 data type which is introduced in 0.24+ for nullables integer:
+df_read.myCol = df_read.myCol.astype('Int64')
 
 ### big data
 # Pandas data storage is not as efficient as H2O, so after importing each chunk, 
@@ -128,10 +131,10 @@ subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='d
 conn_pgsql = engine_pgsql.raw_connection()
 cursor_pgsql = conn_pgsql.cursor()
 output = io.StringIO()
-df.to_csv(output, sep='\t', na_rep='None', header=False, index=False)
+df.to_csv(output, sep='\t', na_rep='Nan', header=False, index=False)
 output.seek(0)
 contents = output.getvalue()
-cursor_pgsql.copy_from(output, 'destination_table', null='None')
+cursor_pgsql.copy_from(output, 'destination_table', null='Nan')
 conn_pgsql.commit()
 ````
 ### Write to CSV
