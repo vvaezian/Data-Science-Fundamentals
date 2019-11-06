@@ -72,7 +72,7 @@ connection_psql = psycopg2.connect( user="vvAdmin"
                                   , port="5432"
                                   , database="myDB"
                                   , host="[ENDPOINT]")
-cursor_psql = connection.cursor()
+cursor_psql = connection_psql.cursor()
 
 ### sqlalchemy
 import sqlalchemy as sa
