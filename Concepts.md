@@ -38,3 +38,6 @@ Visualizing Recall and precision
 
 ### Parameters
 - **Decision Tree Learning Rate** reduces the influence of each individual tree and leaves space for future trees to improve the model
+
+### Misc
+- The opposite of FP is TN (not TP)
