@@ -41,3 +41,4 @@ Visualizing Recall and precision
 
 ### Misc
 - The opposite of FP is TN (not TP)
+- The FP is the accuracy when test is applied only to negative population.
