@@ -1,3 +1,8 @@
+### Bayes Rule
+- The opposite of FP is TN (not TP)
+- The FP is the accuracy when test is applied only to negative population.
+- It may be easier to see the Bayes rule for `P(have_disease | test_positive)` as the conditional probability rule. We just need to note that `P(have_disease and test_positive)` (the numerator) is not just `P(TP)`, but (because of the point above) is `P(TP) * P(positive_population)`. Similarly for the denominator (`P(test_positive)`) we have `P(TP) * P(positive_population) + P(FP) * P(negative_population)`.
+
 ### Mean Absolute Error (MAE) vs. Root mean squared error (RMSE)
 - RMSE is more sensitive to outliers.
 Since the errors are squared before they are averaged, the RMSE gives a relatively high weight to large errors. 
@@ -39,8 +44,3 @@ Visualizing Recall and precision
 ### Parameters
 - **Decision Tree Learning Rate** reduces the influence of each individual tree and leaves space for future trees to improve the model
 
-### Misc
-- The opposite of FP is TN (not TP)
-- The FP is the accuracy when test is applied only to negative population.
-- It may be easier to see the Bayes rule for `P(have_disease | test_positive)` as the conditional probability rule. We just need to note that `P(have_disease and test_positive)` (the numerator) is not just `P(TP)`, but (because of the point above) is `P(TP) * P(positive_population)`. Similarly for the denominator (`P(test_positive)`) we have `P(TP) * P(positive_population) + P(FP) * P(negative_population)`
-Similarly For the denominator (i.e. 
