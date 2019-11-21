@@ -39,8 +39,13 @@ df[column_list] # e.x. reduced_by_cols = df[['a', 'c']]
 ````
 Choosing some rows:
 ````Python
-df.iloc[row_index] # e.x. reduced_by_rows = df.iloc[[0, 2]]  
+# index-based:
 # if index is not the default (i.e. user provided index for the df), `loc` chooses rows by index names. 
+df.iloc[row_index] # e.x. reduced_by_rows = df.iloc[[0, 2]]  
+
+# value-based:
+df.loc[[boolean expression to restrict rows], [list of columns to return]]
+df.loc[df.myCol=='ldb', [list of columns to return]]
 ````
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
@@ -49,6 +54,11 @@ Making a column titlecase:
 ````python
 df.a = df.a.str.title()
 ````
+
+Casting to int for a column that contains Null values:
+```python
+df_bc['myCol'] = df_bc['myCol'].astype('Int64') 
+```
 
 ### SQL Connection ###
 ````python
