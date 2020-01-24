@@ -97,7 +97,7 @@ engine = sa.create_engine("mssql+pyodbc:///?odbc_connect={}".format(params))
 ### Read from SQL
 ```python
 ### small data
-df_read = pd.read_sql(table_name='tbl_name',  # or a query
+df_read = pd.read_sql(sql='tbl_name',  # or a query
                       con=engine,
                       columns=['x','y'],
                       chunksize=1000000
