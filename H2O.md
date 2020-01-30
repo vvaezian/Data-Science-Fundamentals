@@ -88,7 +88,7 @@ m = target.mean()[0]
 rf_model.predict(test)
 
 # Save the model
-h2o.save_model(model=my_model)  # need to set model_id option when training the model
+h2o.save_model(model=my_model)  # need to set model_id option when training the model, or later `my_model.model_id = '...'`
 
 # Load the model
 model = h2o.load_model('C:\\PATH\\TO\\SavedModel')
