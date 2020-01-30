@@ -129,9 +129,9 @@ df_write.to_sql('tbl_name', con=engine, index=False, if_exists='append')
 ### big data
 # SQL Server 
 pd_df.to_csv('test.csv', sep='\t', header=False, index=False)
-subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='db.dbo.tbl_name',   # to
+subprocess.call('bcp {t} in {f} -S {s} -U {u} -P {p} -c -t "{sep}" '.format(t='db_name.dbo.tbl_name',   # to
                                                                             f='/PATH/TO/FILE/test.csv', # from
-                                                                            s='DB_Name', # to server
+                                                                            s='Server_Name', # to server
                                                                             u='XXX', 
                                                                             p="YYY", 
                                                                             sep='\t'), 
