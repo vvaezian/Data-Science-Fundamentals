@@ -40,7 +40,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=30):
     next_w = step(w, gradient, step_size)
     next_value = target_fn(next_w)
     if abs(next_value - value) < tolerance:
-      errs.append(value)
+      errs.append(mae(w))
       return (w, errs)
     else:
       w, value = next_w, next_value
@@ -51,12 +51,15 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=30):
       plt.scatter(X, Y)
       plt.plot([x_s, x_e], [y_s, y_e], color='green')
       plt.show()
-      errs.append(value)
+      errs.append(mae(w))
       #break
 
 
 def f_x(coefs, x):
   return coefs[0] + coefs[1] * x 
+
+def mae(w):
+  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ])/len(data)
 
 def error(w):
   # y(x, w) = w0 + w1*x
