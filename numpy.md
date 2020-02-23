@@ -1,6 +1,6 @@
 Creating random data
 ````Python
-x = np.arange(0,50)
+x = np.arange(0, 1, .1)  # like range but can have non-integer step-size
 
 # just random uniform distributions in differnt range
 y1 = np.random.uniform(10,15,10)
