@@ -1,7 +1,6 @@
 Creating random data
 ````Python
 x = np.arange(0,50)
-x = pd.DataFrame({'x':x})
 
 # just random uniform distributions in differnt range
 y1 = np.random.uniform(10,15,10)
