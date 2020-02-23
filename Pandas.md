@@ -2,6 +2,9 @@
 
 A **DataFrame** is a table of data.
 ````Python
+x = np.arange(0,50)
+df = pd.DataFrame({'x':x})
+
 df = pd.DataFrame({'a':[True, False, True], 'b':[4, 5, 6], 'c':[7, 8, 9]})
 # defining row by row: pd.DataFrame([[True, 4, 7], [False, 5, 8], [True, 6, 9]], columns=['a', 'b', 'c'])
 # we can change index numbering by providing index list.
