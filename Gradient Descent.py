@@ -13,12 +13,6 @@ with open('...') as f:
 data = [ eval(line.rstrip('\n')) for line in d ]
 X, Y = zip(*data)
 
-plt.scatter(X, Y)
-plt.show()
-
-min_X = min(i[0] for i in data)
-max_X = max(i[0] for i in data)
-
 def step(w, direction, step_size):
   """move step_size in the direction from p"""
   return [w_i + step_size * direction_i
@@ -29,7 +23,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   use gradient descent to find theta that minimizes target function.
   tolerance: to stop the program if the pace of the improvement is less than this number
   """
-
+  
   w = w_0  # initial guess for weights
   ws = [w_0]  # list containing all weights
   step_size = -0.000001  # to minimize, move towards opposite of gradient
@@ -37,6 +31,12 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   mae = calc_mae(w_0)  
   MAE_errs = [mae]  # list containing all MAE errors
   grads = []  # list containing all gradients
+  
+  plt.scatter(X, Y)
+  plt.show()
+
+  min_X = min(i[0] for i in data)
+  max_X = max(i[0] for i in data)
   
   while True:
     gradient = gradient_fn(w)
@@ -46,11 +46,11 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
     errs.append(error(next_w))
     next_mae = calc_mae(next_w)
     MAE_errs.append(next_mae)
+    
     if abs(next_mae - mae) < tolerance:
       return (ws, MAE_errs, errs, grads)
     else:
-      w, mae = next_w, next_mae
-      
+      w, mae = next_w, next_mae  
       # plot the fitted curve with the current weights
       xs = np.linspace(min_X, max_X, 100)
       ys = [ f_x(w, i) for i in xs ] 
