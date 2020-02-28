@@ -6,7 +6,6 @@
 from matplotlib import pyplot as plt
 from IPython.display import clear_output
 import random
-import time
 
 with open('...') as f:
   d = f.readlines()[1:]  # [1:] to exclude header
