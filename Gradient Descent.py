@@ -19,47 +19,48 @@ plt.show()
 min_X = min(i[0] for i in data)
 max_X = max(i[0] for i in data)
 
-def step(p, direction, step_size):
+def step(w, direction, step_size):
   """move step_size in the direction from p"""
-  return [p_i + step_size * direction_i
-          for p_i, direction_i in zip(p, direction)]
+  return [w_i + step_size * direction_i
+          for w_i, direction_i in zip(w, direction)]
 
-def minimize_batch(target_fn, gradient_fn, w_0, tolerance=30):
+def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   """
   use gradient descent to find theta that minimizes target function.
   tolerance: to stop the program if the pace of the improvement is less than this number
   """
 
   w = w_0  # initial guess for weights
+  ws = [w_0]  # list containing all weights
   step_size = -0.000001  # to minimize, move towards opposite of gradient
-  value = target_fn(w)
-  errs = []
-
+  errs = [error(w_0)]  # list containing all squared errors
+  mae = calc_mae(w_0)  
+  MAE_errs = [mae]  # list containing all MAE errors
+  grads = []  # list containing all gradients
+  
   while True:
     gradient = gradient_fn(w)
+    grads.append(gradient)
     next_w = step(w, gradient, step_size)
-    next_value = target_fn(next_w)
-    if abs(next_value - value) < tolerance:
-      errs.append(mae(w))
-      return (w, errs)
+    ws.append(next_w)
+    errs.append(error(next_w))
+    next_mae = calc_mae(next_w)
+    MAE_errs.append(next_mae)
+    if abs(next_mae - mae) < tolerance:
+      return (ws, MAE_errs, errs, grads)
     else:
-      w, value = next_w, next_value
+      w, mae = next_w, next_mae
+      
       # plot the fitted curve with the current weights
-      x_s, y_s = min_X, f_x(w, min_X)  # start point for the line
-      x_e, y_e = max_X, f_x(w, max_X)   # end point for the line
+      xs = np.linspace(min_X, max_X, 100)
+      ys = [ f_x(w, i) for i in xs ] 
       clear_output(wait=True)  # to update the current plot
       plt.scatter(X, Y)
-      plt.plot([x_s, x_e], [y_s, y_e], color='green')
+      plt.plot(xs, ys, color='green')
       plt.show()
-      errs.append(mae(w))
-      #break
-
-
+      
 def f_x(coefs, x):
   return coefs[0] + coefs[1] * x 
-
-def mae(w):
-  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ])/len(data)
 
 def error(w):
   # y(x, w) = w0 + w1*x
@@ -74,7 +75,10 @@ def error_grad(w):
   return [sum((w[0] + w[1] * item[0] - item[1]) for item in data) / len(data),
           sum((w[0] + w[1] * item[0] - item[1]) * item[0] for item in data) / len(data)]
 
-final_w = minimize_batch(error, error_grad,
-                       [random.uniform(0, 1000),
-                        random.uniform(-10, 10)])
-print(final_w[1])
+all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad,
+                                                             [random.uniform(0, 1000),
+                                                              random.uniform(-10, 10)])
+print('# of Iterations: {}'.format(len(all_mae)))
+print('Last MAE: {}'.format(all_mae[-1]))
+for i in zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]):
+  print(i)
