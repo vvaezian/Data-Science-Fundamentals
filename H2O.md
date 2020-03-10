@@ -78,12 +78,12 @@ rf_model.model_performance(test_data=test)
 
 #To get only a specific metric  
 rf_model.model_performance(test_data=test)['mae'] # or rf_model.mae(test_data=test)
-  # to see how good this mae is, we can compare it with the case if we use mean of target variable as the prediction:
-  target = data['target_col']
-  m = target.mean()[0]  # .mean() returns a list, so we use [0] to get the value
-  mean_mae = abs(target-m).sum()/len(target)
+
+# to see how good this mae is, we can compare it with the case if we use mean of target variable as the prediction:
+target = data['target_col']
+m = target.mean()[0]  # .mean() returns a list, so we use [0] to get the value
+mean_mae = abs(target-m).sum()/len(target)
   
-m = target.mean()[0]
 # Get the predicted Values
 rf_model.predict(test)
 
