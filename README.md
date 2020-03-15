@@ -5,7 +5,9 @@ Mind Design II (1997)
 - We measure the intelligence of a system by its ability to achieve stated ends in the face of variations, difficulties, and complexities posed by the task environment. (p 83)
 
 #### Workflow
+1- Work on reducing the training error, until it is in an acceptable range.
 - If training error is high (compared to the acceptable error (e.g. human error)) then the model has high bias.  
 We should try bigger model, train longer or try new model architecture.
-- If dev (aka validation) error is high, then the model has high variance.  
+2 - Work on dev (aka validation) error, until it is in an acceptable range.
+- If dev error is high, then the model has high variance.  
 We should try more data, regularization or try new model architecture.
