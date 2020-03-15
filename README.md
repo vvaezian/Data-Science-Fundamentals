@@ -12,3 +12,6 @@ We should try bigger model, train longer or try new model architecture.
 2- Work on dev (aka validation) error, until it is in an acceptable range.
   - If dev error is high, then the model has high variance.  
 We should try more data, regularization or try new model architecture.
+
+# Remarks
+- Dev and test sets must be from the same distribution. So if we 50000 hours train data and 10 hours test data, the dev set must be 5 hours of the test data.
