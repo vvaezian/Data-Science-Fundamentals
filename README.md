@@ -13,5 +13,13 @@ We should try bigger model, train longer or try new model architecture.
   - If dev error is high, then the model has high variance.  
 We should try more data, regularization or try new model architecture.
 
-# Remarks
-- Dev and test sets must be from the same distribution. So if we 50000 hours train data and 10 hours test data, the dev set must be 5 hours of the test data.
+#### More granular Workflow
+Dev and test sets must be from the same distribution. So if we 50000 hours train data and 10 hours test data, then dev set must be 5 hours of the test data.  
+It also helps to consider a portion of train set as train-dev set (20 hour in the above example). So we have train/train-dev/dev/test sets. The workflow is as follows:
+
+1- train error. same as above
+2- train-dev error. same as dev error above
+3- dev error. More data, data synthesis, new model.
+4- test error. Get mode dev data.
+
+
