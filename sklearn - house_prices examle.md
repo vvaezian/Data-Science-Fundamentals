@@ -28,13 +28,6 @@ plt.show()
 
 # count of each unique value of a column (suitable for categorical data)
 data.colName.value_counts()
-
-# pd.plotting.scatter_matrix(df, 
-                             c=target_column,  # c stands for color
-                             fig_size=[8, 8],  
-                             s=150,  # shape (number of rows)
-                             marker='D'
-                            )
 ````
 # Exploring the Relationship between Columns 
 **Correlation** between columns (shows only numeric columns)
