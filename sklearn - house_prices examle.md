@@ -4,7 +4,7 @@ import pandas as pd
 data = pd.read_csv('../input/house-prices-advanced-regression-techniques/train.csv')
 y = data.SalePrice
 ````
-# Exploring the Data #
+# Exploratory data analysis (EDA)
 ````Python
 data.describe()  # shows min, max, mean, ... . This is applied only on numerical columns. For categorical ones see below.
 data.colName.describe()
@@ -28,8 +28,15 @@ plt.show()
 
 # count of each unique value of a column (suitable for categorical data)
 data.colName.value_counts()
+
+# pd.plotting.scatter_matrix(df, 
+                             c=target_column,  # c stands for color
+                             fig_size=[8, 8],  
+                             s=150,  # shape (number of rows)
+                             marker='D'
+                            )
 ````
-# Exploring the Relationship between Columns #
+# Exploring the Relationship between Columns 
 **Correlation** between columns (shows only numeric columns)
 ````Python
 corr = data.corr() 
