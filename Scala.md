@@ -17,7 +17,7 @@ def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not neces
   else param2
 }
 ```
-### Arrays
+### Arrays (mutable, like lists in Python)
 ```scala
 val a: Array[Int] = new Array[Int](3)  // Array(0, 0, 0) 
                                        // use the type 'Any' to be able to use elements of mixed types in the array
@@ -30,4 +30,7 @@ While the array elements can change, to make the array itself immutable we shoul
 
 ```scala
 a.foreach(println)  // print values of the array
+a = a :+ 6  // appending an element
+a = a +: 14 // prepending an element
 ```
+### Lists (immutable)
