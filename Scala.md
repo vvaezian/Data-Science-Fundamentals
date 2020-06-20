@@ -40,7 +40,11 @@ Lists are linked lists. The prepend operation is O(1) as expected but append ope
 This is why prepend is more common for lists. If we need to append we should use other data types like ListBuffer.
 ```scala
 val a = List(1, 2)
-a :: 0  // prepending an element
+a :: 0  // prepending an element (:: is called cons operator)
 a :+ 3  // appending an element. This is not efficient (O(n)). Use ListBuffer or other alternatives
 ```
-`Nil` is an empty list.
+`Nil` is an empty list.  
+Another way to initialize lists is using the cons operator and Nill:
+```scala
+val c = 1 :: 2 :: Nil
+```
