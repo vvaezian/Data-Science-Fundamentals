@@ -1,4 +1,5 @@
-Scala combines object-oriented and functional programming
+- Scala combines object-oriented and functional programming
+- Scala code is first compiled to Java byte codes, then run on a JVM
 
 ```scala
 print("Hello World")  // use double-quotes for strings
