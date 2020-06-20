@@ -1,0 +1,2 @@
+- To start Spark shell (not the pySpark): `spark-shell`
+- To start the pySpark shell: `pySpark`
