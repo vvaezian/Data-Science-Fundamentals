@@ -42,5 +42,5 @@ This is why prepend is more common for lists. If we need to append we should use
 val a = List(1, 2)
 a :: 0  // prepending an element
 a :+ 3  // appending an element. This is not efficient (O(n)). Use ListBuffer or other alternatives
-
 ```
+`Nil` is an empty list.
