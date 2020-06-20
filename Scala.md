@@ -20,7 +20,8 @@ def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not neces
   else param2
 }
 ```
-It seems it doesn't need a `return` statement. If we include the return statement, specifying the return type of the function is necessary.
+In Scala, if there is no `return` then the last expression is taken to be the return value. In the example above the `if-else` is the last expression.  
+If we include the `return`, specifying the return type of the function becomes necessary.
 
 ### Arrays (mutable, like lists in Python)
 ```scala
