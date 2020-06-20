@@ -1,3 +1,5 @@
+Scala combines object-oriented and functional programming
+
 ```scala
 print("Hello World")  // use double-quotes for strings
                       // use 'println` to inser a new line at the end
