@@ -55,11 +55,12 @@ val c = 1 :: 2 :: Nil
 ### `if`
 ```scala
 if (a > 10) println(a)  // if there is only one statement, we can write it in one line
+                        // but it is recommended to use curly braces when there is no "else" statement
 if (a > 10)
   println(a)
 else
   println("No")
-if (a > 10) {  // if the are more than one statement we need to use curly braces
+if (a > 10) {  // if the are more than one statement we have to to use curly braces
   println(a)
   println("yes")
 }
