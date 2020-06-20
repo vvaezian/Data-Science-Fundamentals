@@ -16,3 +16,10 @@ def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not neces
   else param2
 }
 ```
+### Arrays
+```scala
+val a: Array[Int] = new Array[Int](3)  // Array(0, 0, 0)
+a(0) = 12  # parathesis is used instead of square brackets as is Java and Python
+a(1) = 10
+a(2) = 8
+```
