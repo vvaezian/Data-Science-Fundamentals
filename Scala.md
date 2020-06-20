@@ -40,7 +40,7 @@ Lists are linked lists. The prepend operation is O(1) as expected but append ope
 This is why prepend is more common for lists. If we need to append we should use other data types like ListBuffer.
 ```scala
 val a = List(1, 2)
-a :: 0  // prepending (:: is called the 'cons' operator)
+0 :: a  // prepending (:: is called the 'cons' operator)
 a :+ 3  // appending. This is not efficient (O(n)). Use ListBuffer or other alternatives
 List(1,2) ::: List(3, 4)  // concatenate
 ```
