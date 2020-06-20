@@ -28,10 +28,11 @@ Shorthand: `val b = Array(12, 10, 8)`
 While the array elements can change, to make the array itself immutable we should define it with `val`.
 
 ```scala
-a.foreach(println)  // print values of the array
-a = a :+ 3  // appending an element
-a = 2 +: a // prepending an element
-a = a ++ Array(1, 2) 
+var b = Array(0, 1)  // we use var to be able to reassign values to b
+b.foreach(println)  // print values of the array
+b = b :+ 3  // appending an element
+b = 2 +: b // prepending an element
+b = b ++ Array(1, 2) 
 ```
 
 ### Lists (immutable)
