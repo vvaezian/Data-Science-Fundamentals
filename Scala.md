@@ -39,6 +39,7 @@ b.foreach(println)  // print values of the array
 b = b :+ 3  // appending
 b = 2 +: b // prepending
 b = b ++ Array(1, 2) 
+b.length  // length of array
 ```
 
 ### Lists (immutable)
