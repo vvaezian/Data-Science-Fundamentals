@@ -30,8 +30,8 @@ While the array elements can change, to make the array itself immutable we shoul
 ```scala
 var b = Array(0, 1)  // we use var to be able to reassign values to b, but Scala suggests using val and creating new variables instead of re-assigning.
 b.foreach(println)  // print values of the array
-b = b :+ 3  // appending an element
-b = 2 +: b // prepending an element
+b = b :+ 3  // appending
+b = 2 +: b // prepending
 b = b ++ Array(1, 2) 
 ```
 
@@ -40,8 +40,9 @@ Lists are linked lists. The prepend operation is O(1) as expected but append ope
 This is why prepend is more common for lists. If we need to append we should use other data types like ListBuffer.
 ```scala
 val a = List(1, 2)
-a :: 0  // prepending an element (:: is called cons operator)
-a :+ 3  // appending an element. This is not efficient (O(n)). Use ListBuffer or other alternatives
+a :: 0  // prepending (:: is called the 'cons' operator)
+a :+ 3  // appending. This is not efficient (O(n)). Use ListBuffer or other alternatives
+List(1,2) ::: List(3, 4)  // concatenate
 ```
 `Nil` is an empty list.  
 Another way to initialize lists is using the cons operator and Nill:
