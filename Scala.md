@@ -67,6 +67,6 @@ if (a > 10) {  // if the are more than one statement we have to to use curly bra
 else
   println("No")
 
-val max = if (b > c) b else c
+val max = if (b > c) b else c  // this can be more elaborate as well (e.x. if-else if-else)
 ```
 
