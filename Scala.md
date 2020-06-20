@@ -19,18 +19,19 @@ def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not neces
 ```
 ### Arrays (mutable, like lists in Python)
 ```scala
-val a: Array[Int] = new Array[Int](3)  // Array(0, 0, 0) 
+val a: Array[Int] = new Array[Int](2)  // Array(0, 0) 
                                        // use the type 'Any' to be able to use elements of mixed types in the array
-a(0) = 12  # parathesis is used instead of square brackets as is Java and Python
-a(1) = 10
-a(2) = 8
+a(0) = 5  # parathesis is used instead of square brackets as is Java and Python
+a(1) = 6
 ```
 Shorthand: `val b = Array(12, 10, 8)`  
 While the array elements can change, to make the array itself immutable we should define it with `val`.
 
 ```scala
 a.foreach(println)  // print values of the array
-a = a :+ 6  // appending an element
-a = a +: 14 // prepending an element
+a = a :+ 3  // appending an element
+a = 2 +: a // prepending an element
+a = a ++ Array(1, 2) 
 ```
+
 ### Lists (immutable)
