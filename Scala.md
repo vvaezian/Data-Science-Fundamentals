@@ -36,3 +36,11 @@ b = b ++ Array(1, 2)
 ```
 
 ### Lists (immutable)
+Lists are linked lists. The prepend operation is O(1) as expected but append operation is O(n). This is because in Scala list elements are immutable, and to "modify" the last element of the list (changing the pointer), we need to make a copy of it first.  
+This is why prepend is more common for lists. If we need to append we should use other data types like ListBuffer.
+```scala
+val a = List(1, 2)
+a :: 0  // prepending an element
+a :+ 3  // appending an element. This is not efficient (O(n)). Use ListBuffer or other alternatives
+
+```
