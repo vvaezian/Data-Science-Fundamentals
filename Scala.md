@@ -52,3 +52,11 @@ Another way to initialize lists is using the cons operator and Nill:
 ```scala
 val c = 1 :: 2 :: Nil
 ```
+### `if`
+```
+if (a > 10) println(a)  // if there is only one statement, we can write it in one line
+
+
+val max = if (b > c) b else c
+```
+
