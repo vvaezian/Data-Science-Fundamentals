@@ -28,7 +28,7 @@ Shorthand: `val b = Array(12, 10, 8)`
 While the array elements can change, to make the array itself immutable we should define it with `val`.
 
 ```scala
-var b = Array(0, 1)  // we use var to be able to reassign values to b
+var b = Array(0, 1)  // we use var to be able to reassign values to b, but Scala suggests using val and creating new variables instead of re-assigning.
 b.foreach(println)  // print values of the array
 b = b :+ 3  // appending an element
 b = 2 +: b // prepending an element
