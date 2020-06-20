@@ -23,4 +23,5 @@ a(0) = 12  # parathesis is used instead of square brackets as is Java and Python
 a(1) = 10
 a(2) = 8
 ```
-Shorthand: `val b = Array(12, 10, 8)`
+Shorthand: `val b = Array(12, 10, 8)`  
+While the array elements can change, to make the array itself immutable we should define it with `val`.
