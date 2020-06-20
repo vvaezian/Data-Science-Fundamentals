@@ -3,7 +3,7 @@ print("Hello World")  // use double-quotes for strings
 ```
 There are two types of variables: `var` (mutable), `val` (immutable):
 ```scala
-val my_immutable_variable_name: Int = 10
+val my_immutable_variable_name: Int = 10  // cannot assign another value to this variable
 var my_mutable_variable_name: Int = 20
 ```
 
