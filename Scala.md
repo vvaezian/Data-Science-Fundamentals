@@ -1,5 +1,6 @@
 ```scala
 print("Hello World")  // use double-quotes for strings
+                      // use 'println` to inser a new line at the end
 ```
 There are two types of variables: `var` (mutable), `val` (immutable):
 ```scala
@@ -26,3 +27,7 @@ a(2) = 8
 ```
 Shorthand: `val b = Array(12, 10, 8)`  
 While the array elements can change, to make the array itself immutable we should define it with `val`.
+
+```scala
+a.foreach(println)  // print values of the array
+```
