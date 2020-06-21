@@ -65,7 +65,7 @@ spark_df.dtypes
 
 # park only handles numeric data. That means all of the columns in the DataFrames must be 
 # either "integer" or 'doubles' (decimals).
-
+spark_df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
 ```
 
 
