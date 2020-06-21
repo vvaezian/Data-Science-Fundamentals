@@ -24,9 +24,14 @@ spark_df = spark.createDataFrame(pd_df)  # stored locally (?)
 spark_df.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
                                                      # Can only be accessed from the current session
                                                        
-
 # csv to spark_df
 spark_df = spark.read.csv(file_path, header=True)
+
+# spard DataFrames are immutable
+spark_df = spark.table("test_table")  # using data already in the cluster
+spark_df = spark_df.withColumn("col1", spark_df.col1 - 1)  # deducting 1 from all elements of the column "col1"
+spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new column constricted from an existing column
+
 ```
 
 
