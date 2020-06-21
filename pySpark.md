@@ -58,6 +58,14 @@ flights_grouped.agg(F.stddev("distance")).show()
 # the following results in a table with columns A, B, C
 # i.e. it includes the common column once
 joined_tables = table1.join(table2, on="common_col", how="leftouter")
+
+# When we imported data, Spark guesses column type, but this is not seemless. 
+# So we need to check and `cast` to the right type.
+spark_df.dtypes
+
+# park only handles numeric data. That means all of the columns in the DataFrames must be 
+# either "integer" or 'doubles' (decimals).
+
 ```
 
 
