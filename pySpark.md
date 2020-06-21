@@ -20,7 +20,7 @@ pd_df = res.toPandas()
 pd_df.head()
 
 # from pd to spark is possible as well
-spark_temp = spark.createDataFrame(pd_df)  # stored locally
+spark_temp = spark.createDataFrame(pd_df)  # stored locally (?)
 spark_temp.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
                                                        # Can only be accessed from the current session
 ```
