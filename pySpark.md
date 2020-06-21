@@ -53,6 +53,8 @@ flights.groupBy(flights.origin, flights.dest).avg("distance").show()
 import pyspark.sql.functions as F
 flights_grouped = flights.groupBy(flights.origin, flights.dest).avg("distance")  # from the last line of code above
 flights_grouped.agg(F.stddev("distance")).show()
+
+joined_tables = table1.join(table2, on="common_col", how="leftouter")
 ```
 
 
