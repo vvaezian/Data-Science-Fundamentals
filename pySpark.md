@@ -12,17 +12,21 @@ spark = SparkSession.builder.appName("PythonPi").getOrCreate()  # create a Spark
 print(spark.catalog.listTables())  # list all the data inside the cluster. 
 
 query = "SELECT * FROM myTable limit 100"
-res = spark.sql(query)
-res.show()
+spark_df = spark.sql(query)
+spark_df.show()
 
 # When the heavy-lifting is done with Spark we can transform the DataFrame to a Pandas DataFrame to explore the data easier.
-pd_df = res.toPandas()
+pd_df = spark_df.toPandas()
 pd_df.head()
 
 # from pd to spark is possible as well
-spark_temp = spark.createDataFrame(pd_df)  # stored locally (?)
-spark_temp.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
-                                                       # Can only be accessed from the current session
+spark_df = spark.createDataFrame(pd_df)  # stored locally (?)
+spark_df.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
+                                                     # Can only be accessed from the current session
+                                                       
+
+# csv to spark_df
+spark_df = spark.read.csv(file_path, header=True)
 ```
 
 
