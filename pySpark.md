@@ -35,6 +35,10 @@ spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new col
 # filtering the data (equivalent of "where" clause). Both of the following return the same result
 long_flights1 = flights.filter("distance > 1000")
 long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1000' returns a boolean column
+
+# 
+selected_cols = flights.select("origin", "dest")
+selected_cols = flights.select(flights.origin, flights.dest)
 ```
 
 
