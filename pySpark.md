@@ -45,9 +45,13 @@ selected_cols = flights.select(flights.duration/60.alias("duration_hrs"), flight
 # the alias operation can be used in string notation as follows
 flights.selectExpr("duration/60 as duration_hrs")
 
-flights.groupBy("origin", "dest").min("distance").show()
-flights.groupBy(flights.origin, flights.dest).min("distance").show()
+flights.groupBy("origin", "dest").avg("distance").show()
+flights.groupBy(flights.origin, flights.dest).avg("distance").show()
 
+# we can calculate standard deviation and other function on grouped data as follows
+import pyspark.sql.functions as F
+flights_grouped = flights.groupBy(flights.origin, flights.dest).avg("distance")  # from the last line of code above
+flights_grouped.agg(F.stddev("distance")).show()
 ```
 
 
