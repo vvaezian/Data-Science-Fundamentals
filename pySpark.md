@@ -44,3 +44,5 @@ pi = 4 * count / NUM_SAMPLES
 print("Pi is roughly", pi)
 ```
 - Spark DataFrame is an abstraction on top of RDD's which are hard to work with directly.
+- To start working with Spark DataFrames, we nee to create a `SparkSession` object from the `SparkContext`.  
+SparkContext is like the connection to the cluster and the SparkSession like the interface with that connection.
