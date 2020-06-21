@@ -43,4 +43,4 @@ count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
 pi = 4 * count / NUM_SAMPLES
 print("Pi is roughly", pi)
 ```
-
+- Spark DataFrame is an abstraction on top of RDD's which are hard to work with directly.
