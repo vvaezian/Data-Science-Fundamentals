@@ -39,7 +39,9 @@ long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1
 # difference between 'select' and 'withColumn' is that the latter returns the whole df 
 # while the fomer returns only the selected cols
 selected_cols = flights.select("origin", "dest")
-selected_cols = flights.select(flights.origin, flights.dest)  # when using this notation we can do column operations as well
+selected_cols = flights.select(flights.origin, flights.dest)  
+# when using the dot notation, we can do column operations as well
+selected_cols = flights.select(flights.duration/60, flights.dest) 
 ```
 
 
