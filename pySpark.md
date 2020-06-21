@@ -18,6 +18,11 @@ res.show()
 # When the heavy-lifting is done with Spark we can transform the DataFrame to a Pandas DataFrame to explore the data easier.
 pd_df = res.toPandas()
 pd_df.head()
+
+# from pd to spark is possible as well
+spark_temp = spark.createDataFrame(pd_df)  # stored locally
+spark_temp.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
+                                                       # Can only be accessed from the current session
 ```
 
 
