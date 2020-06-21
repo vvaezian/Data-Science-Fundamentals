@@ -54,6 +54,9 @@ import pyspark.sql.functions as F
 flights_grouped = flights.groupBy(flights.origin, flights.dest).avg("distance")  # from the last line of code above
 flights_grouped.agg(F.stddev("distance")).show()
 
+# if table1 has columns A, B and table2 has columns A, C, 
+# the following results in a table with columns A, B, C
+# i.e. it includes the common column once
 joined_tables = table1.join(table2, on="common_col", how="leftouter")
 ```
 
