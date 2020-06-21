@@ -36,6 +36,7 @@ spark_df = spark_df.withColumnRenamed("OldColName", "NewColName")  # rename a co
 # filtering the data (equivalent of "where" clause). Both of the following return the same result
 long_flights1 = flights.filter("distance > 1000")
 long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1000' returns a boolean column
+spark_df.filter("col1 is not null and col2 is not null")
 
 # difference between 'select' and 'withColumn' is that the latter returns the whole df 
 # while the fomer returns only the selected cols
