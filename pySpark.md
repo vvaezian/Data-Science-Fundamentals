@@ -42,6 +42,8 @@ selected_cols = flights.select("origin", "dest")
 selected_cols = flights.select(flights.origin, flights.dest)  
 # when using the dot notation, we can do column operations as well
 selected_cols = flights.select(flights.duration/60.alias("duration_hrs"), flights.dest) 
+# the alias operation can be used in string notation as follows
+flights.selectExpr("duration/60 as duration_hrs")
 ```
 
 
