@@ -9,10 +9,7 @@ from operator import add
 
 from pyspark.sql import SparkSession
 
-spark = SparkSession\
-    .builder\
-    .appName("PythonPi")\
-    .getOrCreate()
+spark = SparkSession.builder.appName("PythonPi").getOrCreate()
 
 #partitions = int(sys.argv[1]) if len(sys.argv) > 1 else 2
 partitions = 2
