@@ -36,7 +36,7 @@ spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new col
 long_flights1 = flights.filter("distance > 1000")
 long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1000' returns a boolean column
 
-# 
+# difference between 'select' and 'withColumn' is that the latter returns the whole df while the fomer returns only the selected cols
 selected_cols = flights.select("origin", "dest")
 selected_cols = flights.select(flights.origin, flights.dest)
 ```
