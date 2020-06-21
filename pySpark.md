@@ -26,23 +26,6 @@ def f(_):
 count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
 print("Pi is roughly %f" % (4.0 * count / n))
 ```
-Found this online:
-```python
-from pyspark import SparkContext, SparkConf
-
-conf = SparkConf().setAppName("Montecarlo_PI")
-sc = SparkContext(conf=conf)
-
-import random
-NUM_SAMPLES = 100000000
-def inside(p):
-  x, y = random.random(), random.random()
-  return x*x + y*y < 1
-
-count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
-pi = 4 * count / NUM_SAMPLES
-print("Pi is roughly", pi)
-```
 - Spark DataFrame is an abstraction on top of RDD's which are hard to work with directly.
-- To start working with Spark DataFrames, we nee to create a `SparkSession` object from the `SparkContext`.  
-SparkContext is like the connection to the cluster and the SparkSession like the interface with that connection.
+- **SparkSession:** Provides a single point of entry to interact with underlying Spark functionality and allows programming Spark with Dataframe and Dataset APIs. 
+- **SparkContext:** Main entry point for Spark functionality. It's used to interact with Low-Level API (create RDDs, accumulators and broadcast variables on the cluster). Before Spark 2, we had to create different contexts for working with different APIs (SQL, HIVE, Streamin). But now we can get SparkContext from SparkSession.
