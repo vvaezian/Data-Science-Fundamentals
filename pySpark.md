@@ -16,8 +16,8 @@ res = spark.sql(query)
 res.show()
 
 # When the heavy-lifting is done with Spark we can transform the DataFrame to a Pandas DataFrame to explore the data easier.
-res.toPandas()
-res.head()
+pd_df = res.toPandas()
+pd_df.head()
 ```
 
 
