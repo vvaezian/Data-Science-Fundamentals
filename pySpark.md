@@ -32,6 +32,9 @@ spark_df = spark.table("test_table")  # using data already in the cluster
 spark_df = spark_df.withColumn("col1", spark_df.col1 - 1)  # deducting 1 from all elements of the column "col1"
 spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new column constricted from an existing column
 
+# filtering the data (equivalent of "where" clause). Both of the following return the same result
+long_flights1 = flights.filter("distance > 1000")
+long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1000' returns a boolean column
 ```
 
 
