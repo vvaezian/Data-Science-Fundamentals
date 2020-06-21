@@ -44,6 +44,10 @@ selected_cols = flights.select(flights.origin, flights.dest)
 selected_cols = flights.select(flights.duration/60.alias("duration_hrs"), flights.dest) 
 # the alias operation can be used in string notation as follows
 flights.selectExpr("duration/60 as duration_hrs")
+
+flights.groupBy("origin", "dest").min("distance").show()
+flights.groupBy(flights.origin, flights.dest).min("distance").show()
+
 ```
 
 
