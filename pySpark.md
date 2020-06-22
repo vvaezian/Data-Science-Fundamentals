@@ -116,7 +116,13 @@ models = cv.fit(training)
 # Extract the best model (i.e. best hyperparameters)
 best_lr = models.bestModel
 ```
+Prediction
+```python
+test_results = best_lr.transform(test)
 
+# Evaluate the predictions (we defined evaluator as "areaUnderROC". The closer to 1, the better the model)
+print(evaluator.evaluate(test_results))
+```
 
 
 Example from `examples\src\main\python`
