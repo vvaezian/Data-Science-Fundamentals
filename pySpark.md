@@ -79,9 +79,16 @@ vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="f
 Pipeline
 ```python
 from  pyspark.ml import Pipeline
-flights_pipe = Pipeline(stages=[col1_indexer, col1_encoder, col2_indexer, col2_encoder, vec_assembler])
+pipe = Pipeline(stages=[col1_indexer, col1_encoder, col2_indexer, col2_encoder, vec_assembler])
 ```
-
+Fit and transoform
+```python
+piped_data = pipe.fit(model_data).transform(model_data)
+```
+Split Data
+```python
+training, test = piped_data.randomSplit([.8, .2])
+```
 
 Example from `examples\src\main\python`
 ```python
