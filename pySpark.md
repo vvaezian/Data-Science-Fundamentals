@@ -69,8 +69,8 @@ spark_df.dtypes
 spark_df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
 
 # one-hot encoding
-input_indexer = StringIndexer(inputCol="input", outputCol="input_index")
-one_hot_encoder = OneHotEncoder(inputCol="input_index", outputCol="output")
+col1_indexer = StringIndexer(inputCol="col1", outputCol="col1_index")
+col1_encoder = OneHotEncoder(inputCol="col1_index", outputCol="output")
 ```
 Spark model expects all the data be in one column. So we turn each row into a vector:
 ```python
@@ -79,7 +79,7 @@ vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="f
 Pipeline
 ```python
 from  pyspark.ml import Pipeline
-flights_pipe = Pipeline(stages=[col1_indexer, dest_encoder, carr_indexer, carr_encoder, vec_assembler])
+flights_pipe = Pipeline(stages=[col1_indexer, col1_encoder, col2_indexer, col2_encoder, vec_assembler])
 ```
 
 
