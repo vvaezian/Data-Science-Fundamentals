@@ -86,29 +86,29 @@ df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
 col1_indexer = StringIndexer(inputCol="col1", outputCol="col1_index")
 col1_encoder = OneHotEncoder(inputCol="col1_index", outputCol="output")
 ```
-Spark model expects all the data be in one column. So we turn each row into a vector:
+Spark model expects all the data be in one column. So we turn each row into a **vector**:
 ```python
 vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="features")
 ```
-Pipeline
+**Pipeline**
 ```python
 from  pyspark.ml import Pipeline
 pipe = Pipeline(stages=[col1_indexer, col1_encoder, col2_indexer, col2_encoder, vec_assembler])
 ```
-Fit and transoform
+**Fit** and **transoform**
 ```python
 piped_data = pipe.fit(model_data).transform(model_data)
 ```
-Split Data
+**Split** Data
 ```python
 training, test = piped_data.randomSplit([.8, .2])
 ```
-Logistic Regression
+**Logistic Regression**
 ```python
 from pyspark.ml.classification import LogisticRegression
 lr = LogisticRegression()
 ```
-Parameter Grid
+**Parameter Grid**
 ```python
 import pyspark.ml.tuning as tune
 grid = tune.ParamGridBuilder()
@@ -117,7 +117,7 @@ grid = grid.addGrid(lr.elasticNetParam, [0, 1])  # elasticNetParam corresponds t
                                                  # 0 corresponds to Ridge and 1 corresponds to Lasso
 grid = grid.build()
 ```
-Cross-Validation
+**Cross-Validation**
 ```python
 import pyspark.ml.evaluation as evals
 evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
@@ -130,7 +130,7 @@ models = cv.fit(training)
 # Extract the best model (i.e. best hyperparameters)
 best_lr = models.bestModel
 ```
-Prediction
+**Prediction**
 ```python
 test_results = best_lr.transform(test)
 
