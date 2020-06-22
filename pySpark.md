@@ -94,7 +94,11 @@ Logistic Regression
 from pyspark.ml.classification import LogisticRegression
 lr = LogisticRegression()
 ```
-
+Cross-Validation
+```python
+import pyspark.ml.evaluation as evals
+evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
+```
 
 Example from `examples\src\main\python`
 ```python
