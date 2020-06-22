@@ -113,7 +113,7 @@ cv = tune.CrossValidator(estimator=lr,
                evaluator=evaluator
                )
 models = cv.fit(training)
-# Extract the best model
+# Extract the best model (i.e. best hyperparameters)
 best_lr = models.bestModel
 ```
 
