@@ -76,7 +76,11 @@ Spark model expects all the data be in one column. So we turn each row into a ve
 ```python
 vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="features")
 ```
-
+Pipeline
+```python
+from  pyspark.ml import Pipeline
+flights_pipe = Pipeline(stages=[col1_indexer, dest_encoder, carr_indexer, carr_encoder, vec_assembler])
+```
 
 
 Example from `examples\src\main\python`
