@@ -89,6 +89,12 @@ Split Data
 ```python
 training, test = piped_data.randomSplit([.8, .2])
 ```
+Logistic Regression
+```python
+from pyspark.ml.classification import LogisticRegression
+lr = LogisticRegression()
+```
+
 
 Example from `examples\src\main\python`
 ```python
