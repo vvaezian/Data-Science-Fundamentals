@@ -94,11 +94,6 @@ Logistic Regression
 from pyspark.ml.classification import LogisticRegression
 lr = LogisticRegression()
 ```
-Cross-Validation
-```python
-import pyspark.ml.evaluation as evals
-evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
-```
 Parameter Grid
 ```python
 import pyspark.ml.tuning as tune
@@ -108,7 +103,16 @@ grid = grid.addGrid(lr.elasticNetParam, [0, 1])  # elasticNetParam corresponds t
                                                  # 0 corresponds to Ridge and 1 corresponds to Lasso
 grid = grid.build()
 ```
+Cross-Validation
+```python
+import pyspark.ml.evaluation as evals
+evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
 
+cv = tune.CrossValidator(estimator=lr,
+               estimatorParamMaps=grid,
+               evaluator=evaluator
+               )
+```
 
 
 
