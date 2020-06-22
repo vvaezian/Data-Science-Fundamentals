@@ -72,6 +72,11 @@ spark_df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
 input_indexer = StringIndexer(inputCol="input", outputCol="input_index")
 one_hot_encoder = OneHotEncoder(inputCol="input_index", outputCol="output")
 ```
+Spark model expects all the data be in one column. So we turn each row into a vector:
+```python
+vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="features")
+```
+
 
 
 Example from `examples\src\main\python`
