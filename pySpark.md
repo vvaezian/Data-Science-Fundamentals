@@ -99,6 +99,17 @@ Cross-Validation
 import pyspark.ml.evaluation as evals
 evaluator = evals.BinaryClassificationEvaluator(metricName="areaUnderROC")
 ```
+Parameter Grid
+```python
+import pyspark.ml.tuning as tune
+grid = tune.ParamGridBuilder()
+grid = grid.addGrid(lr.regParam, np.arange(0, .1, .01))  # regParam corresponds to lambda
+grid = grid.addGrid(lr.elasticNetParam, [0, 1])  # elasticNetParam corresponds to alpha
+grid = grid.build()
+```
+
+
+
 
 Example from `examples\src\main\python`
 ```python
