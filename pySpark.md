@@ -76,7 +76,7 @@ When we imported data, Spark guesses **column type**, but this is not seemless. 
 spark_df.dtypes
 ```
 
-Spark only handles **numeric** data. That means all of the columns in the DataFrames must be either `integer` or `doubles` (decimals).
+Spark only handles **numeric** data. That means all of the columns in the DataFrames must be either `integer` or `double` (decimals).
 ```python
 df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
 ```
