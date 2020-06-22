@@ -10,12 +10,15 @@ from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName("PythonPi").getOrCreate()  # create a SparkSession
 print(spark.catalog.listTables())  # list all the data inside the cluster. 
-
+```
+Using **SQL** queries to create DataFrames
+```python
 query = "SELECT * FROM myTable limit 100"
-spark_df = spark.sql(query)
-spark_df.show()
-
-# When the heavy-lifting is done with Spark we can transform the DataFrame to a Pandas DataFrame to explore the data easier.
+df = spark.sql(query)
+df.show()
+```
+When the heavy-lifting is done by Spark we can transform the DataFrame to a **Pandas** DataFrame to explore the data easier.
+```python
 pd_df = spark_df.toPandas()
 pd_df.head()
 
@@ -23,52 +26,63 @@ pd_df.head()
 spark_df = spark.createDataFrame(pd_df)  # stored locally (?)
 spark_df.createOrReplaceTempView("temp_table_name")  # stored on the cluster. 
                                                      # Can only be accessed from the current session
-                                                       
-# csv to spark_df
-spark_df = spark.read.csv(file_path, header=True)
+```                                                       
+Import **CSV**
+```python
+df = spark.read.csv(file_path, header=True)
+```
 
-# spard DataFrames are immutable
+Spark DataFrames are **immutable**
+```python
 spark_df = spark.table("test_table")  # using data already in the cluster
 spark_df = spark_df.withColumn("col1", spark_df.col1 - 1)  # deducting 1 from all elements of the column "col1"
 spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new column constricted from an existing column
 spark_df = spark_df.withColumnRenamed("OldColName", "NewColName")  # rename a column
-
-# filtering the data (equivalent of "where" clause). Both of the following return the same result
+```
+**Filtering** the data (equivalent of "where" clause). Both of the following return the same result
+```python
 long_flights1 = flights.filter("distance > 1000")
 long_flights2 = flights.filter(flights.distance > 1000)  # 'flights.distance > 1000' returns a boolean column
-spark_df.filter("col1 is not null and col2 is not null")
+df.filter("col1 is not null and col2 is not null")
+```
 
-# difference between 'select' and 'withColumn' is that the latter returns the whole df 
-# while the fomer returns only the selected cols
+Difference between **`select`** and **`withColumn`** is that the latter returns the whole df while the fomer returns only the selected cols
+```python
 selected_cols = flights.select("origin", "dest")
 selected_cols = flights.select(flights.origin, flights.dest)  
 # when using the dot notation, we can do column operations as well
 selected_cols = flights.select(flights.duration/60.alias("duration_hrs"), flights.dest) 
 # the alias operation can be used in string notation as follows
 flights.selectExpr("duration/60 as duration_hrs")
-
+```
+**Grouping**
+```python
 flights.groupBy("origin", "dest").avg("distance").show()
 flights.groupBy(flights.origin, flights.dest).avg("distance").show()
 
-# we can calculate standard deviation and other function on grouped data as follows
+# We can calculate standard deviation and other function on grouped data as follows
 import pyspark.sql.functions as F
 flights_grouped = flights.groupBy(flights.origin, flights.dest).avg("distance")  # from the last line of code above
 flights_grouped.agg(F.stddev("distance")).show()
-
-# if table1 has columns A, B and table2 has columns A, C, 
-# the following results in a table with columns A, B, C
-# i.e. it includes the common column once
+```
+**Joining**  
+If table1 has columns A, B and table2 has columns A, C, the following results in a table with columns A, B, C i.e. it includes the common column once
+```python
 joined_tables = table1.join(table2, on="common_col", how="leftouter")
+```
 
-# When we imported data, Spark guesses column type, but this is not seemless. 
-# So we need to check and `cast` to the right type.
+When we imported data, Spark guesses **column type**, but this is not seemless. So we need to check and `cast` to the right type.
+```python
 spark_df.dtypes
+```
 
-# park only handles numeric data. That means all of the columns in the DataFrames must be 
-# either "integer" or 'doubles' (decimals).
-spark_df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
+Spark only handles **numeric** data. That means all of the columns in the DataFrames must be either `integer` or `doubles` (decimals).
+```python
+df = spark_df.withColumn("col_name", spark_df.col_name.cast("integer"))
+```
 
-# one-hot encoding
+**One-hot Encoding**
+```python
 col1_indexer = StringIndexer(inputCol="col1", outputCol="col1_index")
 col1_encoder = OneHotEncoder(inputCol="col1_index", outputCol="output")
 ```
