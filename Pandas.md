@@ -48,7 +48,10 @@ df.iloc[row_index] # e.x. reduced_by_rows = df.iloc[[0, 2]]
 
 # value-based:
 df.loc[[boolean expression to restrict rows], [list of columns to return]]
-df.loc[df.myCol=='ldb', [list of columns to return]]
+df.loc[df.myCol=='ldb', df.columns]
+
+# to show rows that don't have null in a specific column:
+df.loc[ df.myCol.notnull(), df.columns ]
 ````
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
