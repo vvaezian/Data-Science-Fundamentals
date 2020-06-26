@@ -75,7 +75,7 @@ To change the size of a seaborn plot:
 `sns.set(rc={'figure.figsize':(20,10)})  # for matplotlib use plt.figure(figsize=(20,10))`  
 
 # Preparing the Data #
-Any modification applied on train set must be applied to test set as well.
+**Any modification applied on train set must be applied to test set as well.**
 ````Python
 predictors = ['LotArea', 'OverallQual', 'OverallCond', 'YearBuilt', 'YearRemodAdd', 'TotalBsmtSF', 'BedroomAbvGr', 'GarageArea']
 X = data[predictors]
