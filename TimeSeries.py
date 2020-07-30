@@ -12,3 +12,6 @@ period.asfreq('D')  # Period('2020-06-30', 'D')
 period.to_timestamp()  # Timestamp('2020-06-01 00:00:00')
 time_stamp.to_period('M')  # Period('2020-06', 'M')
 period + 1  # Period('2020-07', 'M')
+# timestamp can also have frequency
+ts = pd.Timestamp('2020-06-12', 'M')
+ts + (2 * ts.freq)  # Timestamp('2020-07-31 00:00:00', freq='M')
