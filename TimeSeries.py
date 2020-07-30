@@ -30,3 +30,6 @@ pd.DataFrame(data, index=index)
 2020-06-12 	0.160132 	0.500385
 2020-06-13 	0.287287 	0.539113
 2020-06-14 	0.749582 	0.899299
+
+import matplotlib.pyplot as plt
+df[df.columns[-1]].plot()
