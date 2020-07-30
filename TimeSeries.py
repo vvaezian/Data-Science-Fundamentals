@@ -1,3 +1,5 @@
+# If the index of a dataframe is DatetimeIndex, the the dataframe is a timeseries.
+
 import pandas as pd
 from datetime import datetime
 
