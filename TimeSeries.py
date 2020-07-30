@@ -15,3 +15,6 @@ period + 1  # Period('2020-07', 'M')
 # timestamp can also have frequency
 ts = pd.Timestamp('2020-06-12', 'M')
 ts + (2 * ts.freq)  # Timestamp('2020-07-31 00:00:00', freq='M')
+
+# Sequence of dates and times
+pd.date_range('2020-06-12', periods=3, freq='D')  # DatetimeIndex(['2020-06-12', '2020-06-13', '2020-06-14'], dtype='datetime64[ns]', freq='D')
