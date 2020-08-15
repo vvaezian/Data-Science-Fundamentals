@@ -34,7 +34,8 @@ df = pd.DataFrame(data, index=index)
 2020-06-14 	0.749582 	0.899299
 
 import matplotlib.pyplot as plt
-df[df.columns[-1]].plot()
+df[df.columns[-1]].plot()  # one column
+# data.plot(subplots=True)  # all columns
 
 
 # partial index
