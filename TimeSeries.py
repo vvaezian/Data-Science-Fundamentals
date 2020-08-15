@@ -53,3 +53,4 @@ data.asfreq('D')  # if data doesn't have freq, we can add it using asfreq().
 data['shifted'] = data.target_col.shift(periods=1)  # copies the data from previous line (periods=1 is default)
 data['change'] = data.target_col.div(data.shifted)
 data['return'] = data.change.sub(1).mul(100)  # subtract by 1 any multiply by 100. e.g. if change is 1.1, this means 10% increase.
+data['diff'] = data.target_col.diff()  # the difference between the value of the cell in the current row and its value in the previous row
