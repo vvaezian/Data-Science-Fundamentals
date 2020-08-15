@@ -35,3 +35,8 @@ df = pd.DataFrame(data, index=index)
 
 import matplotlib.pyplot as plt
 df[df.columns[-1]].plot()
+
+
+# partial index
+data['2020']  # all rows that their time is in 2020
+data['2020-01': '2020-06']
