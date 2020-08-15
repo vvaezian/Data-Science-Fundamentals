@@ -35,6 +35,7 @@ df = pd.DataFrame(data, index=index)
 
 import matplotlib.pyplot as plt
 df[df.columns[-1]].plot()  # one column
+plt.show()
 # data.plot(subplots=True)  # all columns
 
 
