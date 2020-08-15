@@ -44,7 +44,7 @@ plt.show()
 # partial index
 data['2020']  # all rows that their time is in 2020
 data['2020-01': '2020-06']  # inclusive
-data.loc['2020-04-01', 'target_col']  # specific value
+data.loc['2020-04-01', 'target_col']  # specific value. use .reset_index(drop=True) to select column with the default numerical index
 data.asfreq('D')  # if data doesn't have freq, we can add it using asfreq().
                   # this cause NaN values for the dates that the index doesn't cover
                   # 'D' is for calendar days. 'B' is for business days
