@@ -27,6 +27,7 @@ period[0]  # Period('2020-06-12', 'D')
 data = np.random.random((3,2))  # array of random numbers, 3 rows, 2 columns
 df = pd.DataFrame(data, index=index)  
 # if index is part of the data as a column we use set_index: df.set_index('index_col', inplcae=True)
+# if date column doesn't have the datetime type, we can convert it: data.date = pd.to_datetime(data.date)
 
  	              0 	      1
 2020-06-12 	0.160132 	0.500385
