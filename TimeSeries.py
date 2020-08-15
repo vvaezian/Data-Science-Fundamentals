@@ -55,3 +55,4 @@ data['change'] = data.target_col.div(data.shifted)
 data['pct_change'] = data.change.sub(1).mul(100)  # subtract by 1 any multiply by 100. e.g. if change is 1.1, this means 10% increase.
 data['pct_change2'] = data.target_col.pct_change().mul(100)  # equivalent of previous operations
 data['diff'] = data.target_col.diff()  # the difference between the value of the cell in the current row and its value in the previous row
+# all these methos have the attribute 'period' which determines how many lines back or forward to look.
