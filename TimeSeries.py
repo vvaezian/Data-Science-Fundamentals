@@ -35,8 +35,9 @@ df = pd.DataFrame(data, index=index)
 
 import matplotlib.pyplot as plt
 df[df.columns[-1]].plot()  # one column
+data.plot(subplots=True)  # all columns
+# plt.tight_layout()
 plt.show()
-# data.plot(subplots=True)  # all columns
 
 
 # partial index
