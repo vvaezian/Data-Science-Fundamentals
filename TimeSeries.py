@@ -50,4 +50,4 @@ data.asfreq('D')  # if data doesn't have freq, we can add it using asfreq().
                   # this cause NaN values for the dates that the index doesn't cover
                   # 'D' is for calendar days. 'B' is for business days
 
-data['shifted'] = data.target_col.shift()  # default copies the data from previous line (periods=1 to future)
+data['shifted'] = data.target_col.shift(periods=1)  # copies the data from previous line (periods=1 is default)
