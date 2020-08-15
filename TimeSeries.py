@@ -51,3 +51,5 @@ data.asfreq('D')  # if data doesn't have freq, we can add it using asfreq().
                   # 'D' is for calendar days. 'B' is for business days
 
 data['shifted'] = data.target_col.shift(periods=1)  # copies the data from previous line (periods=1 is default)
+data['change'] = data.target_col.div(data.shifted)
+data['return'] = data.change.sub(1).mul(100)  # subtract by 1 any multiply by 100. e.g. if change is 1.1, this means 10% increase.
