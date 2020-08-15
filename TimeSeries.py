@@ -25,7 +25,9 @@ period_index = index.to_period()  # PeriodIndex(['2020-06-12', '2020-06-13', '20
 period[0]  # Period('2020-06-12', 'D')
 
 data = np.random.random((3,2))  # array of random numbers, 3 rows, 2 columns
-df = pd.DataFrame(data, index=index)
+df = pd.DataFrame(data, index=index)  
+# if index is part of the data as a column we use set_index: df.set_index('index_col', inplcae=True)
+
  	              0 	      1
 2020-06-12 	0.160132 	0.500385
 2020-06-13 	0.287287 	0.539113
