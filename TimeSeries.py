@@ -81,3 +81,5 @@ df.reindex(new_index)  # there is a 'method' option with possible values {None, 
                        # which determines how the null values should be treated (default None, i.e. don't change them)
 
 # resample is more general version of asfreq. It is like groupby 
+ts.resample('MS').ffill().add_suffix()  # add_suffix adds a suffix to the column name
+ts.resample('MS').interpolate()
