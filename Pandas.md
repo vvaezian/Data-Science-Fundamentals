@@ -1,4 +1,4 @@
-## DataFrame ##
+### DataFrame
 
 A **DataFrame** is a table of data.
 ````Python
@@ -56,6 +56,7 @@ df.loc[ df.myCol.notnull(), df.columns ]
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
 
+### Series
 Making a column titlecase:
 ````python
 df.a = df.a.str.title()
@@ -64,6 +65,10 @@ df.a = df.a.str.title()
 Casting to int for a column that contains Null values:
 ```python
 df_bc['myCol'] = df_bc['myCol'].astype('Int64') 
+```
+Distinct Values together with their counts (excludes NaN)
+```python
+df.col.value_counts()
 ```
 
 ### SQL Connection ###
