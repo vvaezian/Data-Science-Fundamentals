@@ -83,5 +83,6 @@ df.reindex(new_index)  # there is a 'method' option with possible values {None, 
 # resample is more general version of asfreq. It is like groupby 
 ts.resample('MS').ffill().add_suffix()  # add_suffix adds a suffix to the column name
 ts.resample('MS').interpolate()
+ts.resample('MS').mean()  # if we do ts.asfreq().mean() it outputs the mean of the whole column, not week-by-week as in resample('W')
 # .ffil(), .intepolate() and other relevant methods can be applied to any time series data, we don't have to use resample() first.
 # if applied to a dataframe, it gets applied to all columns
