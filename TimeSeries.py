@@ -70,6 +70,10 @@ data = pd.concat([stock_1_2, stock_3], axis=1).dropna()
 normalized = data.div(data.iloc[0]).mul(100)  # normalize data
 normalized['col1', 'col2'].sub(normalized['col3'], axis=0)  # subtract col3 from the two columns
 
+# up-sampling/down-sampling
+# use asfreq()
+# note that when we up-sample, say from quarterly to monthly, the months start at the first row of the quarterly data (month 3 for instance)
+
 # reindex: replace the current index with the given index
 new_index = pd.date_range(start='2020', periods=12, freq='M')
 df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
