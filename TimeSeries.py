@@ -79,3 +79,5 @@ normalized['col1', 'col2'].sub(normalized['col3'], axis=0)  # subtract col3 from
 new_index = pd.date_range(start='2020', periods=12, freq='M')
 df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
                        # which determines how the null values should be treated (default None, i.e. don't change them)
+
+# resample is more general version of asfreq. It is like groupby 
