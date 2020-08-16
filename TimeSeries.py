@@ -56,3 +56,9 @@ data['pct_change'] = data.change.sub(1).mul(100)  # subtract by 1 any multiply b
 data['pct_change2'] = data.target_col.pct_change().mul(100)  # equivalent of previous operations
 data['diff'] = data.target_col.diff()  # the difference between the value of the cell in the current row and its value in the previous row
 # all these methos have the attribute 'period' which determines how many lines back or forward to look.
+
+# when we have multiple columns, to normalize data, we divide values by the value of the first row and multiply by 100
+# so all columns start with 100
+prices = pd.read_csv('asset.csv', parse_dates=['DATE'], index_col='DATE')
+first_row_prices = prices.iloc[0]
+normalized = prices.div(first_row_prices).mul(100)
