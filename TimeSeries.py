@@ -69,3 +69,8 @@ stock_3 = pd.read_csv('s3.csv', parse_dates=['date'], index_col='date')
 data = pd.concat([stock_1_2, stock_3], axis=1).dropna()
 normalized = data.div(data.iloc[0]).mul(100)  # normalize data
 normalized['col1', 'col2'].sub(normalized['col3'], axis=0)  # subtract col3 from the two columns
+
+# reindex: replace the current index with the given index
+new_index = pd.date_range(start='2020', periods=12, freq='M')
+df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
+                       # which determines how the null values should be treated (default None, i.e. don't change them)
