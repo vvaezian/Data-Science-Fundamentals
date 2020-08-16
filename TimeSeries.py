@@ -62,3 +62,9 @@ data['diff'] = data.target_col.diff()  # the difference between the value of the
 prices = pd.read_csv('asset.csv', parse_dates=['DATE'], index_col='DATE')
 first_row_prices = prices.iloc[0]
 normalized = prices.div(first_row_prices).mul(100)
+
+stock_1_2 = pd.read_csv('s1_2.csv', parse_dates=['date'], index_col='date')
+stock_3 = pd.read_csv('s3.csv', parse_dates=['date'], index_col='date')
+data = pd.concat([stock_1_2, stock_3], axis=1).dropna()
+normalized = data.div(data.iloc[0]).mul(100)  # normalize data
+normalized['col1', 'col2'].sub(normalized['col3'], axis=0)  # subtract col3 from the two columns
