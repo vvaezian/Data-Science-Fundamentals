@@ -96,4 +96,4 @@ data.col.rolling(window='30D').mean()  # .rolling has the 'min_periods' option: 
 q10 = data.col.rolling.quantile(0.1).to_frame('q10')
 median = rolling.median().to_frame('median')
 q90 = data.col.rolling.quantile(0.9).to_frame('q90')
-pd.concat(['q10','median','q90']).plot()
+pd.concat(['q10','median','q90'], axis=1).plot()
