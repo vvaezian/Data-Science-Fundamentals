@@ -88,3 +88,8 @@ ts.resample('MS').mean()  # if we do ts.asfreq().mean() it outputs the mean of t
 ts.resample('M').agg(['mean', 'median', 'std'])  # creating multiple columns for different measures
 # .ffil(), .intepolate() and other relevant methods can be applied to any time series data, we don't have to use resample() first.
 # if applied to a dataframe, it gets applied to all columns
+
+
+# Window function: .rolling()
+# moving average:
+data.col.rolling(window='30D').mean()  # .rolling has the 'min_periods' option: Minimum number of observations in window required to have a value
