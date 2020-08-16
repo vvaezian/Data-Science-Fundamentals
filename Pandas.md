@@ -66,7 +66,7 @@ Casting to int for a column that contains Null values:
 ```python
 df_bc['myCol'] = df_bc['myCol'].astype('Int64') 
 ```
-Distinct Values together with their counts (excludes NaN)
+Distinct Values together with their counts (excludes NaN by default)
 ```python
 df.col.value_counts()
 ```
