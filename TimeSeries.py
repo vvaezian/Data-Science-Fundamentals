@@ -102,3 +102,4 @@ pd.concat(['q10','median','q90'], axis=1).plot()
 
 # .expanding 
 df.col.expanding.sum()  # same as df.col.cumsum()
+df.col.expanding.max()  # running maximum
