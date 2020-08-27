@@ -57,8 +57,8 @@ df.loc[ df.myCol.notnull(), df.columns ]
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
 
 ### Join, Merge
-- `df1.join(df2)` by default performs left join. and keeps all columns
-- `pd.merge(df1, df2, left_on='col_l', right_on='col_r')`
+- `df1.join(df2)` by default performs left join, and on index. We can specify a column name as well but it needs to be the same in both (?)
+- `df1.merge(df2, left_on='col_l', right_on='col_r')` by default performs inner join. Can determine different col names from left and right.
 
 ### Series
 Making a column titlecase:
