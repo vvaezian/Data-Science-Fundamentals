@@ -56,6 +56,10 @@ df.loc[ df.myCol.notnull(), df.columns ]
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
 
+### Join, Merge
+- `df1.join(df2)` by default performs left join. and keeps all columns
+- `pd.merge(df1, df2, left_on='col_l', right_on='col_r')`
+
 ### Series
 Making a column titlecase:
 ````python
@@ -172,18 +176,6 @@ df = pd.DataFrame(rows, columns=col_headers)
 df.to_csv("test.csv", index=False)
 ```
 
-## Series ##
-A **Series** is one column of data.
-````Python
-s = df.b # the same as df['b']
-print(s)
-# 0      4
-# 1      5
-# 2      6
-
-print(s.index)       # RangeIndex(start=0, stop=3, step=1)
-print(s.values)      # [4 5 6]
-````
 
 ## Misc. ##
 ````Python
