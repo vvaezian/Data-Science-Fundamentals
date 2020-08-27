@@ -91,10 +91,14 @@ ts.resample('M').agg(['mean', 'median', 'std'])  # creating multiple columns for
 # if applied to a dataframe, it gets applied to all columns
 
 
-# Window function: .rolling()
+### Window functions 
+# .rolling()
 # moving average:
 data.col.rolling(window='30D').mean()  # .rolling has the 'min_periods' option: Minimum number of observations in window required to have a value
 q10 = data.col.rolling.quantile(0.1).to_frame('q10')  # if we are adding to a df, we don't need the to_frame() call (e.g. data['q10'] = ...
 median = rolling.median().to_frame('median')
 q90 = data.col.rolling.quantile(0.9).to_frame('q90')
 pd.concat(['q10','median','q90'], axis=1).plot()
+
+# .expanding 
+df.col.expanding.sum()  # same as df.col.cumsum()
