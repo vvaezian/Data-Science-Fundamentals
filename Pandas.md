@@ -42,11 +42,12 @@ df[column_list] # e.x. reduced_by_cols = df[['a', 'c']]
 ````
 Choosing some rows:
 ````Python
-# index-based:
-# if index is not the default (i.e. user provided index for the df), `loc` chooses rows by index names. 
+### index-based:
 df.iloc[row_index] # e.x. reduced_by_rows = df.iloc[[0, 2]]  
+# if index is not the default (i.e. user provided index for the df), `loc` chooses rows by index names. 
+df.loc[index_values_list, columns_list]
 
-# value-based:
+### value-based:
 df.loc[[boolean expression to restrict rows], [list of columns to return]]
 df.loc[df.myCol=='ldb', df.columns]
 
