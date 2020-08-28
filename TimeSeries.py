@@ -105,6 +105,8 @@ df.col.expanding.sum()  # same as df.col.cumsum()
 df.col.expanding.max()  # running maximum
 
 # example: cumulative return
+# single period return r_t: current price over last price minus 1 [r_t = p_t/p_{t-1}) - 1]
+# multi period return: product of (1 + r_t) for all  periods minus 1 [(1 + r_1) * ... * (1 + r_T) - 1]
 returns = data.pct_change()
 returns_plus_one = returns + 1  # -0.005 pct_change becomes 0.995 
 cumulative_return = returns_plus_one.cumprod()  # multiplying rows up to the current row
