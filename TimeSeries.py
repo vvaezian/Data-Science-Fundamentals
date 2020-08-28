@@ -104,8 +104,15 @@ pd.concat(['q10','median','q90'], axis=1).plot()
 df.col.expanding.sum()  # same as df.col.cumsum()
 df.col.expanding.max()  # running maximum
 
-# example
+# example: cumulative return
 returns = data.pct_change()
 returns_plus_one = returns + 1  # -0.005 pct_change becomes 0.995 
 cumulative_return = returns_plus_one.cumprod()  # multiplying rows up to the current row
 cumulative_return.mul(10000).plot()  # seeing how a 10000 investment changed over time
+
+# example: cumulative for rolling 1-year period
+def multi_period_return(period_returns):
+    return np.prod(period_returns + 1) - 1
+daily_returns = data.pct_change()
+rolling_annual_returns = daily_returns.rolling('360D').apply(multi_period_return)
+rolling_annual_returns.mul(100).plot()
