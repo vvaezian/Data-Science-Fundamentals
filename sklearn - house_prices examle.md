@@ -38,6 +38,8 @@ print (corr['SalePrice'].sort_values(ascending=False)[-5:], '\n')
 low_corr_cols = [ i for i in corr['SalePrice'].index if abs(corr['SalePrice'][i]) < 0.3]
 # corr['SalePrice'] produces a Panda Series. s.index returns the indexes of the series s.
 
+sns.heatmap(corr, annot=True)  # visualize the correlations using seaborn
+
 corr = df.corr()['SalePrice']
 corr[abs(corr)> .5]
 ````
