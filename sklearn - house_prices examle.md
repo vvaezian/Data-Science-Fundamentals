@@ -43,6 +43,11 @@ sns.heatmap(corr, annot=True)  # visualize the correlations using seaborn
 corr = df.corr()['SalePrice']
 corr[abs(corr)> .5]
 ````
+Pairwise relationship of columns:
+```
+sns.jointplot(x='col1', y='col2', data=df)
+```
+
 average of SalePrice by Neighborhood  
 ````Python
 Neighborhood_meanSalePrice = data.groupby('Neighborhood')['SalePrice'].mean().sort_values()
