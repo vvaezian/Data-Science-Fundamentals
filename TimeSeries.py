@@ -109,8 +109,7 @@ df.col.expanding.max()  # running maximum
 # multi period return: product of (1 + r_t) for all  periods minus 1 [(1 + r_1) * ... * (1 + r_T) - 1]
 returns = data.pct_change()
 returns_plus_one = returns.add(1)  # -0.005 pct_change becomes 0.995 
-cumulative_return = returns_plus_one.cumprod()  # multiplying rows up to the current row
-cumulative_return.mul(10000).plot()  # seeing how a 10000 investment changed over time
+cumulative_return = returns_plus_one.cumprod().sub(1)  # multiplying rows up to the current row
 
 # example: cumulative for rolling 1-year period
 def multi_period_return(period_returns):
