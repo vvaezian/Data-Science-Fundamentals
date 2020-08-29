@@ -117,3 +117,6 @@ def multi_period_return(period_returns):
 daily_returns = data.pct_change()
 rolling_annual_returns = daily_returns.rolling('360D').apply(multi_period_return)
 rolling_annual_returns.mul(100).plot()
+
+# total return
+data.iloc[-1].div(data.iloc[0]).sub(1).mul(100)
