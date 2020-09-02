@@ -83,7 +83,7 @@ df.reindex(new_index)  # there is a 'method' option with possible values {None, 
                        # which determines how the null values should be treated (default None, i.e. don't change them)
 
 # resample is more general version of asfreq. It is like groupby 
-df.resampl(rule='M', how='last')
+df.resampl(rule='M', how='last')  # or df.resample('M').last()
 ts.resample('MS').ffill().add_suffix()  # add_suffix adds a suffix to the column name
 ts.resample('MS').interpolate()
 ts.resample('MS').mean()  # if we do ts.asfreq().mean() it outputs the mean of the whole column, not week-by-week as in resample('W')
