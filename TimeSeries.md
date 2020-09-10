@@ -153,3 +153,6 @@ plot_acf(x,
          alpha=.05  # statistical significance. for alpha=0.05 it plots 95% confidence interval as an area
         )
 ```
+### White Noise
+- Constant mean and variance
+- zero autocorrelation at all lags
