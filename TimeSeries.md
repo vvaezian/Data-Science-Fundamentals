@@ -142,6 +142,12 @@ df.autocorr()
 ```
 Autocorrelation function (ACF) calculates autocorrelation for different lags. It show how many past data points can affect the current data point (the ones further from zero), or which data points can be used if for example there is a seasonal pattern.
 ```python
+from statsmodels.tsa.stattools import acf
+acf(my_series)
+```
+Plotting the autocorrelation function
+```python
+from statsmodels.graphics.tsaplots import plot_acf
 plot_acf(x,
          lags=20,  # how many lags to plot
          alpha=.05  # statistical significance. for alpha=0.05 it plots 95% confidence interval as an area
