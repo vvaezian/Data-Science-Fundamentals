@@ -1,4 +1,4 @@
-# If the index of a dataframe is DatetimeIndex, the the dataframe is a timeseries.
+- If the index of a dataframe is DatetimeIndex, the dataframe is a timeseries.
 
 ```python
 import pandas as pd
