@@ -134,3 +134,8 @@ rolling_annual_returns.mul(100).plot()
 ```python
 data.iloc[-1].div(data.iloc[0]).sub(1).mul(100)
 ```
+
+### AutoCorrelation
+```python
+df.autocorr()
+```
