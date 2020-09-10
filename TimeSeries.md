@@ -141,3 +141,9 @@ default is lag 1
 df.autocorr()
 ```
 Autocorrelation function (ACF) calculates autocorrelation for different lags. It show how many past data points can affect the current data point (the ones further from zero), or which data points can be used if for example there is a seasonal pattern.
+```python
+plot_acf(x,
+         lags=20,  # how many lags to plot
+         alpha=.05  # statistical significance. for alpha=0.05 it plots 95% confidence interval as an area
+        )
+```
