@@ -46,7 +46,7 @@ plt.show()
 ```
 
 ### partial index
-```
+```python
 # *** use string, not int ***
 data['2020']  # all rows that their time is in 2020
 data['2020-01': '2020-06']  # inclusive
