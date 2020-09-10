@@ -165,3 +165,4 @@ noise = np.random.normal(loc=0,  # mean
                          )
 plt.plot(noise)
 ```
+The returns on the Stock Market are very close to a white noise process.
