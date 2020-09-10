@@ -140,3 +140,4 @@ default is lag 1
 ```python
 df.autocorr()
 ```
+Autocorrelation function (ACF) calculates autocorrelation for different lags. It show how many past data points can affect the current data point (the ones further from zero).
