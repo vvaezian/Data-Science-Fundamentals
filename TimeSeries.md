@@ -45,7 +45,7 @@ data.plot(subplots=True)  # all columns
 plt.show()
 ```
 
-### partial index
+### Partial Index
 ```python
 # *** use string, not int ***
 data['2020']  # all rows that their time is in 2020
@@ -69,7 +69,7 @@ prices = pd.read_csv('asset.csv', parse_dates=['DATE'], index_col='DATE')
 first_row_prices = prices.iloc[0]
 normalized = prices.div(first_row_prices).mul(100)
 ```
-### compare performance of two things with a benchmark
+### Compare the performance of two things with a benchmark
 ```python
 stock_1_2 = pd.read_csv('s1_2.csv', parse_dates=['date'], index_col='date')
 stock_3 = pd.read_csv('s3.csv', parse_dates=['date'], index_col='date')
@@ -77,11 +77,11 @@ data = pd.concat([stock_1_2, stock_3], axis=1).dropna()
 normalized = data.div(data.iloc[0]).mul(100)  # normalize data
 normalized['col1', 'col2'].sub(normalized['col3'], axis=0)  # subtract col3 from the two columns
 ```
-### up-sampling/down-sampling
+### Up-sampling/down-sampling
 use resample, or asfreq
-for upsample we need to fill out the null values. `.ffill()`, `.bfill()`, ...
-for downsample we need to determine how the new values are defined. `.mean()`, `.first()`, `.last()`, ...
-
+for upsample we need to fill out the null values. `.ffill()`, `.bfill()`, ...  
+for downsample we need to determine how the new values are defined. `.mean()`, `.first()`, `.last()`, ...  
+  
 reindex: replace the current index with the given index
 ```python
 new_index = pd.date_range(start='2020', periods=12, freq='M')
@@ -114,7 +114,7 @@ df.col.expanding.sum()  # same as df.col.cumsum()
 df.col.expanding.max()  # running maximum
 ```
 
-### example: cumulative return
+### Example: cumulative return
 single period return r_t: current price over last price minus 1 [r_t = p_t/p_{t-1}) - 1]
 multi period return: product of (1 + r_t) for all  periods minus 1 [(1 + r_1) * ... * (1 + r_T) - 1]
 ```python
@@ -122,7 +122,7 @@ returns = data.pct_change()
 returns_plus_one = returns.add(1)  # -0.005 pct_change becomes 0.995 
 cumulative_return = returns_plus_one.cumprod().sub(1)  # multiplying rows up to the current row
 ```
-### example: cumulative for rolling 1-year period
+### Example: cumulative for rolling 1-year period
 ```python
 def multi_period_return(period_returns):
     return np.prod(period_returns + 1) - 1
