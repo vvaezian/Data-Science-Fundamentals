@@ -136,6 +136,7 @@ data.iloc[-1].div(data.iloc[0]).sub(1).mul(100)
 ```
 
 ### AutoCorrelation
+default is lag 1
 ```python
 df.autocorr()
 ```
