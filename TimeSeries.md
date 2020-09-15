@@ -194,7 +194,7 @@ An equavalent way of testing for the random walk, fit a line for change of value
 P_t - P_{t-1} = \alpha + (\beta - 1) * P_{t-1} + e_t
               = \alpha + (\beta)' * P_{t-1} + e_t
 ```
-Now if the slope (`\beta'`) is not significantly different from 0, the we cannot reject the null hypothesis.  
+Now if the slope (`\beta'`) is not significantly different from 0, we cannot reject the null hypothesis.  
 This is called the Dicky-Fuller test.
 ```python
 from statsmodels.tsa.stattools import adfuller  # Augmented Dicky-Fuller test
