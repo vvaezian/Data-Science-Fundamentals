@@ -188,7 +188,7 @@ To test whether series follows a random walk, we can fit a line:
 ```
 P_t = \alpha + \beta * P_{t-1} + e_t
 ```
-If the slope coefficient (`\beta`) is significantly less than 1, then the series is not a random walk.
+If the slope coefficient (`\beta`) is not significantly different from 1, then we cannot reject the null hypothesis that the series is a random walk.
 ```python
 from statsmodels.tsa.stattools import adfuller
 print(adfuller(noise))
