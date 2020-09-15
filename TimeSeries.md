@@ -166,3 +166,18 @@ noise = np.random.normal(loc=0,  # mean
 plt.plot(noise)
 ```
 The returns on the Stock Market are very close to a white noise process.
+
+### Random Walk
+```python
+from statsmodels.tsa.stattools import adfuller
+print(adfuller(noise))
+# (-11.097411854413464,
+#  3.942056384849988e-20,  -> p-value
+#  0,  -> number of lags used
+#  99,  -> number of observations used (i.e. data points)
+#  {'1%': -3.498198082189098,
+#   '5%': -2.891208211860468,
+#   '10%': -2.5825959973472097},
+#  253.62064323694332)
+```
+If the p-value is less than 5% we can reject the null hypothesis (that the series is a random walk) with 95% confidence.
