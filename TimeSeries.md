@@ -208,5 +208,5 @@ print(adfuller(noise))
 #   '10%': -2.5825959973472097},
 #  253.62064323694332)
 ```
-If the p-value is less than 5% we can reject the null hypothesis (that the series is a random walk) with 95% confidence.
+If the p-value is less than 0.05 we can reject the null hypothesis (that the series is a random walk) with 95% confidence.
 Here p-value is way less than 5% and the null hypothesis is rejected. This is probably because the noise was created with normal distribution.
