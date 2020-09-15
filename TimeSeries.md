@@ -188,9 +188,16 @@ To test whether series follows a random walk, we can fit a line:
 ```
 P_t = \alpha + \beta * P_{t-1} + e_t
 ```
-If the slope coefficient (`\beta`) is not significantly different from 1, then we cannot reject the null hypothesis that the series is a random walk.
+If the slope coefficient (`\beta`) is not significantly different from 1, then we cannot reject the null hypothesis that the series is a random walk.  
+An equavalent way of testing for the random walk, fit a line for change of value:
+```
+P_t - P_{t-1} = \alpha + (\beta - 1) * P_{t-1} + e_t
+              = \alpha + (\beta)' * P_{t-1} + e_t
+```
+Now if the slope (`\beta'`) is not significantly different from 0, the we cannot reject the null hypothesis.  
+This is called the Dicky-Fuller test.
 ```python
-from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.stattools import adfuller  # Augmented Dicky-Fuller test
 print(adfuller(noise))
 # (-11.097411854413464,
 #  3.942056384849988e-20,  -> p-value
