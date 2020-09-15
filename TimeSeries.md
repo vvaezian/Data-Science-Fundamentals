@@ -168,6 +168,23 @@ plt.plot(noise)
 The returns on the Stock Market are very close to a white noise process.
 
 ### Random Walk
+In a random walk, the current value is the result of previous value plus some noise:
+```
+P_t = P_{t-1} + e_t
+```
+Therefore the change in price in white noise:
+```
+P_t - P_{t-1} = e_t
+```
+In a random walk with drift, values on average drift by `mu` every period:
+```
+P_t = \mu + P_{t-1} + e_t
+```
+The change of value in this case is white noise with mean of `mu`:
+```
+P_t - P_{t-1} = \mu + e_t
+```
+
 ```python
 from statsmodels.tsa.stattools import adfuller
 print(adfuller(noise))
