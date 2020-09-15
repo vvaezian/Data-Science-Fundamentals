@@ -199,7 +199,7 @@ This is called the Dicky-Fuller test.
 ```python
 from statsmodels.tsa.stattools import adfuller  # Augmented Dicky-Fuller test
 print(adfuller(noise))
-# (-11.097411854413464,
+# (-11.097411854413464, -> The more negative this value is, the more likely we are to reject the null hypothesis 
 #  3.942056384849988e-20,  -> p-value
 #  0,  -> number of lags used
 #  99,  -> number of observations used (i.e. data points)
