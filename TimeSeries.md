@@ -156,7 +156,7 @@ plot_acf(x,
 ### White Noise
 A series with
 - Constant mean and variance
-- close to zero autocorrelation (< 0.05) at all lags 
+- close to zero autocorrelation (< 0.05) at all lags  
 If the data has narmal distribution, it is called Gaussian White Noise
 ```python
 noise = np.random.normal(loc=0,  # mean
