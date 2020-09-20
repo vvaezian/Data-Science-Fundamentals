@@ -215,5 +215,6 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 
 ### Stationary
 - **Strong Stationarity**: Entire distribution of data is time-invariant
-- **Weak Stationarity** (easier to measure): Mean, Variance and AutoCorrelation are time-invariant (AutoCorrelation function `autocorr(X_t, X_{t+\tau})` only depends on `\tau`.
+- **Weak Stationarity** (easier to measure): Mean, Variance and AutoCorrelation are time-invariant (AutoCorrelation function `autocorr(X_t, X_{t+\tau})` only depends on `\tau`. (White noise has constant Mean and Variance and close-to-zero AutoCorrelation in all lags).  
+
 ![alt text](/Media/stationary.png)
