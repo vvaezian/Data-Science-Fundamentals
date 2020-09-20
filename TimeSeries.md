@@ -212,3 +212,5 @@ print(adfuller(noise))  # by default it is without drift.
 ```
 If the p-value is less than 0.05 we can reject the null hypothesis (that the series is a random walk) with 95% confidence.
 Here p-value is way less than 5% and the null hypothesis is rejected. This is probably because the noise was created with normal distribution.
+
+### Stationary
