@@ -214,4 +214,4 @@ If the p-value is less than 0.05 we can reject the null hypothesis (that the ser
 Here p-value is way less than 5% and the null hypothesis is rejected. This is probably because the noise was created with normal distribution.
 
 ### Stationary
-<img src="../Media/stationary.png">
+![alt text](../Media/stationary.png)
