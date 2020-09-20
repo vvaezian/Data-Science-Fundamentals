@@ -220,7 +220,8 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 - In Random Walks the variance grows with time (smaller periods have less variance), so a Random Walk is not a stationary process.
 - Seasonal series are not stationary because the mean depends on the time of year.
 - If a process is not stationary, its parameters change over time, so it is hard to model.
-- Many non-stationary series can be made stationary by transforming them.
-  - If we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.
-  - 
+- Many non-stationary series can be made stationary by transforming them. 
+  - If we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.  
+  - If the data has seasonal property, we should take the seasonal difference: e.g. `ts.diff(4)`  
+  - If the data is growing exponentially over time, we should take the log.
 ![alt text](/Media/stationary.png)
