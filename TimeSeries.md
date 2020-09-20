@@ -218,5 +218,9 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 - **Weak Stationarity** (easier to measure): Mean, Variance and AutoCorrelation are time-invariant (AutoCorrelation function `autocorr(X_t, X_{t+\tau})` only depends on `\tau`.
 - White noise has constant Mean and Variance and close-to-zero AutoCorrelation in all lags, so it's ordinarily a stationary process.
 - In Random Walks the variance grows with time (smaller periods have less variance), so a Random Walk is not a stationary process.
-
+- Seasonal series are not stationary because the mean depends on the time of year.
+- If a process is not stationary, its parameters change over time, so it is hard to model.
+- Many non-stationary series can be made stationary by transforming them.
+  - If we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.
+  - 
 ![alt text](/Media/stationary.png)
