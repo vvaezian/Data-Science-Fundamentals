@@ -214,4 +214,6 @@ If the p-value is less than 0.05 we can reject the null hypothesis (that the ser
 Here p-value is way less than 5% and the null hypothesis is rejected. This is because the the our data is noise. So each data point is completely independent of the previous data point. Which means it definitely cannot be a random walk.
 
 ### Stationary
+- **Strong Stationarity**: Entire distribution of data is time-invariant
+- **Weak Stationarity** (easier to measure): Mean, Variance and AutoCorrelation are time-invariant (AutoCorrelation function `autocorr(X_t, X_{t+\tau})` only depends on `\tau`.
 ![alt text](/Media/stationary.png)
