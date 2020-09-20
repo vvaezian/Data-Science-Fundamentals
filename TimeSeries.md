@@ -212,7 +212,8 @@ print(adfuller(noise))  # by default it is without drift.
 ```
 If the p-value is less than 0.05 we can reject the null hypothesis (that the series is a random walk) with 95% confidence.
 Here p-value is way less than 5% and the null hypothesis is rejected. This is because the the our data is noise. So each data point is completely independent of the previous data point. Which means it definitely cannot be a random walk.
-- The AutoCorrelation for a Random Walk is very high, because for example for lag1, the value differ with the original value by the noise value. For bigger lags, as the difference grows, the aurocorrelation reduces.
+- The AutoCorrelation for a Random Walk is very high, because for example for lag1, the value differ with the original value by the noise value. For bigger lags, as the difference grows, the aurocorrelation reduces.  
+
 ![autocorrelation for random walk](/Media/autocorr.png)
 
 ### Stationary
