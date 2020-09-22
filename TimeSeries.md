@@ -241,3 +241,31 @@ AR(1) TimeSeries with different values of `\phi`
 ![ar1](Media/ar1.png)  
 AR(1) AutoCorrrelation  
 ![ar1-autocorr](Media/ar1autocorr.png)  
+
+Simulated AR(1) data
+```python
+from statsmodels.tsa.arima_process import ArmaProcess
+
+# AR parameter = +0.9
+ar1 = np.array([1, -.9])  # the negative of the parameter is used
+ma1 = np.array([1])
+AR_object1 = ArmaProcess(ar1, ma1)
+simulated_data = AR_object1.generate_sample(nsample=1000)
+plt.plot(simulated_data)
+
+from statsmodels.graphics.tsaplots import plot_acf
+plot_acf(simulated_data, alpha=1, lags=20)
+```
+Estimating parameters of an AR model
+```python
+from statsmodels.tsa.arima_model import ARMA
+
+# Fit an AR(1) model to the simulated data
+mod = ARMA(simulated_data, order=(1,0))
+res = mod.fit()
+print(res.summary())
+print(res.params)  # returns \mu and \phi
+
+res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
+plt.show()
+```
