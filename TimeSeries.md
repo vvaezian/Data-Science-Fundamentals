@@ -270,6 +270,14 @@ res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(
 plt.show()
 ```
 In practice, we need to consider different AR models and choose the one that model it better. We can use two factors for deciding this:  
-1. Partial AutoCorrelation Function  
+1. Partial AutoCorrelation Function: This helps us to see whether higher order AR models have any benefit for modelling our data.
 ![pacf](Media/pacf.png)
-2. Information Criteria
+2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values the better
+```Python
+mod = ARMA(simulated_data, order=(1,0))
+res = mod.fit()
+print(res.aic)
+print(res.bic)
+```
+BIC for different orders of models. The best model is AR(3).  
+![bic](Media/bic.png)
