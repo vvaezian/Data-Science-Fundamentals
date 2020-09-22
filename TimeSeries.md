@@ -232,3 +232,5 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 ![stationary](/Media/stationary.png)
 
 ## AR Models
+`R_t = \mu + \phi * R_{t-1} + e_t`
+When `\phi = 1` we have a random walk. When `\phi = 0` we have white noise.
