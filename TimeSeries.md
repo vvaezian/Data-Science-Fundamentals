@@ -237,6 +237,7 @@ AR(1): `R_t = \mu + \phi * R_{t-1} + e_t`
 - When `\phi = 0` we have white noise.
 - For stationarity, `\phi` shoud be in (-1, 1).  
 
+AR(1) TimeSeries with different values of `\phi`  
 ![ar1](Media/ar1.png)  
-AR1 AutoCorrrelation  
+AR(1) AutoCorrrelation  
 ![ar1-autocorr](Media/ar1autocorr.png)  
