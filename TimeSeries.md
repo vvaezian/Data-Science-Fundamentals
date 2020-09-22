@@ -270,5 +270,6 @@ res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(
 plt.show()
 ```
 In practice, we need to consider different AR models and choose the one that model it better. We can use two factors for deciding this:  
-1. Partial AutoCorrelation Function
+1. Partial AutoCorrelation Function  
+![pacf](Media/pacf.png)
 2. Information Criteria
