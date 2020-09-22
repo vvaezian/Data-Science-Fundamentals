@@ -294,4 +294,5 @@ for p in range(7):
 - When `\theta = 1` it becomes white noise.
 - MA models are stationary for all values of `\theta`  
 
+AutoCorrelation of MA(1) model for different values of `\theta`:
 ![ma1-autocorr](Media/ma1autocorr.png)
