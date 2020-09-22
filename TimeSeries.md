@@ -292,5 +292,6 @@ for p in range(7):
 ## MA Models
 - MA(1): `R_t = \mu + e_t + \theta * e_{t-1}` (mean + noise + last period's noise)
 - When `\theta = 1` it becomes white noise.
-- MA models are stationary for all values of `\theta`
-![]ma1-autocorr](Media/ma1autocorr.png)
+- MA models are stationary for all values of `\theta`  
+
+![ma1-autocorr](Media/ma1autocorr.png)
