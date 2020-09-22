@@ -279,5 +279,12 @@ res = mod.fit()
 print(res.aic)
 print(res.bic)
 ```
-BIC for different orders of models. The best model is AR(3).  
+BIC for different orders of models. The best model is AR(3). 
+```python
+BIC = np.zeros(7)
+for p in range(7):
+    mod = ARMA(simulated_data_2, order=(p,0))
+    res = mod.fit()
+    BIC[p] = res.bic
+```
 ![bic](Media/bic.png)
