@@ -239,4 +239,4 @@ AR(1): `R_t = \mu + \phi * R_{t-1} + e_t`
 
 ![ar1](Media/ar1.png)  
 AR1 AutoCorrrelation  
-![ar1-autocorr](Media/ar1 autocorr.png)  
+![ar1-autocorr]("Media/ar1 autocorr.png")  
