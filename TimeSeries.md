@@ -135,7 +135,7 @@ rolling_annual_returns.mul(100).plot()
 data.iloc[-1].div(data.iloc[0]).sub(1).mul(100)
 ```
 
-### AutoCorrelation
+## AutoCorrelation
 default is lag 1
 ```python
 df.autocorr()
@@ -153,7 +153,7 @@ plot_acf(x,
          alpha=.05  # statistical significance. for alpha=0.05 it plots 95% confidence interval as an area
         )
 ```
-### White Noise
+## White Noise
 A series with
 - Constant mean and variance
 - close to zero autocorrelation (< 0.05) at all lags  
@@ -167,7 +167,7 @@ plt.plot(noise)
 ```
 The returns on the Stock Market are very close to a white noise process.
 
-### Random Walk
+## Random Walk
 In a random walk, the current value is the result of previous value plus some noise:
 ```
 P_t = P_{t-1} + e_t
@@ -216,7 +216,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 
 ![autocorrelation for random walk](/Media/autocorr.png)
 
-### Stationary
+## Stationary
 - **Strong Stationarity**: Entire distribution of data is time-invariant
 - **Weak Stationarity** (easier to measure): Mean, Variance and AutoCorrelation are time-invariant (AutoCorrelation function `autocorr(X_t, X_{t+\tau})` only depends on `\tau`.
 - White noise has constant Mean and Variance and close-to-zero AutoCorrelation in all lags, so it's ordinarily a stationary process.
