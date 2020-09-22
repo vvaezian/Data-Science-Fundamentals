@@ -269,3 +269,6 @@ print(res.params)  # returns \mu and \phi
 res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
 ```
+In practice, we need to consider different AR models and choose the one that model it better. We can use two factors for deciding this:  
+1- Partial AutoCorrelation Function
+2- Information Criteria
