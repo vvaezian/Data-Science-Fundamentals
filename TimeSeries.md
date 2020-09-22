@@ -232,7 +232,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 ![stationary](/Media/stationary.png)
 
 ## AR Models
-AR(1): `R_t = \mu + \phi * R_{t-1} + e_t`  
+- AR(1): `R_t = \mu + \phi * R_{t-1} + e_t`  
 - When `\phi = 1` we have a random walk. 
 - When `\phi = 0` we have white noise.
 - For stationarity, `\phi` shoud be in (-1, 1).  
@@ -288,3 +288,9 @@ for p in range(7):
     BIC[p] = res.bic
 ```
 ![bic](Media/bic.png)
+
+## MA Models
+- MA(1): `R_t = \mu + e_t + \theta * e_{t-1}` (mean + noise + last period's noise)
+- When `\theta = 1` it becomes white noise.
+- MA models are stationary for all values of `\theta`
+![]ma1-autocorr](Media/ma1autocorr.png)
