@@ -298,3 +298,11 @@ AutoCorrelation of MA(1) model for different values of `\theta`:
 ![ma1-autocorr](Media/ma1autocorr.png)
 
 High-frequency stock returns (e.g. per minute) is a good example of MA(1) model.
+
+```python
+from statsmodels.tsa.arima_process import ArmaProcess
+ar1 = np.array([1])
+ma1 = np.array([1, 0.9])  # we don't need to put the negative of the parameter like AR model
+MA_object1 = ArmaProcess(ar1, ma1)
+simulated_data_1 = MA_object1.generate_sample(nsample=1000)
+```
