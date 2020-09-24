@@ -296,3 +296,5 @@ for p in range(7):
 
 AutoCorrelation of MA(1) model for different values of `\theta`:
 ![ma1-autocorr](Media/ma1autocorr.png)
+
+High-frequency stock returns (e.g. per minute) is a good example of MA(1) model.
