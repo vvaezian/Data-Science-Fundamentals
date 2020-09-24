@@ -178,23 +178,23 @@ P_t - P_{t-1} = e_t
 ```
 In a random walk with drift, values on average drift by `mu` every period:
 ```
-P_t = \mu + P_{t-1} + e_t
+P_t = μ + P_{t-1} + e_t
 ```
-The change of value in this case is white noise with mean of `\mu`:
+The change of value in this case is white noise with mean of `μ`:
 ```
-P_t - P_{t-1} = \mu + e_t
+P_t - P_{t-1} = μ + e_t
 ```
 To test whether series follows a random walk, we can fit a line:
 ```
-P_t = \alpha + \beta * P_{t-1} + e_t
+P_t = α + β * P_{t-1} + e_t
 ```
-If the slope coefficient (`\beta`) is not significantly different from 1, then we cannot reject the null hypothesis that the series is a random walk.  
+If the slope coefficient (`β`) is not significantly different from 1, then we cannot reject the null hypothesis that the series is a random walk.  
 An equavalent way of testing for the random walk, fit a line for change of value:
 ```
-P_t - P_{t-1} = \alpha + (\beta - 1) * P_{t-1} + e_t
-              = \alpha + (\beta)' * P_{t-1} + e_t
+P_t - P_{t-1} = α + (β - 1) * P_{t-1} + e_t
+              = α + (β)' * P_{t-1} + e_t
 ```
-Now if the slope (`\beta'`) is not significantly different from 0, we cannot reject the null hypothesis.  
+Now if the slope (`β'`) is not significantly different from 0, we cannot reject the null hypothesis.  
 This is called the Dicky-Fuller test.
 ```python
 from statsmodels.tsa.stattools import adfuller  # Augmented Dicky-Fuller test
@@ -232,12 +232,12 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 ![stationary](/Media/stationary.png)
 
 ## AR Models
-- AR(1): `R_t = \mu + \phi * R_{t-1} + e_t`  
-- When `\phi = 1` we have a random walk. 
-- When `\phi = 0` we have white noise.
-- For stationarity, `\phi` shoud be in (-1, 1).  
+- AR(1): `R_t = μ + φ * R_{t-1} + e_t`  
+- When `φ = 1` we have a random walk. 
+- When `φ = 0` we have white noise.
+- For stationarity, `φ` shoud be in (-1, 1).  
 
-AR(1) TimeSeries with different values of `\phi`  
+AR(1) TimeSeries with different values of `φ`  
 ![ar1](Media/ar1.png)  
 AR(1) AutoCorrrelation  
 ![ar1-autocorr](Media/ar1autocorr.png)  
@@ -264,7 +264,7 @@ from statsmodels.tsa.arima_model import ARMA
 mod = ARMA(simulated_data, order=(1,0))
 res = mod.fit()
 print(res.summary())
-print(res.params)  # returns \mu and \phi
+print(res.params)  # returns μ and φ
 
 res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
@@ -293,9 +293,9 @@ for p in range(7):
 - MA(1): `R_t = μ + e_t + θ * e_{t-1}` (mean + noise + last period's noise)
 - When `θ = 0` it becomes white noise.
 - MA models are stationary for all values of θ
-- The lag-1 autocorrelation for an MA(1) model is not θ, but rather θ/(1+θ2).
+- The lag-1 autocorrelation for an MA(1) model is not θ, but rather `θ/(1+θ2)`.
 
-AutoCorrelation of MA(1) model for different values of `\theta`:
+AutoCorrelation of MA(1) model for different values of `θ`:
 ![ma1-autocorr](Media/ma1autocorr.png)
 
 High-frequency stock returns (e.g. per minute) is a good example of MA(1) model.
