@@ -307,3 +307,6 @@ ma1 = np.array([1, 0.9])  # we don't need to put the negative of the parameter l
 MA_object1 = ArmaProcess(ar1, ma1)
 simulated_data_1 = MA_object1.generate_sample(nsample=1000)
 ```
+- The model-fitting, forecast and the rest is the same as AR(1) model, but now we use `order=(0,1)`.
+- All forecast beyond the one-step-ahead forecast is the same (unlike AR(1) model).  
+![ma1-forecast](Media/ma_forecast.png)
