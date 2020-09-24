@@ -293,7 +293,7 @@ for p in range(7):
 - MA(1): `R_t = μ + e_t + θ * e_{t-1}` (mean + noise + last period's noise)
 - When `θ = 0` it becomes white noise.
 - MA models are stationary for all values of θ
-- The lag-1 autocorrelation for an MA(1) model is not θ, but rather `θ/(1+θ2)`.
+- The lag-1 autocorrelation for an MA(1) model is not θ (as was for AR(1) model), but rather `θ/(1+θ2)`.
 
 AutoCorrelation of MA(1) model for different values of `θ`:
 ![ma1-autocorr](Media/ma1autocorr.png)
