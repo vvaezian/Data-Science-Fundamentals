@@ -1,4 +1,4 @@
-*The content is from the DataCamp course "Time Series Analysis in Python".  
+*The content is from the DataCamp course "Time Series Analysis in Python".*  
 
 - If the index of a dataframe is DatetimeIndex, the dataframe is a timeseries.
 
