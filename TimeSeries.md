@@ -312,3 +312,4 @@ simulated_data_1 = MA_object1.generate_sample(nsample=1000)
 - The model-fitting, forecast and the rest is the same as AR(1) model, but now we use `order=(0,1)`.
 - All forecast beyond the one-step-ahead forecast is the same (unlike AR(1) model).  
 ![ma1-forecast](Media/ma_forecast.png)
+- An AR(1) model is equivalent to an MA(∞) model
