@@ -272,7 +272,7 @@ res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predi
 plt.show()
 ```
 In practice, we need to consider different AR models and choose the one that models the data better. We can use two factors for deciding this:  
-1. Partial AutoCorrelation Function: This helps us to see whether higher order AR models have any benefit for modelling our data.
+1. Partial AutoCorrelation Function: This helps us to see whether higher order AR models have any benefit for modelling our data. It shows only the effect of the chosen lag (i.e. for each lag, it doesn't consider the effect of other lags)
 ![pacf](Media/pacf.png)
 2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values are the better the model is
 ```Python
