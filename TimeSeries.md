@@ -276,8 +276,8 @@ In practice, we need to consider different AR models and choose the one that mod
 ![pacf](Media/pacf.png)
 2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values are the better the model is
 ```Python
-mod = ARMA(simulated_data, order=(1,0))
-res = mod.fit()
+model = ARMA(simulated_data, order=(1,0))
+res = model.fit()
 print(res.aic)
 print(res.bic)
 ```
@@ -285,8 +285,8 @@ BIC for different orders of models. The best model is AR(3).
 ```python
 BIC = np.zeros(7)
 for p in range(7):
-    mod = ARMA(simulated_data_2, order=(p,0))
-    res = mod.fit()
+    model = ARMA(simulated_data_2, order=(p,0))
+    res = model.fit()
     BIC[p] = res.bic
 ```
 ![bic](Media/bic.png)
