@@ -268,13 +268,13 @@ res = mod.fit()
 print(res.summary())
 print(res.params)  # returns μ and φ
 
-res.plot_predict(start=990, end=1010) if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
+res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
 ```
-In practice, we need to consider different AR models and choose the one that model it better. We can use two factors for deciding this:  
+In practice, we need to consider different AR models and choose the one that models the data better. We can use two factors for deciding this:  
 1. Partial AutoCorrelation Function: This helps us to see whether higher order AR models have any benefit for modelling our data.
 ![pacf](Media/pacf.png)
-2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values the better
+2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values are the better the model is
 ```Python
 mod = ARMA(simulated_data, order=(1,0))
 res = mod.fit()
