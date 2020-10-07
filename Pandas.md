@@ -1,28 +1,17 @@
-### DataFrame
-
-A **DataFrame** is a table of data.
+#### Creating DataFrames
 ````Python
+pd.DataFrame(np.random.random(12).reshape(3,4), columns=['A', 'B', 'C', 'D'])  # random data
+pd.DataFrame({'a':[True, False, True], 'b':[4, 5, 6], 'c':[7, 8, 9]})  # defining column by column
+pd.DataFrame([[True, 4, 7], [False, 5, 8], [True, 6, 9]], columns=['a', 'b', 'c'])  # defining row by row
+
 x = np.arange(0,50)
-df = pd.DataFrame({'x':x})
-
-df = pd.DataFrame({'a':[True, False, True], 'b':[4, 5, 6], 'c':[7, 8, 9]})
-# defining row by row: pd.DataFrame([[True, 4, 7], [False, 5, 8], [True, 6, 9]], columns=['a', 'b', 'c'])
-# we can change index numbering by providing index list.
-print(df)
-#        a  b  c
-# 0   True  4  7
-# 1  False  5  8
-# 2   True  6  9 
+pd.DataFrame({'x':x})
 ````
-creating a dataframe with random data
-````Python
-df = pd.DataFrame(np.arange(12).reshape(3,4), columns=['A', 'B', 'C', 'D'])
-````
-stacking dataframes
+#### Stacking DataFrames
 ````Python
 pd.concat([a, b, c, d], ignore_index=True)
 ````
-### Attributes ###
+#### Attributes
 ````
 df.columns    # Index(['a', 'b', 'c'], dtype='object')
 df.index      # RangeIndex(start=0, stop=3, step=1)
@@ -30,17 +19,18 @@ df.values     # [[True  4 7]
               #  [False 5 8]
               #  [True  6 9]]
 ````
-### Methods ###
-- `df.isnull()` converts values of df into true/false based on whether values are missing.  
+#### Methods
+- `.isnull()` converts values of df into true/false based on whether values are missing.  
+- `.notnull()`
 - `df.any()` produces a Series where its index is the columns of df and its values are true/false based on whether there is at least one true in the column. `s.any()` produces one true/false value.
 - `df.all()` produces a Series where its index is the columns of df and its values true/false based on whether all cell of column are true. `s.any()` produces one true/false value.  
 - `df.dtypes`
 
-Choosing some columns:
+#### Choosing some columns:
 ````Python
 df[column_list] # e.x. reduced_by_cols = df[['a', 'c']]
 ````
-Choosing some rows:
+#### Choosing some rows:
 ````Python
 ### index-based:
 df.iloc[row_index] # e.x. reduced_by_rows = df.iloc[[0, 2]]  
@@ -57,7 +47,7 @@ df.loc[ df.myCol.notnull(), df.columns ]
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
 
-### Join, Merge
+#### Join, Merge
 - `df1.join(df2)` by default performs left join, and on index. We can specify a column name as well but it needs to be the same in both (?)
 - `df1.merge(df2, left_on='col_l', right_on='col_r')` by default performs inner join. Can determine different col names from left and right.
 
@@ -66,7 +56,6 @@ Making a column titlecase:
 ````python
 df.a = df.a.str.title()
 ````
-
 Casting to int for a column that contains Null values:
 ```python
 df_bc['myCol'] = df_bc['myCol'].astype('Int64') 
@@ -76,7 +65,7 @@ Distinct Values together with their counts (excludes NaN by default)
 df.col.value_counts()
 ```
 
-### SQL Connection ###
+### Import/Export
 ````python
 ### pyodbc
 # SQL Server
@@ -110,7 +99,7 @@ params = urllib.parse.quote_plus("DRIVER={SQL Server Native Client 11.0};"
 engine = sa.create_engine("mssql+pyodbc:///?odbc_connect={}".format(params))
 # engine_rds_pgsql = sa.create_engine("postgresql+psycopg2://[USER]:[ENDPOINT]/[TABLE_NAME]")
 ````
-### Read from SQL
+#### Read from SQL
 ```python
 ### small data
 df_read = pd.read_sql(sql='tbl_name',  # or a query
@@ -137,7 +126,7 @@ for pd_df_chunk in pd_frame_generator:
   h2o_df_chunk = h2o.H2OFrame(pd_df_chunk, column_types={'col3':'enum', 'col5':'enum'})
   h2o_df_all = h2o_df_all.rbind(h2o_df_chunk)
 ```
-### Write to SQL
+#### Write to SQL
 ```python
 ### small data
 df_write.to_sql('tbl_name', con=engine, index=False, if_exists='append')
@@ -163,7 +152,7 @@ contents = output.getvalue()
 cursor_pgsql.copy_from(output, 'destination_table', null='Nan')
 conn_pgsql.commit()
 ````
-### Write to CSV
+#### Write to CSV
 ```python
 conn = pyodbc.connect(' ... ')
 cursor = conn.cursor()
@@ -178,7 +167,7 @@ df.to_csv("test.csv", index=False)
 ```
 
 
-## Misc. ##
+### Misc. 
 ````Python
 print(df)
 #        a  b  c
