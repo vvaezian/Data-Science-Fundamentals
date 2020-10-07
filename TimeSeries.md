@@ -316,3 +316,6 @@ simulated_data_1 = MA_object1.generate_sample(nsample=1000)
 
 ## Cointegration
 - It may be the case that the liner combination of two random walk series is not a random walk. In this case the two series are cointegrated. So although the tho series are not forcastable, their linear combination is.
+- Example: dog on a leash. Movement of Human and dog may be random but their distance is mean-reverting.
+- Example: price of natural gas and heating oil. They compete for demand, if one goes two high, the demand for other one increased which reduces the demand for the first one and so reduces its price.
+- To check for cointegration, we regress one of the series (P_t) on the other (Q_t) to find the slope c . Then run augmented dicky-fuller test on `P_t - c*Q_T` to check for random walk. Alternatively we can use the function `coint()` from statmodels.
