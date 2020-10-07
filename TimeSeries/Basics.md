@@ -35,23 +35,6 @@ index = pd.date_range('2020-06-12', periods=3, freq='D')  # DatetimeIndex(['2020
 index[0]  # Timestamp('2020-06-12 00:00:00', freq='D')
 period_index = index.to_period()  # PeriodIndex(['2020-06-12', '2020-06-13', '2020-06-14'], dtype='period[D]', freq='D')
 period[0]  # Period('2020-06-12', 'D')
-
-data = np.random.random((3,2))  # array of random numbers, 3 rows, 2 columns
-df = pd.DataFrame(data, index=index)  
-# if index is part of the data as a column, we use set_index: df.set_index('index_col', inplcae=True)
-# if date column doesn't have the datetime type, we can convert it: data.date = pd.to_datetime(data.date)
- 	              0 	      1
-2020-06-12 	0.160132 	0.500385
-2020-06-13 	0.287287 	0.539113
-2020-06-14 	0.749582 	0.899299
-# We can indicate the index when loading from CSV
-data = pd.read_csv('data.csv', parse_dates=['date_col'], index_col='date_col')
-
-import matplotlib.pyplot as plt
-data[data.columns[-1]].plot()  # one column
-data.plot(subplots=True)  # all columns
-# plt.tight_layout()
-plt.show()
 ```
 
 #### Partial Index
