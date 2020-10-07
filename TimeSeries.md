@@ -400,5 +400,6 @@ res = mod.fit()
 res.plot_predict(start='1872-01-01', end='2046-01-01')
 plt.show()
 
-### According to the model, the temperature is expected to be about 0.6 degrees higher in 30 years (almost entirely due to the trend), but the 95% confidence interval around that is over 5 degrees.
+### According to the model, the temperature is expected to be about 0.6 degrees higher in 30 years 
+### (almost entirely due to the trend), but the 95% confidence interval around that is over 5 degrees.
 ```
