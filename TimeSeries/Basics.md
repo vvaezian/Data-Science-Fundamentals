@@ -28,16 +28,15 @@ period + 1  # Period('2020-07', 'M')
 # timestamp can also have frequency
 ts = pd.Timestamp('2020-06-12', 'M')
 ts + (2 * ts.freq)  # Timestamp('2020-07-31 00:00:00', freq='M')
-```
-#### Sequence of dates and times
-```python
+
+# Sequence of dates and times
 index = pd.date_range('2020-06-12', periods=3, freq='D')  # DatetimeIndex(['2020-06-12', '2020-06-13', '2020-06-14'], dtype='datetime64[ns]', freq='D')
 index[0]  # Timestamp('2020-06-12 00:00:00', freq='D')
 period_index = index.to_period()  # PeriodIndex(['2020-06-12', '2020-06-13', '2020-06-14'], dtype='period[D]', freq='D')
 period[0]  # Period('2020-06-12', 'D')
 ```
 
-#### Slicing
+### Slicing
 ```python
 # *** use string, not int ***
 data['2020']  # all rows that their time is in 2020
