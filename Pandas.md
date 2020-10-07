@@ -47,6 +47,14 @@ df.loc[ df.myCol.notnull(), df.columns ]
 * If we dont use double-brackets, the behaviour is different. `df.iloc[0, 1]` returns the element at row 0 column 1.  
 `df.iloc[0]` returns a Series containing the row at index 0. `df['a']` returns a Series containing the column 'a'.
 
+#### GroupBy
+```python
+index = pd.date_range(start='2020', periods=60, freq='M')
+df = pd.DataFrame(range(60), columns=['a'])
+df = df.set_index(index)
+df.a.groupby(df.index.month).mean()  # calculate mean grouping by month of year. outputs a series with 12 values.
+```
+
 #### Join, Merge
 - `df1.join(df2)` by default performs left join, and on index. We can specify a column name as well but it needs to be the same in both (?)
 - `df1.merge(df2, left_on='col_l', right_on='col_r')` by default performs inner join. Can determine different col names from left and right.
