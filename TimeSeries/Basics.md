@@ -8,7 +8,7 @@ new_index = pd.date_range(start='2020', periods=12, freq='M')
 df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
                        # which determines how the null values should be treated (default None, i.e. don't change them)
 ```
-### Basics
+### Timestamp
 ```python
 import pandas as pd
 from datetime import datetime
