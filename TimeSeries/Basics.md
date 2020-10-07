@@ -1,4 +1,3 @@
-- If the index of a dataframe is DatetimeIndex, the dataframe is a timeseries.
 - Specifying the index:
   - While reading the csv `stock_1_2 = pd.read_csv('s1_2.csv', parse_dates=['date'], index_col='date')`
   - If date is part of the data as a column, we can use `set_index`: `df.set_index('index_col', inplcae=True)`.  
