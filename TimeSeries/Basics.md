@@ -1,4 +1,4 @@
-## Specifying the index:
+### Specifying the index:
 - While reading the csv `stock_1_2 = pd.read_csv('s1_2.csv', parse_dates=['date'], index_col='date')`
 - If date is part of the data as a column, we can use `set_index`: `df.set_index('index_col', inplcae=True)`.  
 If the type of the date column is string we need to convert it first: `df.date = pd.to_datetime(df.date)`
@@ -8,7 +8,7 @@ new_index = pd.date_range(start='2020', periods=12, freq='M')
 df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
                        # which determines how the null values should be treated (default None, i.e. don't change them)
 ```
-## Basics
+### Basics
 ```python
 import pandas as pd
 from datetime import datetime
