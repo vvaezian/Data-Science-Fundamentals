@@ -319,3 +319,16 @@ simulated_data_1 = MA_object1.generate_sample(nsample=1000)
 - Example: dog on a leash. Movement of Human and dog may be random but their distance is mean-reverting.
 - Example: price of natural gas and heating oil. They compete for demand, if one goes two high, the demand for other one increased which reduces the demand for the first one and so reduces its price.
 - To check for cointegration, we regress one of the series (P_t) on the other (Q_t) to find the slope c . Then run augmented dicky-fuller test on `P_t - c*Q_T` to check for random walk. Alternatively we can use the function `coint()` from statmodels.
+```python
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import adfuller
+
+# Regress series1 on series2
+ETH = sm.add_constant(series1)
+result = sm.OLS(series1, series2).fit()
+
+# Compute ADF
+b = result.params[1]
+adf_stats = adfuller(series1['Price'] - b*series2['Price'])
+print("The p-value for the ADF test is ", adf_stats[1])
+```
