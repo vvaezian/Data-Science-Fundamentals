@@ -37,7 +37,7 @@ period_index = index.to_period()  # PeriodIndex(['2020-06-12', '2020-06-13', '20
 period[0]  # Period('2020-06-12', 'D')
 ```
 
-#### Partial Index
+#### Slicing
 ```python
 # *** use string, not int ***
 data['2020']  # all rows that their time is in 2020
