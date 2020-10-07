@@ -313,3 +313,6 @@ simulated_data_1 = MA_object1.generate_sample(nsample=1000)
 - All forecast beyond the one-step-ahead forecast is the same (unlike AR(1) model).  
 ![ma1-forecast](Media/ma_forecast.png)
 - An AR(1) model is equivalent to an MA(∞) model
+
+## Cointegration
+- It may be the case that the liner combination of two random walk series is not a random walk. In this case the two series are cointegrated. So although the tho series are not forcastable, their linear combination is.
