@@ -1,6 +1,6 @@
 ### Specifying the index:
 - While reading the csv `stock_1_2 = pd.read_csv('s1_2.csv', parse_dates=['date'], index_col='date')`
-- If date is part of the data as a column, we can use `set_index`: `df.set_index('index_col', inplcae=True)`.  
+- If we have the index in a series, we can use `set_index` to add it to the dataframe: `df.set_index('index_col', inplcae=True)`.  
 If the type of the date column is string we need to convert it first: `df.date = pd.to_datetime(df.date)`
 - `reindex` replaces the current index with the given index (e.g. up/downsampling)
 ```python
