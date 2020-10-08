@@ -89,6 +89,13 @@ ts.resample('M').agg(['mean', 'median', 'std'])  # creating multiple columns for
 # .ffil(), .intepolate() and other relevant methods can be applied to any time series data, we don't have to use resample() first.
 # if applied to a dataframe, it gets applied to all columns
 ```
+#### Trend, seasonality, noise
+```python
+import statsmodels.api as sm
+decomposition = sm.tsa.seasonal_decompose(my_series)
+decomposition.plot()
+```
+
 
 ### Window functions 
 ```python
