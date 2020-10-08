@@ -8,7 +8,7 @@ x = np.arange(0,50)
 pd.DataFrame({'x':x})
 
 # from dictionary
-pd.DataFram.from_dict(my_dict)
+pd.DataFram.from_dict(my_dict)  # keys become columns
 ````
 #### Stacking DataFrames
 ````Python
