@@ -95,7 +95,7 @@ import statsmodels.api as sm
 decomposition = sm.tsa.seasonal_decompose(my_series)
 decomposition.plot()
 ```
-
+![decomposition](Media/decomposition.png)
 
 ### Window functions 
 ```python
