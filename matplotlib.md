@@ -18,6 +18,8 @@ plt.style.use('fivethirtyeight')
 #### Histogram
 ```python
 df.plot(kind='hist'[, bins=10, subplots=True])  # histogram. This is better than df.hist()
+# density plots are like a smoother version of histograms
+df.plot(kind='density')
 ```
 #### Boxplot (AKA box and whisker plot)  
 - The box extends from the lower to upper quartile values of the data, with a line at the median. 
