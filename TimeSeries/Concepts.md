@@ -93,7 +93,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
   - If the data is growing exponentially over time, we should take the log.
 - In the below images only the top-left series is stationary. In the top-right image the mean is increasing with time, in the bottom-left image the variance is increasing with time, and the bottom-right image is similar to a random-walk and the variance in wider intervals in bigger than the variance in smaller intervals.  
 
-![stationary](/Media/stationary.png)
+![stationary](../Media/stationary.png)
 
 ## AR Models
 - AR(1): `R_t = μ + φ * R_{t-1} + e_t`  
@@ -104,7 +104,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 AR(1) TimeSeries with different values of `φ`  
 ![ar1](Media/ar1.png)  
 AR(1) AutoCorrrelation  
-![ar1-autocorr](Media/ar1autocorr.png)  
+![ar1-autocorr](../Media/ar1autocorr.png)  
 
 Simulated AR(1) data
 ```python
@@ -151,7 +151,7 @@ for p in range(7):
     res = model.fit()
     BIC[p] = res.bic
 ```
-![bic](Media/bic.png)
+![bic](../Media/bic.png)
 
 ## MA Models
 - MA(1): `R_t = μ + e_t + θ * e_{t-1}` (mean + noise + last period's noise)
