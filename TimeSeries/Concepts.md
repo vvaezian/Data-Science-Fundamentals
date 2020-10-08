@@ -102,7 +102,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 - For stationarity, `φ` shoud be in (-1, 1).  
 
 AR(1) TimeSeries with different values of `φ`  
-![ar1](Media/ar1.png)  
+![ar1](../Media/ar1.png)  
 AR(1) AutoCorrrelation  
 ![ar1-autocorr](../Media/ar1autocorr.png)  
 
@@ -135,7 +135,7 @@ plt.show()
 ```
 In practice, we need to consider different AR models and choose the one that models the data better. We can use two factors for deciding this:  
 1. Partial AutoCorrelation Function: This helps us to see whether higher order AR models have any benefit for modelling our data. It shows only the effect of the chosen lag (i.e. for each lag, it doesn't consider the effect of other lags)
-![pacf](Media/pacf.png)
+![pacf](../Media/pacf.png)
 2. Information Criteria: The more parameters in a model (i.e. the higher the order of AR model), the better it fits the data, but at the same time the higher the chance of overfitting. Information Criteria helps by penalizing for the high number of parameters. Two common information criteria are AIC and BIC. The lower these values are the better the model is
 ```Python
 model = ARMA(simulated_data, order=(1,0))
@@ -160,7 +160,7 @@ for p in range(7):
 - The lag-1 autocorrelation for an MA(1) model is not θ (as was for AR(1) model), but rather `θ/(1+θ**2)`.
 
 AutoCorrelation of MA(1) model for different values of `θ`:
-![ma1-autocorr](Media/ma1autocorr.png)
+![ma1-autocorr](../Media/ma1autocorr.png)
 
 High-frequency stock returns (e.g. per minute) is a good example of MA(1) model.
 
