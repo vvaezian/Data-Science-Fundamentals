@@ -90,8 +90,8 @@ sns.heatmap(corr_matrix,
             
 # alternatively we can use a clustermap which rearranges the column so that the high corr ones apear together
 fig = sns.clustermap(corr_meat,
-                     row_cluster=True,
-                     col_cluster=True,
+                     row_cluster=True,  # default
+                     col_cluster=True,  # default
                      figsize=(10, 10))
 
 plt.setp(fig.ax_heatmap.xaxis.get_majorticklabels(), rotation=90)
