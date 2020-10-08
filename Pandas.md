@@ -6,6 +6,9 @@ pd.DataFrame([[True, 4, 7], [False, 5, 8], [True, 6, 9]], columns=['a', 'b', 'c'
 
 x = np.arange(0,50)
 pd.DataFrame({'x':x})
+
+# from dictionary
+pd.DataFram.from_dict(my_dict)
 ````
 #### Stacking DataFrames
 ````Python
