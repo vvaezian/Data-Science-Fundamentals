@@ -92,6 +92,7 @@ sns.heatmap(corr_matrix,
 fig = sns.clustermap(corr_meat,
                      row_cluster=True,  # default
                      col_cluster=True,  # default
+                     cmp='coolwarm',
                      figsize=(10, 10))
 
 plt.setp(fig.ax_heatmap.xaxis.get_majorticklabels(), rotation=90)
