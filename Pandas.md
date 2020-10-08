@@ -73,6 +73,27 @@ Distinct Values together with their counts (excludes NaN by default)
 df.col.value_counts()
 ```
 
+#### Correlation
+`df.corr()` produces correlation matrix. Use `method='pearson'` (default) if the relation between variables is linear. Otherwise use `method='spearman'`
+```python
+corr_matrix = df.corr()
+
+# heatmap 
+import seaborn as sns
+sns.heatmap(corr_matrix,
+            annot=True,
+            linewidths=0.4,
+            annot_kws={"size": 10})
+            
+# alternatively we can use a clustermap which rearranges the column so that the high corr ones apear together
+fig = sns.clustermap(corr_meat,
+                     row_cluster=True,
+                     col_cluster=True,
+                     figsize=(10, 10))
+
+plt.setp(fig.ax_heatmap.xaxis.get_majorticklabels(), rotation=90)
+plt.setp(fig.ax_heatmap.yaxis.get_majorticklabels(), rotation=0)
+```
 ### Import/Export
 ````python
 ### pyodbc
