@@ -96,6 +96,7 @@ decomposition = sm.tsa.seasonal_decompose(my_series)
 decomposition.plot()
 ```
 ![decomposition](../Media/decomposition.png)
+
 We can plot a specific chart by `decomposition.x` where x in `['trend', 'season', 'resid']` (available in `dir(decompostion)`)
 
 ### Window functions 
