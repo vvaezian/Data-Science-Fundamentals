@@ -92,6 +92,11 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
   Note that if we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.  
   - If the data has seasonal property, we should take the seasonal difference: e.g. `ts.diff(4)`  
   - If the data is growing exponentially over time, we should take the log.
+  - A classic way of transforming stock time series is the log-return of the series.  
+  ```python
+  df = np.log(df/df.shift(1))
+  df = df.dropna()
+  ```
 - In the below images only the top-left series is stationary. In the top-right image the mean is increasing with time, in the bottom-left image the variance is increasing with time, and the bottom-right image is similar to a random-walk and the variance in wider intervals in bigger than the variance in smaller intervals.  
 
 ![stationary](../Media/stationary.png)
