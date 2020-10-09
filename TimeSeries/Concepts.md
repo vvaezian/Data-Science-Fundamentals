@@ -101,8 +101,9 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 
 ![stationary](../Media/stationary.png)
 
-## AR Models
-- AR(1): `R_t = μ + φ * R_{t-1} + e_t`  
+## AR (Auto-Regressive) Models
+- In an AR model we regress the values of a timeseries against the previous values of the same timeseries
+- AR(1): `R_t = φ * R_{t-1} + e_t`  (we may have a constant `μ` added as well)
 - When `φ = 1` we have a random walk. 
 - When `φ = 0` we have white noise.
 - For stationarity, `φ` shoud be in (-1, 1).  
@@ -160,6 +161,7 @@ for p in range(7):
 ![bic](../Media/bic.png)
 
 ## MA Models
+- In and MA model we regress the values of a timeseries agaist the previous shock values (noise values) of the same timeeseries.
 - MA(1): `R_t = μ + e_t + θ * e_{t-1}` (mean + noise + last period's noise)
 - When `θ = 0` it becomes white noise.
 - MA models are stationary for all values of θ
