@@ -88,7 +88,8 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 - Seasonal series are not stationary because the mean depends on the time of year.
 - If a process is not stationary, its parameters change over time, so it is hard to model.
 - Many non-stationary series can be made stationary by transforming them. 
-  - If we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.  
+  - Taking the difference of each point with the point before (`df.diff()`) usually helps to make data more stationary. Sometimes we need to apply diff() more than once.  
+  Note that if we take the first differences of a Random walk series (i.e. difference of each point with the point before), the result becomes white noise which is stationary.  
   - If the data has seasonal property, we should take the seasonal difference: e.g. `ts.diff(4)`  
   - If the data is growing exponentially over time, we should take the log.
 - In the below images only the top-left series is stationary. In the top-right image the mean is increasing with time, in the bottom-left image the variance is increasing with time, and the bottom-right image is similar to a random-walk and the variance in wider intervals in bigger than the variance in smaller intervals.  
