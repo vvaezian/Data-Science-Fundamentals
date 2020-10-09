@@ -1,3 +1,9 @@
+#### Styles
+```python
+plt.style.available  # lists all styles
+plt.style.use('fivethirtyeight')
+```
+
 ```python
 ax = df.plot(figsize=(12,6), fontsize=12, linewidth=3, linestyle='--', color='blue')
 ax.set_xlabel('Date', fontsize=15)
@@ -12,11 +18,14 @@ ax.axhspan(6, 8, color='green', alpha=0.3)  # horizontal region
 
 df.plot(subplots=True, sharex=True, sharey=False, layout=(2,2))
 ```
-#### Styles
+Plotting multiple dataframes in one plot
 ```python
-plt.style.available  # lists all styles
-plt.style.use('fivethirtyeight')
+fig, ax = plt.subplots()
+df1.plot(ax=ax)
+df2.plot(ax=ax)
 ```
+Alternatively we can concatenate the df's and then plot.
+
 #### Histogram
 ```python
 df.plot(kind='hist'[, bins=10, subplots=True])  # histogram. This is better than df.hist()
