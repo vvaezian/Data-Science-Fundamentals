@@ -40,7 +40,7 @@ period[0]  # Period('2020-06-12', 'D')
 ```python
 # *** use string, not int ***
 data['2020']  # all rows that their time is in 2020
-data['2020-01': '2020-06']  # inclusive
+data['2020-01': '2020-06']  # it's inclusive, contrary to list slicing which is not inclusive from the right
 data.loc['2020-04-01', 'target_col']  # specific value. use .reset_index(drop=True) to select column with the default numerical index
 data.asfreq('D')  # if data doesn't have freq, we can add it using asfreq().
                   # this cause NaN values for the dates that the index doesn't cover
