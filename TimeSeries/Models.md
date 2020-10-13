@@ -12,3 +12,4 @@ print(res.bic)
 res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
 ```
+ - ARMAX is for using external variables in addition to the timeseries variables. (ARMA + linear regression)
