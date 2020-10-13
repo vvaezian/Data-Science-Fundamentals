@@ -9,7 +9,8 @@ print(res.params)  # returns μ and φ
 print(res.aic)
 print(res.bic)
 
-forecast = res.get_prediction(start = -10) # how many stps back to start the forecast
+forecast = res.get_prediction(start = -10) # how many steps back to start the forecast
+                                           # set `dynamic=True` to go more than one-step-forward prediction.
 mean_forecast = forecast.predicted_mean
 confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
 res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
