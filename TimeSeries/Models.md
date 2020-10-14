@@ -11,7 +11,7 @@ print(res.bic)
 
 # prediction on current data
 forecast = res.get_prediction(start = -10) # how many steps back to start the forecast
-                                           # set `dynamic=True` to go more than one-step-forward prediction.
+                                           # set `dynamic=True` to go more than one-step-ahead prediction.
 mean_forecast = forecast.predicted_mean
 confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
 
