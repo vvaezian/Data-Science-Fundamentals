@@ -44,5 +44,6 @@ model = ARMA(df['productivity'], order=(2,1), exog=df['hours_sleep'])
 ```
 - To model non-stationary data we need make it stationary (for example by taking the difference). After modeling and making forecast, we need to transform the predicted value of the diffs to a forecast of the original timeseries. For non-stationary data that can be made stationary by taking difference, the above steps are are automatically done if we use a model that includes `I` (e.g. ARIMA).
 ```python
-model = SARIMAX(df, order=(p, d, q)  # the value of parameter d tell the model how many times the diff should be applied.
+model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tell the model how many times the diff should be applied.
 ```
+We use the Dicky-Fuller test to find the best value for d. We start by 0 and increment, and choose the first value that gives good result. We don't want to overfit.
