@@ -33,7 +33,7 @@ confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
 res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
 ```
-### X
+### X (eXogenous)
 ARMAX is for using external (AKA exogenous) variables in addition to the timeseries variables. (ARMA + linear regression)
 ```python
 # ARMAX(1,1)
@@ -43,7 +43,7 @@ Example: For Modellig personal productivity in the current, we may include produ
 ```python
 model = ARMA(df['productivity'], order=(2,1), exog=df['hours_sleep'])
 ```
-### I
+### I (Integrated)
 To model non-stationary data we need make it stationary (for example by taking the difference). After modeling and making forecast, we need to transform the predicted value of the diffs to a forecast of the original timeseries. For non-stationary data that can be made stationary by taking difference, the above steps are are automatically done if we use a model that includes `I` (e.g. ARIMA).
 ```python
 model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tell the model how many times the diff should be applied.
