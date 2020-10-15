@@ -1,5 +1,5 @@
 - After fitting the model, the next value of the time series can be predicted by replacing the coffecients in the formula.  
-For example for an AR(1) model we have `y_t = a_1 * y_{t-1} + e_t`. Suppose the current value is 10 and the coefficient from fitting the model (here, the lag1 coefficient) is .8 and the standard deviation of error ('std err' in the summary) is 1. Then for the next value x we have: `0.8 * 10 - 1 < x < 0.8 * 10 + 1`
+For example for an AR(1) model we have `y_t = a_1 * y_{t-1} + e_t`. Suppose the current value is 10 and the coefficient from fitting the model (here, the lag1 coefficient) is .8 and the standard deviation of error ('std err' in the summary) is 1. Then for the next value x we have: `0.8 * 10 - 1 < x < 0.8 * 10 + 1`. This is called *one-step-ahead prediction*/ In this method each new value is calculated by applying the coefficients to the current and previous values (depending on how many lags we consider in the model) and adding the standard deviation.
 
 ```python
 from statsmodels.tsa.arima_model import ARMA
@@ -13,9 +13,12 @@ print(res.aic)
 print(res.bic)
 
 from statsmodels.tsa.statespace.sarimax import SARIMAX  # this can do all the things the previous module could do and more
-mod = SARIMAX(data, order=(1,0,0)
+mod = SARIMAX(data, order=(1,0,0))  # AR(1) model
+# if the timeseries isn't centered around zero, we should add a constant to the model by using the option "trend='c'".
+mod = SARIMAX(data, order=(1,0,0), trend='c')
+res = mod.fit()
 
-# prediction on current data
+# in-sample prediction 
 forecast = res.get_prediction(start = -10) # how many steps back to start the forecast
                                            # set `dynamic=True` to go more than one-step-ahead prediction.
 mean_forecast = forecast.predicted_mean
