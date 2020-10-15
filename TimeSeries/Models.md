@@ -25,7 +25,7 @@ forecast = res.get_prediction(start = -10) # how many steps back to start the fo
 mean_forecast = forecast.predicted_mean
 confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
 
-# future forecasts
+# future forecasts (this is always dynamic for steps > 1)
 forecast = res.get_forecast(steps=10) 
 mean_forecast = forecast.predicted_mean
 confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
