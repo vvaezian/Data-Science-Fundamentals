@@ -12,6 +12,9 @@ print(res.params)  # returns μ and φ
 print(res.aic)
 print(res.bic)
 
+from statsmodels.tsa.statespace.sarimax import SARIMAX  # this can do all the things the previous module could do and more
+mod = SARIMAX(data, order=(1,0,0)
+
 # prediction on current data
 forecast = res.get_prediction(start = -10) # how many steps back to start the forecast
                                            # set `dynamic=True` to go more than one-step-ahead prediction.
