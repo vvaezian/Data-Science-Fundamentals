@@ -52,11 +52,12 @@ We use the Dicky-Fuller test to find the best value for d. We start by 0 and inc
 
 ### Criteria for Choosing the model
 - Plot ACF and PACF and choose the model based on the results
-![acf_pacf](../Media/acf_pacf.png)
-
-Note that in the third case, the values of p and q is not determined using the plots.
 ```python
 fig, (ax1, ax2) = plt.subplots(2,1, figsize=(12,8))
 plot_acf(earthquake, lags=15, zero=False, ax=ax1)
 plot_pacf(earthquake, lags=15, zero=False, ax=ax2)
 ```
+![acf_pacf](../Media/acf_pacf.png)
+
+Note that in the third case, the values of p and q is not determined using the plots.
+
