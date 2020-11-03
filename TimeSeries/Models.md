@@ -70,7 +70,8 @@ The reason that acf doesn't work for AR models is that all previous values affec
   - AIC and BIC are similar, but BIC penalizes more than AIC.
   - AIC is better at choosing predictive models
   - BIC is better at choosing explanatory models
-  - ```python
+  - 
+  ```python
   res = model.fit()
   print(res.aic, res.bic)
   ```
