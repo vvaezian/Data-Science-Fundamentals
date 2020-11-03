@@ -33,7 +33,7 @@ confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
 res.plot_predict(start=990, end=1010)  # if data has index we can use plot_predict(start='2020-08-01', end='2020-10-01')
 plt.show()
 ```
-### X (eXogenous)
+#### X (eXogenous)
 ARMAX is for using external (AKA exogenous) variables in addition to the timeseries variables. (ARMA + linear regression)
 ```python
 # ARMAX(1,1)
@@ -43,7 +43,7 @@ Example: For Modellig personal productivity in the current day, we may include p
 ```python
 model = ARMA(df['productivity'], order=(2,1), exog=df['hours_sleep'])
 ```
-### I (Integrated)
+#### I (Integrated)
 To model non-stationary data we need make it stationary (for example by taking the difference). After modeling and making forecast, we need to transform the predicted value of the diffs back to a forecast of the original timeseries. For non-stationary data that can be made stationary by taking difference, the above steps are are automatically done if we use a model that includes `I` (e.g. ARIMA).
 ```python
 model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tells the model how many times the diff should be applied.
@@ -75,3 +75,15 @@ The reason that acf doesn't work for AR models is that all previous values affec
   res = model.fit()
   print(res.aic, res.bic)
   ```
+### Model Diagnosis
+Ideally residuals should be white Gaussian noise.
+```python
+residuals = res.redid  # residuals (difference between the one-step ahead predictions and the actual values)
+mae = np.mean(np.abs(residuals))
+
+results.plot_diagnostics()  # generates four plots to see if residuals are white noise 
+```
+In the `results.summary()` output:
+- `Prob(Q)`: p-value for null hypothesis that residuals are uncorrelated
+- `Prob(JB)`: p-value for null hypothesis that residuals are Gaussian
+If they are less than 0.05, we can reject that hypothesis.
