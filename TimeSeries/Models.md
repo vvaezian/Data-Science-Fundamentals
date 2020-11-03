@@ -44,7 +44,7 @@ Example: For Modellig personal productivity in the current day, we may include p
 model = ARMA(df['productivity'], order=(2,1), exog=df['hours_sleep'])
 ```
 #### I (Integrated)
-To model non-stationary data we need make it stationary (for example by taking the difference). After modeling and making forecast, we need to transform the predicted value of the diffs back to a forecast of the original timeseries. For non-stationary data that can be made stationary by taking difference, the above steps are are automatically done if we use a model that includes `I` (e.g. ARIMA).
+To model non-stationary data we need make it stationary (for example by taking the difference). After modeling and making forecast, we need to transform the predicted value of the diffs back to a forecast of the original timeseries. For non-stationary data that can be made stationary by taking difference, the above steps are automatically done if we use a model that includes `I` (e.g. ARIMA).
 ```python
 model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tells the model how many times the diff should be applied.
 ```
