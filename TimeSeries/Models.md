@@ -98,3 +98,16 @@ In the `results.summary()` output:
 - `Prob(Q)`: p-value for null hypothesis that residuals are uncorrelated
 - `Prob(JB)`: p-value for null hypothesis that residuals are Gaussian
 If they are less than 0.05, we can reject that hypothesis.
+
+### Box - Jenkins Method
+- Identification
+  - plot the series and use ADF test to see whether the series is stationary
+  - If it is not, make it stationary by transforming it
+  - identify good candidates for p and q using ACF and PACF
+- Estimation
+  - fit the model to the data `model.fit()`
+  - choose AIC and BIC to norrow down to more promising candidate
+- Model diagnosis
+  - use `.summary()` stats and `.plot_diagnostics()` to make sure the residuals are well-behaved
+  - Use model diagnosis to check if the chosen p and q are correct
+  - if the residuals are not ok we go back to earlier steps and rethink the choices. Otherwise the model is ready for production
