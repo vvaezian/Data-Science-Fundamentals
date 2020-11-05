@@ -120,7 +120,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 # additive decomposition
 decomp = seasonal_decompose(my_series, freq=12)
 ```
-If it is not clear the data is seasonal or not, we can get help from ACF and PACF. But before that we need to de-trend the data if it has a trend.
+If it is not clear the data is seasonal or not, we can get help from plot_acf and plot_pacf. But before that, we need to de-trend the data if it has a trend.
 We can do this by subtracting the rolling mean, where the rolling period should be bigger than the likely seasonal period:
 ```python
 sr2 = sr - sr.rolling(15).mean()
