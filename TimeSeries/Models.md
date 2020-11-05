@@ -110,4 +110,5 @@ If they are less than 0.05, we can reject that hypothesis.
 - Model diagnosis
   - use `.summary()` stats and `.plot_diagnostics()` to make sure the residuals are well-behaved
   - Use model diagnosis to check if the chosen p and q are correct
-  - if the residuals are not ok we go back to earlier steps and rethink the choices. Otherwise the model is ready for production
+  - if the residuals are not ok we go back to earlier steps and rethink the choices. 
+  - Otherwise we make forecasts and move to production
