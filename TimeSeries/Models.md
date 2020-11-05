@@ -112,3 +112,10 @@ If they are less than 0.05, we can reject that hypothesis.
   - Use model diagnosis to check if the chosen p and q are correct
   - if the residuals are not ok we go back to earlier steps and rethink the choices. 
   - Otherwise we make forecasts and move to production
+
+### Handling Seasonality
+```python
+from statsmodels.tsa.seasonal import seasonal_decompose
+# additive decomposition
+decomp = seasonal_decompose(my_series, freq=12)
+```
