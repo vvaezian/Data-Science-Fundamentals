@@ -114,6 +114,7 @@ If they are less than 0.05, we can reject that hypothesis.
   - Otherwise we make forecasts and move to production
 
 ### Handling Seasonality
+Seasonal time series can be decomposed to three elements: trend, seasonality, resudual:
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose
 # additive decomposition
