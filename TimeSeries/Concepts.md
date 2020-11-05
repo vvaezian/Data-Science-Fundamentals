@@ -86,7 +86,7 @@ Here p-value is way less than 5% and the null hypothesis is rejected. This is be
 - White noise has constant Mean and Variance and close-to-zero AutoCorrelation in all lags, so it's ordinarily a stationary process.
 - In Random Walks the variance in wider intervals in bigger than the variance in smaller intervals, so a Random Walk is not a stationary process.
 - Seasonal series are not stationary because the mean depends on the time of year.
-- To check stationarity, we run the Dicky-Fuller test. If p-value is less than 0.05 we can reject the null hypothesis that the process is a Random Walk. So 
+- To check stationarity, we run the Augmented Dicky-Fuller test. If p-value is less than 0.05 we can reject the null hypothesis that the process is a Random Walk. So the process is stationary (or trend-stationary?)
 - If a process is not stationary, its parameters change over time, so it is hard to model.
 - Many non-stationary series can be made stationary by transforming them. 
   - Taking the difference of each point with the point before (`df.diff()`) usually helps to make data more stationary. Sometimes we need to apply `diff()` more than once.  
