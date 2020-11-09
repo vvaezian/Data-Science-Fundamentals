@@ -126,3 +126,4 @@ For detrending we usually take the difference. But here since we just want to fi
 sr2 = sr - sr.rolling(15).mean()
 sr2 = sr2.dropna()
 ```
+## SARIMA
