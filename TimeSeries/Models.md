@@ -20,7 +20,7 @@ res = mod.fit()
 
 # in-sample prediction 
 forecast = res.get_prediction(start = -10) # how many steps back to start the forecast
-                                           # set `dynamic=True` to dynamic prediction. That is the value  at 'start' is calculated using 
+                                           # set `dynamic=True` for dynamic prediction. That is the value  at 'start' is calculated using 
                                            # the previous value and the error. Then the value for start + 1 is calculated using previously calculated value and so on.
 mean_forecast = forecast.predicted_mean
 confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
