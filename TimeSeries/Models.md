@@ -130,5 +130,10 @@ sr2 = sr2.dropna()
 - `SARIMA(p,d,q),(P,D,Q)_S` S in the length of the seasonal cycle.
 ![sarima_ex](../Media/SARIMA_Example.png)
 
-- If the process has trend we take the difference (d), as many times as needed. If it also had a seasonal component, we take the seasonal difference (D), as many times as needed. This makes the data stationary.
+```python
+model = SARIMAX(df, order=(p,d,q), seasonal_order=(P,D,Q,S))
+```
+- If the process has trend we take the difference, as many times as needed. This gices us `d`. 
+- If the process has a seasonal component, we take the seasonal difference, as many times as needed. This gives us `D`.
+- After making the data stationary (the above two steps, and other transformations if needed).
 - To find P and Q, we plot acf and pacf for multiples of S. For example if `S=12`, then we plot for lags `[12, 24, 36, 48, 60]`.
