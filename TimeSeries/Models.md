@@ -127,3 +127,5 @@ sr2 = sr - sr.rolling(15).mean()
 sr2 = sr2.dropna()
 ```
 ### SARIMA
+- `SARIMA(p,d,q),(P,D,Q)_S` S in the length of the seasonal cycle.
+![sarima_ex](../Media/SARIMA_Example.png)
