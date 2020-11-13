@@ -165,3 +165,18 @@ model1 = pm.auto_arima(df,
                       error_action='ignore',
                       suppress_warnings=True)
 ```
+
+# Saving and Loading and Updating the Model
+```python
+import joblib  # similar to pickle
+
+# save the model
+joblib.dump(model,'model.pkl')
+
+# load the model
+loaded_model = joblib.load('model.pkl')
+
+# Update the model with new data.
+# if the data is significant, we should redo the model
+loaded_model.update(df_new)
+```
