@@ -21,11 +21,11 @@ model = SARIMAX(data, order=(1,0,0), seasonal_order=(0, 1, 1, 12), trend='c')
 res = model.fit()
 
 # in-sample prediction 
-forecast = res.get_prediction(start = -10) # how many steps back to start the prediction
+prediction = res.get_prediction(start = -10) # how many steps back to start the prediction
                                            # set `dynamic=True` for dynamic prediction. That is the value  at 'start' is calculated using 
                                            # the previous value and the error. Then the value for start + 1 is calculated using previously calculated value and so on.
-mean_forecast = forecast.predicted_mean
-confidence_intervals = forecast.conf_int()  # a df with lower and upper limits
+mean_prediction = prediction.predicted_mean
+confidence_intervals = prediction.conf_int()  # a df with lower and upper limits
 
 # future forecasts (this is always dynamic for steps > 1)
 forecast = res.get_forecast(steps=10) 
