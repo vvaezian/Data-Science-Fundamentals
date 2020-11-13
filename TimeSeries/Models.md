@@ -150,10 +150,17 @@ plt.show()
 ```
 ### Automation
 ```python
-model1 = pm.auto_arima(df1,
-                      seasonal=True, m=7,
-                      d=0, D=1, 
-                 	  max_p=2, max_q=2,
+import pmdarima as pm
+
+model1 = pm.auto_arima(df,
+                      d=?,
+                      start_p=?, max_p=?,
+                      start_q=?, max_q=?,
+                      seasonal=True, 
+                      D=?,
+                      m=?,  # seasonal period
+                 	    start_P=?, max_P=?, 
+                      start_Q=?, max_Q=?,
                       trace=True,
                       error_action='ignore',
                       suppress_warnings=True)
