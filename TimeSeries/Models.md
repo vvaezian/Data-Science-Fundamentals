@@ -102,7 +102,7 @@ If they are less than 0.05, we can reject that hypothesis.
 ### Box - Jenkins Method
 - Identification
   - plot the series and use ADF test to see whether the series is stationary
-  - If it is not, make it stationary by transforming it
+  - If it is not, make it stationary by transforming it. (rule of thumb: `D <= 1` and `d + D <= 2`)
   - identify good candidates for p and q using ACF and PACF
 - Estimation
   - fit the model to the data `model.fit()`
