@@ -13,10 +13,12 @@ print(res.aic)
 print(res.bic)
 
 from statsmodels.tsa.statespace.sarimax import SARIMAX  # this can do all the things the previous module could do and more
-mod = SARIMAX(data, order=(1,0,0))  # AR(1) model
+model = SARIMAX(data, order=(1,0,0))  # AR(1) model
 # if the timeseries isn't centered around zero, we should add a constant to the model by using the option "trend='c'".
-mod = SARIMAX(data, order=(1,0,0), trend='c')
-res = mod.fit()
+model = SARIMAX(data, order=(1,0,0), trend='c')
+# if there is seasonality
+model = SARIMAX(data, order=(1,0,0), seasonal_order=(0, 1, 1, 12), trend='c')
+res = model.fit()
 
 # in-sample prediction 
 forecast = res.get_prediction(start = -10) # how many steps back to start the prediction
