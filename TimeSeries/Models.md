@@ -148,3 +148,13 @@ plt.plot(held_out_test, label='observed')
 plt.legend()
 plt.show()
 ```
+### Automation
+```python
+model1 = pm.auto_arima(df1,
+                      seasonal=True, m=7,
+                      d=0, D=1, 
+                 	  max_p=2, max_q=2,
+                      trace=True,
+                      error_action='ignore',
+                      suppress_warnings=True)
+```
