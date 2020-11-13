@@ -102,7 +102,7 @@ If they are less than 0.05, we can reject that hypothesis.
 ### Box - Jenkins Method
 - Identification
   - plot the series and use ADF test to see whether the series is stationary
-  - If it is not, make it stationary by transforming it. (rule of thumb: `D <= 1` and `d + D <= 2`)
+  - If it is not, make it stationary by transforming it. 
   - identify good candidates for p and q using ACF and PACF
 - Estimation
   - fit the model to the data `model.fit()`
@@ -166,7 +166,7 @@ model1 = pm.auto_arima(df,
                       suppress_warnings=True)
 ```
 
-# Saving and Loading and Updating the Model
+### Saving and Loading and Updating the Model
 ```python
 import joblib  # similar to pickle
 
@@ -180,3 +180,9 @@ loaded_model = joblib.load('model.pkl')
 # if the data is significant, we should redo the model
 loaded_model.update(df_new)
 ```
+
+### Making Data Staionary
+- If we take differences, we shouldn't overdo it. Rule of thumb: `D <= 1` and `d + D <= 2`.
+- If the seasonality is multiplicative, i.e. the oscillation range increases with time, we should take the log first, to make it additive:
+
+![seasonality](../Media/multiplicative_additive_seasonality.png)
