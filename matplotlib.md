@@ -18,11 +18,17 @@ ax.axhspan(6, 8, color='green', alpha=0.3)  # horizontal region
 
 df.plot(subplots=True, sharex=True, sharey=False, layout=(2,2))
 ```
-Plotting multiple dataframes in one plot
+Plotting multiple dataframes in one plot, but not on top of each other
 ```python
-fig, ax = plt.subplots()
+# minimal
+fig, axs = plt.subplots()
 df1.plot(ax=ax)
 df2.plot(ax=ax)
+
+# more options
+fig, axs = plt.subplots(2, 1, figsize=(5,10))
+df1.plot(y='df1_col_name', ax=axs[0])
+df2.plot(y='df2_col_name', ax=axs[1])
 ```
 Alternatively we can concatenate the df's and then plot.
 
