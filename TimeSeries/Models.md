@@ -52,6 +52,8 @@ model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tells the model
 ```
 We use the Dicky-Fuller test to find the best value for d. We start by 0 and increment, and choose the first value that gives good result. We don't want to overfit.
 
+Cumulative Sum (`np.cumsum`) is the opossite of differencing (in case we want to do this manually).
+
 ### Criteria for Choosing the model
 - Plot ACF and PACF and choose the model based on the results
 ```python
