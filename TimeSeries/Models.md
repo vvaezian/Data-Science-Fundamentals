@@ -188,3 +188,54 @@ loaded_model.update(df_new)
 - If the seasonality is multiplicative, i.e. the oscillation range increases with time, we should take the log first, to make it additive:
 
 ![seasonality](../Media/multiplicative_additive_seasonality.png)
+
+### Final Example
+```python
+# Import model class
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+# Create model object
+model = SARIMAX(co2, 
+                order=(1, 1, 1),  
+                seasonal_order=(0, 1, 1, 12), 
+                trend='c')
+# Fit model
+results = model.fit()
+
+# Plot common diagnostics
+results.plot_diagnostics()
+plt.show()
+
+# Create forecast object
+forecast_object = results.get_forecast(steps=136)
+
+# Extract predicted mean attribute
+mean = forecast_object.predicted_mean
+
+# Calculate the confidence intervals
+conf_int = forecast_object.conf_int()
+
+# Extract the forecast dates
+dates = mean.index
+
+plt.figure()
+
+# Plot past CO2 levels
+plt.plot(co2.index, co2, label='past')
+
+# Plot the prediction means as line
+plt.plot(dates, mean, label='predicted')
+
+# Shade between the confidence intervals
+plt.fill_between(dates, conf_int.iloc[:,0], conf_int.iloc[:,1], alpha=0.2)
+
+# Plot legend and show figure
+plt.legend()
+plt.show()
+
+# Print last predicted mean
+print(mean.iloc[-1])
+
+# Print last confidence interval
+print(conf_int.iloc[-1])
+```
