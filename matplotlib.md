@@ -27,8 +27,8 @@ df2.plot(ax=ax)
 
 # more options
 fig, axs = plt.subplots(2, 1, figsize=(5,10))
-df1.plot(y='df1_col_name', ax=axs[0])
-df2.plot(y='df2_col_name', ax=axs[1])
+df1.plot(x='col_x1', y='col_y1', ax=axs[0])
+df2.plot(x='col_x2', y='col_y2', ax=axs[1])
 ```
 Alternatively we can concatenate the df's and then plot.
 
