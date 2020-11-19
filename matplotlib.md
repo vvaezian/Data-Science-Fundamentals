@@ -15,10 +15,12 @@ ax.axvline('1939-01-01', color='red', linestyle='--')  # vertical line
 ax.axhline(4, color='green', linestyle='--')  # horizontal line
 ax.axvspan('1900-01-01', '1915-01-01', color='red', alpha=0.3)  # vertical region
 ax.axhspan(6, 8, color='green', alpha=0.3)  # horizontal region
-
-df.plot(subplots=True, sharex=True, sharey=False, layout=(2,2))
 ```
 Plotting multiple dataframes in one plot, but not on top of each other
+```python
+df.plot(subplots=True, sharex=True, sharey=False, layout=(2,2))
+```
+or
 ```python
 # minimal
 fig, axs = plt.subplots()
