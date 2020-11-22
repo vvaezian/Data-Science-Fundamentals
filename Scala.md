@@ -1,4 +1,4 @@
-- Scala combines object-oriented and functional programming. It's style is a hybrid of functional and imperative programming, with the functioanl style preferred.
+- Scala combines object-oriented and functional programming. Its style is a hybrid of functional and imperative programming, with the functioanl style preferred.
 - Scala code is first compiled to Java byte codes, then run on a JVM
 
 ```scala
