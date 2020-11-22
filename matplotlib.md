@@ -46,3 +46,13 @@ df.plot(kind='density')
 Beyond the whiskers, data are considered outliers and are plotted as individual points.  
 Set `whis='range'` to force the whiskers to be the min and max of the data.  
 Set `whis` to an ascending sequence of percentile (e.g., `[5, 95]`) to set the whiskers at specific percentiles of the data
+
+#### CountPlot
+```python
+# Demacrat-republican classification example
+# since all the features in this example are binary, countplot works better
+plt.figure()
+sns.countplot(x='predictor_col', hue='target_col', data=df, palette='RdBu') # RdBU means: red blue
+plt.xticks([0, 1], ['No', 'Yes'])  # mapping 0, 1 to 'No', 'Yes'
+plt.show()
+```
