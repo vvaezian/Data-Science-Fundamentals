@@ -64,6 +64,7 @@ if (a > 10)
   println(a)
 else
   println("No")
+  
 if (a > 10) {  // if the are more than one statement we have to to use curly braces
   println(a)
   println("yes")
