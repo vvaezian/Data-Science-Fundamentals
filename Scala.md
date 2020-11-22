@@ -27,7 +27,7 @@ If we include the `return`, specifying the return type of the function becomes n
 ```scala
 val a: Array[Int] = new Array[Int](2)  // Array(0, 0) 
                                        // use the type 'Any' to be able to use elements of mixed types in the array
-a(0) = 5  # parathesis is used instead of square brackets as is Java and Python
+a(0) = 5  # parathesis is used instead of square brackets (as in Java and Python)
 a(1) = 6
 ```
 Shorthand: `val b = Array(12, 10, 8)`  
