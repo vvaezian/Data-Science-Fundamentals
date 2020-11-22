@@ -95,7 +95,7 @@ vec_assembler = VectorAssembler(inputCols=["col1", "col2", "col3"], outputCol="f
 from  pyspark.ml import Pipeline
 pipe = Pipeline(stages=[col1_indexer, col1_encoder, col2_indexer, col2_encoder, vec_assembler])
 ```
-**Fit** and **transoform**
+**Fit** and **transform**
 ```python
 piped_data = pipe.fit(model_data).transform(model_data)
 ```
