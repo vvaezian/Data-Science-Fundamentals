@@ -15,7 +15,7 @@ Common Types for data-related tasks: `Double`, `Int`, `Boolean`, `String`
 
 ### Functions
 ```scala
-def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not necessary
+def myFunc(param1: Int, param2: Int): Int = {  // the ": Int " part is not necessary, unless we include the 'return' statement
   if (param1 > param2) param1
   else param2
 }
