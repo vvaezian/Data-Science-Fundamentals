@@ -36,7 +36,7 @@ Spark DataFrames are **immutable**
 ```python
 spark_df = spark.table("test_table")  # using data already in the cluster
 spark_df = spark_df.withColumn("col1", spark_df.col1 - 1)  # deducting 1 from all elements of the column "col1"
-spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new column constricted from an existing column
+spark_df = spark_df.withColumn("newCol", spark_df.col2 / 60)  # adding a new column constructed from an existing column
 spark_df = spark_df.withColumnRenamed("OldColName", "NewColName")  # rename a column
 ```
 **Filtering** the data (equivalent of "where" clause). Both of the following return the same result
