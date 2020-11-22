@@ -24,7 +24,7 @@ np.dot(m1, m2)                          # matrix multiplication, or vector dot p
 np.multiply(m1, m2)                     # element-wise multiplication
 arr = np.random.randint(10, size=(3, 4))  # Two-dimensional array
 ````
-### Array Slicing ###
+#### Array Slicing
 ````Python
 arr[rowStart:rowEnd:step, colStart:colEnd:step]
 ````
@@ -39,7 +39,7 @@ This is useful when working with large datasets. To avoid this we can use arr.co
 subArr = arr[:2, :2]
 subArrCopy = arr[:2, :2].copy()
 ````
-### Concatenate and Split ###
+#### Concatenate and Split
 ````Python
 x = np.array([1, 2, 3])
 y = np.array([4, 5, 6])
