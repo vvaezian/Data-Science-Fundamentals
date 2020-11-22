@@ -71,7 +71,7 @@ If table1 has columns A, B and table2 has columns A, C, the following results in
 joined_tables = table1.join(table2, on="common_col", how="leftouter")
 ```
 
-When we imported data, Spark guesses **column type**, but this is not seemless. So we need to check and `cast` to the right type.
+When we import data, Spark guesses **column type**, but this is not seemless. So we need to check and `cast` to the right type.
 ```python
 spark_df.dtypes
 ```
