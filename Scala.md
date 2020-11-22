@@ -3,7 +3,7 @@
 
 ```scala
 print("Hello World")  // use double-quotes for strings
-                      // use 'println` to inser a new line at the end
+                      // use 'println` to insert a new line at the end
 ```
 There are two types of variables: `var` (mutable), `val` (immutable):
 ```scala
