@@ -37,7 +37,7 @@ While the array elements can change, to make the array itself immutable we shoul
 var b = Array(0, 1)  // we use var to be able to reassign values to b, but Scala suggests using val and creating new variables instead of re-assigning.
 b.foreach(println)  // print values of the array. This can be done with a loop as well (imperative).
 b = b :+ 3  // appending
-b = 2 +: b // prepending
+b = 2 +: b  // prepending
 b = b ++ Array(1, 2) 
 b.length  // length of array
 ```
