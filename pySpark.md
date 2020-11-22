@@ -3,7 +3,7 @@
 - Run pyspark file from Powershell (doesn't work in Git-Bash): `spark-submit .\pySpark_test.py`
 - Spark DataFrame is an abstraction on top of RDDs which are hard to work with directly.
 - **SparkSession:** Provides a single point of entry to interact with underlying Spark functionality and allows programming Spark with Dataframe and Dataset APIs. 
-- **SparkContext:** Main entry point for Spark functionality. It's used to interact with Low-Level API (create RDDs, accumulators and broadcast variables on the cluster). Before Spark 2, we had to create different contexts for working with different APIs (SQL, HIVE, Streamin). But now we can get SparkContext from SparkSession.
+- **SparkContext:** Main entry point for Spark functionality. It's used to interact with Low-Level API (create RDDs, accumulators and broadcast variables on the cluster). Before Spark 2, we had to create different contexts for working with different APIs (SQL, HIVE, Streaming). But now we can get SparkContext from SparkSession.
 
 ```python
 from pyspark.sql import SparkSession
