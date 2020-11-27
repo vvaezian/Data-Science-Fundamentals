@@ -56,3 +56,7 @@ sns.countplot(x='predictor_col', hue='target_col', data=df, palette='RdBu') # Rd
 plt.xticks([0, 1], ['No', 'Yes'])  # mapping 0, 1 to 'No', 'Yes'
 plt.show()
 ```
+### Colormap (useful for timeseries)
+```python
+df.plot.scatter('A', 'B', c=df.index, cmap=plt.cm.viridis, colorbar=False)  # it doesn't have to be scatterplot
+```
