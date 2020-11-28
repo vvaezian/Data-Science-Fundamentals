@@ -1,3 +1,36 @@
+
+```python
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(20,10))	# change the size of plot. Also fig.set_size_inches(10,5)
+plt.axis([x_start, x_end, y_start, y_end])
+plt.xticks(tick_list)
+plt.xlabel("x_Label")
+plt.ylabel("y_label")
+plt.title("Title")
+plt.legend(loc=9)  # assuming 'label' is defined. 9 means top-center
+plt.grid(True)  # more options: plt.grid(color='r', linestyle='-.', linewidth=2)
+plt.show()
+```
+
+### Annotation
+```python
+x_list = [...]
+y_list = [...]
+labels = [...]
+
+plt.scatter(x_list, y_list)
+
+# label each point
+for label, x_item, y_item in zip(labels, x_list, y_list):
+    plt.annotate(label,
+        xy=(x_item, y_item),  # put the label with its point
+        xytext=(5, -10),  # but slightly offset
+        textcoords='offset points')
+
+# full list of arguments can be found <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.annotate.html">here</a>.
+```
+
 #### Styles
 ```python
 plt.style.available  # lists all styles
@@ -40,6 +73,26 @@ df.plot(kind='hist'[, bins=10, subplots=True])  # histogram. This is better than
 # density plots are like a smoother version of histograms
 df.plot(kind='density')
 ```
+
+#### Line Chart
+```python
+plt.plot(x_list, y_list, color='green', marker='o', linestyle='solid', label='my_label', linewidth=2)  
+# The arguments color/marker/linestyle can be shortened, e.g. 'go-'. 
+# full list of arguments can be found <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html">here</a>.
+```
+```python
+#### Bar Chart
+plt.bar(x_list, y_list, bar_width)
+# full list of arguments can be found <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html">here</a>.
+```
+#### Scatterplot
+```python
+plt.scatter(x_list, y_list,
+		s=30, 		# marker size 
+		alpha=.65,  	# alpha helps to show overlapping data
+		color='b')
+```
+
 #### Boxplot (AKA box and whisker plot)  
 - The box extends from the lower to upper quartile values of the data, with a line at the median. 
 - Let IQR be the interquartile range (Q3-Q1). The upper whisker will extend to the biggest data point less than `Q3 + whis*IQR` (`whis=1.5` by default). Similarly, the lower whisker will extend to the smallest data point greater than `Q1 - whis*IQR`.  
@@ -60,3 +113,4 @@ plt.show()
 ```python
 df.plot.scatter('A', 'B', c=df.index, cmap=plt.cm.viridis, colorbar=False)  # it doesn't have to be scatterplot
 ```
+
