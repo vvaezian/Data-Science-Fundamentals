@@ -11,6 +11,9 @@ plt.title("Title")
 plt.legend(loc=9)  # assuming 'label' is defined. 9 means top-center
 plt.grid(True)  # more options: plt.grid(color='r', linestyle='-.', linewidth=2)
 plt.show()
+
+plt.axis("scaled")  # Equal scaling by changing box dimensions
+# full list of arguments can be found <a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.axis.html#matplotlib.axes.Axes.axis">here</a>.
 ```
 
 ### Annotation
@@ -114,3 +117,13 @@ plt.show()
 df.plot.scatter('A', 'B', c=df.index, cmap=plt.cm.viridis, colorbar=False)  # it doesn't have to be scatterplot
 ```
 
+### Contours 
+Contours are used to visualize 3D plot in 2D
+```python
+x = np.arange(0, 1, 0.1)
+y = np.arange(0, 1, 0.1)
+xx, yy = np.meshgrid(x, y, sparse=True)
+z = xx + yy
+c = plt.contour(x, y, z) # representing a 3-dimensional surface by plotting constant z slices, called contours, on a 2-dimensional format.
+plt.clabel(c, inline=1, fontsize=10)
+```
