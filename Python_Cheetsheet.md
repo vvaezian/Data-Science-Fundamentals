@@ -403,7 +403,7 @@ from bs4 import BeautifulSoup
 res = requests.get(url)
 soup = BeautifulSoup(res.text)
 print(soup.prettify())
-divs = soup.find_all('div', class_='myclass')
+divs = soup.find_all('div', {'class':'test'})  # for multiple classes use a list ['test1', 'test2']
 divs[3].get('href')
 ```
 The package <a href="https://newspaper.readthedocs.io/en/latest/" > newspaper </a> may be helpful for some use-cases.
