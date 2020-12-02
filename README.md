@@ -1,10 +1,11 @@
 **The material is for my personal use and I don't take credit for the material.*
 
-source: Mind Design II (1997)
+Mind Design II (1997)  
 - Chess is *digital* but billiard is not. (p 10)
 - We measure the intelligence of a system by its ability to achieve stated ends in the face of variations, difficulties, and complexities posed by the task environment. (p 83)
+- Neurons operate in the timescale of miliseconds, whereas computer componenets  operate in the time scale of nanoseconds--a factor of 10^6 faster. This means that human processes that take of the order of a second or less can involve only a hundred or so timesteps (p 207).
 
-source: Andrew Ng's talk
+Andrew Ng's talk  
 #### Workflow
 1. Work on reducing the training error, until it is in an acceptable range.
   - If training error is high (compared to the acceptable error (e.g. human error)) then the model has high bias.  
