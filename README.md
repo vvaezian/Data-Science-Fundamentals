@@ -5,6 +5,8 @@ Mind Design II (1997)
 - We measure the intelligence of a system by its ability to achieve stated ends in the face of variations, difficulties, and complexities posed by the task environment. (p 83)
 - Neurons operate in the timescale of miliseconds, whereas computer componenets  operate in the time scale of nanoseconds--a factor of 10^6 faster. This means that human processes that take of the order of a second or less can involve only a hundred or so timesteps (p 207).
 
+-----------------
+
 Andrew Ng's talk  
 #### Workflow
 1. Work on reducing the training error, until it is in an acceptable range.
