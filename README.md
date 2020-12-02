@@ -4,7 +4,7 @@ Mind Design II (1997)
 - Chess is *digital* but billiard is not. (p 10)
 - We measure the intelligence of a system by its ability to achieve stated ends in the face of variations, difficulties, and complexities posed by the task environment. (p 83)
 - Neurons operate in the timescale of miliseconds, whereas computer componenets  operate in the time scale of nanoseconds--a factor of 10^6 faster. This means that human processes that take of the order of a second or less can involve only a hundred or so timesteps (p 207). ... Given that the processes we seek to characterize are often quite complex and may involve considerations of large numbers of simultanous constraints, our algorithms *must* involve considerable parallelism.
-
+- From conventional programmable computers we are used to thinking of knowledge  as being stored in the states of certain units in the system [e.g. RAM]. In our systems [i.e. connectionist approach] we assume that only very short-term storage can occur in the states of units; long-term storage takes place in the connections among units.
 -----------------
 
 Andrew Ng's talk  
