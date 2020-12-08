@@ -16,7 +16,7 @@ TODO: In the following function exclude the data point itself from the calculati
 ```python
 def replace_outliers(series):
     # Calculate the absolute difference of each timepoint from the series mean
-    abso_diff_from_mean = np.abs(series - np.mean(series))
+    abs_diff_from_mean = np.abs(series - np.mean(series))
 
     # Calculate a mask for the differences that are > 3 standard deviations from the mean
     mask = abs_diff_from_mean > (np.std(series) * 3)
