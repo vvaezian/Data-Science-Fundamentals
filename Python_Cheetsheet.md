@@ -264,7 +264,7 @@ The first example above can be written as follows
 foo = (i for i in xrange(2))
 ```
 
-## Input
+## File Operations
 ```python
 with open('pathToFile', [option]) as f:
   fl = f.readlines()
@@ -276,10 +276,6 @@ X1, ..., Xn = zip(*data)
 `f.readlines()` turns f into a list of strings, each item of list is one line of f (defined by '\n')  
 `f.read()` turns f into one string  
 `f.readline()` reads the first line as a string
-
-```pythonguess = 50
-x = raw_input('Is your number ' + str(guess) + '?' + '\n Enter \'Yes\' or \'No\': ')
-```
 
 ## Copy
 <a href="https://stackoverflow.com/a/3975388/2445273">This</a> explains the difference between reference assignment, shallow copying and deep copying.  
