@@ -2,7 +2,7 @@
 ```python
 import matplotlib.pyplot as plt
 
-plt.figure(figsize=(20,10))	# change the size of plot. Also fig.set_size_inches(10,5)
+plt.rcParams["figure.figsize"] = 20,10 # change the size of plot
 plt.axis([x_start, x_end, y_start, y_end])
 plt.xticks(tick_list)
 plt.xlabel("x_Label")
