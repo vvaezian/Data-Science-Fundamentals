@@ -101,15 +101,23 @@ We can plot a specific chart by `decomposition.x` where x in `['trend', 'season'
 
 ### Window functions 
 ```python
-# .rolling()
-# moving average:
-data.col.rolling(window='30D').mean()  # .rolling has the 'min_periods' option: Minimum number of observations in window required to have a value
-q10 = data.col.rolling.quantile(0.1).to_frame('q10')  # if we are adding to a df, we don't need the to_frame() call (e.g. data['q10'] = ...
-median = rolling.median().to_frame('median')
-q90 = data.col.rolling.quantile(0.9).to_frame('q90')
-pd.concat(['q10','median','q90'], axis=1).plot()
+### .rolling()
+data.col.rolling(window=5).mean()  
+   # .rolling() has the 'min_periods' option: Minimum number of observations in window required to have a value
+   # If we apply the rolling() to a df, it gets applied to all columns
 
-# .expanding 
+# We can calculate multiple measures at once:
+rolling_window = df.rolling(5)
+df_features = rolling_window.agg([np.mean, max, min])
+
+# for calculating percentiles we need to first make functions for different percentiles and pass them to the agg function
+from functools import partial
+percentile_funcs = { i:partial(np.percentile, q=i) for i in [10, 20, 30] }  
+   # we provide a dict of <label:function> so that when we plot the result, they are not all called 'percentile'
+   # we use `partial` to make new functions from np.percentile with different values of q.
+res = rolling_window.agg(percentile_funcs)
+
+### .expanding 
 df.col.expanding.sum()  # same as df.col.cumsum()
 df.col.expanding.max()  # running maximum
 ```
