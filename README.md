@@ -1,5 +1,21 @@
 **The material is for my personal use and I don't take credit for the material.*
 
+ML interview Questions
+
+- Cross val
+- Shallow vs deep copy
+- Clustering (k means?)
+- Graph (find overfitting)
+- Deep vs shallow layers (what each detect)
+- Pretrained model
+- Regularization
+- Is 98% accuracy good in (10000 a 500 b)?
+- Cnn difference with others
+- False positive and false negative
+- Accuracy, precision, recall
+
+-------------------------------------
+
 Mind Design II (1997)  
 - Chess is *digital* but billiard is not. (p 10)
 - We measure the intelligence of a system by its ability to achieve stated ends in the face of variations, difficulties, and complexities posed by the task environment. (p 83)
