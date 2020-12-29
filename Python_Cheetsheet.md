@@ -386,6 +386,10 @@ try:
     extracted_pattern = re.search('AAA(.+?)ZZZ', text).group(1)  # equivalent of perl -pe 's/AAA(.+?)ZZZ/\1/' test
 except AttributeError:
     extracted_pattern = ''
+    
+# Split my_str on spaces
+re.split(r"\s+", my_str)
+
 ```
 Matching the part that starts with an space followed by / (without including the space in the result) until a space 
 (without including the space):
