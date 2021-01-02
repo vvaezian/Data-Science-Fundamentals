@@ -444,3 +444,5 @@ sh.echo('This is cool!')
 
 - Command-line arguments
 `sys.argv` is the list of command-line arguments. So <samp>sys.argv[0]</samp> is the name of the program itself.
+
+- `tqdm`: `from tqdm import tqdm` (for Notebooks: `from tqdm.notebook import tqdm`
