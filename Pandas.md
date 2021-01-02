@@ -42,7 +42,7 @@ df.loc[index_values_list, columns_list]
 
 ### value-based:
 df.loc[[boolean expression to restrict rows], [list of columns to return]]
-df.loc[df.myCol=='ldb', df.columns]
+df.loc[(df.myCol == 'a') & (df.myCol2 == 'b'), df.columns]
 
 # to show rows that don't have null in a specific column:
 df.loc[ df.myCol.notnull(), df.columns ]
