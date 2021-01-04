@@ -23,6 +23,8 @@ Mind Design II (1997)
 - From conventional programmable computers we are used to thinking of knowledge as being stored in the states of certain units in the system [e.g. RAM or Hard Drive]. In our systems [i.e. connectionist approach] we assume that only very short-term storage can occur in the states of units; long-term storage takes place in the connections among units. ... almost all the knowledge is *implicit* in the structure of the device that carries out the task, rather than *explicit* in the states of units themselves.  
 Knowledge is not directly accessible to interpretation by some separate processor, but it is built into the processor itself and directly determines the course of perocessing. It is acquired through tuning of connections, as they are used in prcessing, rather than formulated and stored as declarative facts. (p 208)
 - The number of connections going out of a neuron or coming into a neuron can range up to 100,000 in some parts of the brain.
+- {re-read section 1.2 p237 and 1.3 about subsymbolic paradigm}  
+In the symbolic approach, symbols(atoms) are used to denote the semantically interpretable entities (concepts); those same symbols are the objects governed by symbol manipulation in the rules that define the system. [In other Words] The entities which are semantically interpretable are *also* the entities governed by the formal laws that define the system. In the subsymbolic paradigm, this is no longer true. The semantically interpretable entities are *patterns of activation* over large number of units in the system, whereas the entities manipulated by formal rules are the individual activations of cells in the network. (p. 239)
 -----------------
 
 Andrew Ng's talk  
