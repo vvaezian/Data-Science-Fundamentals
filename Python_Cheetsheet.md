@@ -378,7 +378,7 @@ msg = "hi, this is a test"
 re.findall('.*s', msg)[0]  # ['hi, this is a tes']
 re.findall('.*?s', msg)[0]  # ['hi, this', ' is', ' a tes']  non-greedy search
 re.findall('\w+', msg)[0]  # ['hi', 'this', 'is', 'a', 'test'] \w = [A-Za-z0-9_]
-# if it doesn't match anything returns None. So it can be used in conditionals
+# Return the first match. If it doesn't match anything, returns None. So it can be used in conditionals
 re.match('.*"(.*),(.*).*"', row)  
 # refer to matched groups using \g<n> (\n also works but is ambiguous when number is in the text) 
 re.sub('(.*)abc(.*)"', '"\g<1>\g<2>"', row)  
