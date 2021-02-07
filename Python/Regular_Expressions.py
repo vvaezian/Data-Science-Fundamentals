@@ -27,3 +27,9 @@ re.split(r"\s+", my_str)
 
 # Matching the part that starts with an space followed by / (without including the space in the result) until a space (without including the space):
 re.findall('(?<=\s)/[^\s]*', log_msg)[0] # ?<= is called 'lookahead'
+
+
+re.match('ab', 'abcde')  # <re.Match object; span=(0, 2), match='ab'>
+re.search('ab', 'abcde')  # <re.Match object; span=(0, 2), match='ab'>
+re.match('cd', 'abcde')  # None
+re.search('cd', 'abcde')  # <re.Match object; span=(2, 4), match='cd'>
