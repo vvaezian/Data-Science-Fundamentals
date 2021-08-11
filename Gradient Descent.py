@@ -12,10 +12,12 @@ with open('...') as f:
 data = [ eval(line.rstrip('\n')) for line in d ]
 X, Y = zip(*data)
 
+
 def step(w, direction, step_size):
   """move step_size in the direction from p"""
   return [w_i + step_size * direction_i
           for w_i, direction_i in zip(w, direction)]
+
 
 def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   """
@@ -58,8 +60,14 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
       plt.plot(xs, ys, color='green')
       plt.show()
       
+      
 def f_x(coefs, x):
   return coefs[0] + coefs[1] * x 
+
+
+def calc_mae(w):
+  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ])/len(data)
+
 
 def error(w):
   # y(x, w) = w0 + w1*x
@@ -68,11 +76,13 @@ def error(w):
   return sum((f_x(w, item[0]) - item[1]) ** 2
              for item in data)
 
+
 def error_grad(w):
   # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = [Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
   return [sum((w[0] + w[1] * item[0] - item[1]) for item in data) / len(data),
           sum((w[0] + w[1] * item[0] - item[1]) * item[0] for item in data) / len(data)]
+
 
 all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad,
                                                              [random.uniform(0, 1000),
