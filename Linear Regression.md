@@ -11,5 +11,5 @@ import pandas as pd
 pd.ols(y,x)
 
 from scipy import stats
-stats.linregres(x,y)
+stats.linregress(x,y)
 ```
