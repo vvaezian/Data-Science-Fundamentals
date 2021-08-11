@@ -5,7 +5,7 @@ import numpy as np
 np.polyfit(x, y, deg=3)  # deprecated in favor of the next one
 
 from numpy.polynomial import Polynomial
-Polynomial.fit(X, Y, deg=3)
+p = Polynomial.fit(X, Y, deg=3, domain=[X[0], X[-1]])
 
 from scipy import stats
 stats.linregress(x,y)
