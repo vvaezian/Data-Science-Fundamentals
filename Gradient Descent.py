@@ -29,7 +29,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   w = w_0  # initial guess for weights
   ws = [w_0]  # list containing all weights
   step_size = -0.000001  # to minimize, move towards opposite of gradient
-  errs = [error(w_0)]  # list containing all squared errors
+  errs = [target_fn(w_0)]  # list containing all squared errors
   mae = calc_mae(w_0)  
   MAE_errs = [mae]  # list containing all MAE errors
   grads = []  # list containing all gradients
@@ -45,7 +45,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
     grads.append(gradient)
     next_w = step(w, gradient, step_size)
     ws.append(next_w)
-    errs.append(error(next_w))
+    errs.append(target_fn(next_w))
     next_mae = calc_mae(next_w)
     MAE_errs.append(next_mae)
     
