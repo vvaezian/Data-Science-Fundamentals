@@ -28,7 +28,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   
   w = w_0  # initial guess for weights
   ws = [w_0]  # list containing all weights
-  step_size = -0.000001  # to minimize, move towards opposite of gradient
+  step_size = -0.0000000000001  # to minimize, move towards opposite of gradient
   errs = [target_fn(w_0)]  # list containing all squared errors
   mae = calc_mae(w_0)  
   MAE_errs = [mae]  # list containing all MAE errors
@@ -63,30 +63,32 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
       
       
 def f_x(coefs, x):
-  return coefs[0] + coefs[1] * x 
+  #coefs[0] + coefs[1] * x + coefs[2] * x**2 + coefs[3] * x**3
+  return sum([ coefs[0] * x**d for d in range(deg + 1) ])
 
 
 def calc_mae(w):
-  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ])/len(data)
+  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ]) / len(data)
 
 
 def error(w):
   # y(x, w) = w0 + w1*x
   # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2  (the 1/2 coefficient is for making the math simple and it's not important)
-  return sum((f_x(w, item[0]) - item[1]) ** 2
-             for item in data)
+  return sum( (f_x(w, item[0]) - item[1]) ** 2 for item in data )
 
 
 def error_grad(w):
   # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = [Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
-  return [sum((f_x(w, item[0]) - item[1]) for item in data) / len(data),
-          sum((f_x(w, item[0]) - item[1]) * item[0] for item in data) / len(data)]
+  
+  return [ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
+#        [  sum((f_x(w, item[0]) - item[1])                for item in data),
+#           sum((f_x(w, item[0]) - item[1]) * item[0]      for item in data),
+#           sum((f_x(w, item[0]) - item[1]) * item[0] ** 2 for item in data),
+#           sum((f_x(w, item[0]) - item[1]) * item[0] ** 3 for item in data)]
 
-
-all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad,
-                                                             [random.uniform(0, 1000),
-                                                              random.uniform(-10, 10)])
+deg = 4
+all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad, [random.uniform(-1000, 1000) for _ in range(deg + 1) ])
 print('# of Iterations: {}'.format(len(all_mae)))
 print('Last MAE: {}'.format(all_mae[-1]))
 for i in zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]):
