@@ -79,8 +79,8 @@ def error(w):
 def error_grad(w):
   # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = [Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
-  return [sum((w[0] + w[1] * item[0] - item[1]) for item in data) / len(data),
-          sum((w[0] + w[1] * item[0] - item[1]) * item[0] for item in data) / len(data)]
+  return [sum((f_x(w, item[0]) - item[1]) for item in data) / len(data),
+          sum((f_x(w, item[0]) - item[1]) * item[0] for item in data) / len(data)]
 
 
 all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad,
