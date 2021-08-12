@@ -71,8 +71,7 @@ def calc_mae(w):
 
 def error(w):
   # y(x, w) = w0 + w1*x
-  # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2
-  # the 1/2 coefficient is for making the math simple and not important
+  # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2  (the 1/2 coefficient is for making the math simple and it's not important)
   return sum((f_x(w, item[0]) - item[1]) ** 2
              for item in data)
 
