@@ -8,11 +8,25 @@ from IPython.display import clear_output
 import random
 import numpy as np
 
-with open('...') as f:
-  d = f.readlines()[1:]  # [1:] to exclude header
-data = [ eval(line.rstrip('\n')) for line in d ]
-X, Y = zip(*data)
+# with open('...') as f:
+#   d = f.readlines()[1:]  # [1:] to exclude header
+# data = [ eval(line.rstrip('\n')) for line in d ]
+# X, Y = zip(*data)
 
+data = [(5.0, 5582.42),
+ (16.0, 3864.75),
+ (29.5, 3588.7),
+ (45.0, 2955.4),
+ (63.5, 2512.09),
+ (87.0, 1860.81),
+ (120.0, 1288.25),
+ (176.0, 688.24),
+ (285.0, 346.5),
+ (696.0, 74.21),
+ (1000, 0.01),
+ (1200, -10)]
+
+X, Y = zip(*data)
 
 def step(w, direction, step_size):
   """move step_size in the direction from p"""
