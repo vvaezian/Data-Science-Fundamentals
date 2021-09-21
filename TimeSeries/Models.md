@@ -99,8 +99,8 @@ mae = np.mean(np.abs(residuals))
 results.plot_diagnostics()  # generates four plots to see if residuals are white noise 
 ```
 In the `results.summary()` output:
-- `Prob(Q)`: p-value for null hypothesis that residuals are uncorrelated
-- `Prob(JB)`: p-value for null hypothesis that residuals are Gaussian
+- `Prob(Q)`: p-value for null hypothesis that residuals are uncorrelated.
+- `Prob(JB)`: p-value for null hypothesis that residuals are Gaussian.
 If they are less than 0.05, we can reject that hypothesis.
 
 ### Box - Jenkins Method
