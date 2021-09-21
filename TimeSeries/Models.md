@@ -139,8 +139,7 @@ model = SARIMAX(df, order=(p,d,q), seasonal_order=(P,D,Q,S))
 ```
 - If the process has trend we take the difference, as many times as needed. This gives us `d`. 
 - If the process has a seasonal component, we take the seasonal difference, as many times as needed. This gives us `D`.
-- After making the data stationary (the above two steps, and other transformations if needed).
-- To find P and Q, we plot acf and pacf for multiples of S. For example if `S=12`, then we plot for lags `[12, 24, 36, 48, 60]`.
+- After making the data stationary (the above two steps, and other transformations if needed), to find P and Q, we plot acf and pacf for multiples of S. For example if `S=12`, then we plot for lags `[12, 24, 36, 48, 60]`.
 
 ```python
 # Create SARIMA mean forecast
