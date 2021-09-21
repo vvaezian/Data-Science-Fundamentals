@@ -57,7 +57,7 @@ Cumulative Sum (`np.cumsum`) is the opossite of differencing (in case we want to
 ### Criteria for Choosing the model
 - Plot ACF and PACF and choose the model based on the results
 ```python
-fig, (ax1, ax2) = plt.subplots(2,1, figsize=(12,8))
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12,8))
 plot_acf(earthquake, lags=15, zero=False, ax=ax1)
 plot_pacf(earthquake, lags=15, zero=False, ax=ax2)
 ```
