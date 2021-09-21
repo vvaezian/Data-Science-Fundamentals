@@ -162,7 +162,7 @@ for p in range(7):
 ![bic](../Media/bic.png)
 
 ## MA Models
-- In and MA model we regress the values of a timeseries agaist the previous shock values (noise values) of the same timeeseries.
+- In an MA model we regress the values of a timeseries agaist the previous shock values (noise values) of the same timeeseries.
 - MA(1): `R_t = μ + e_t + θ * e_{t-1}` (mean + noise + last period's noise)
 - When `θ = 0` it becomes white noise.
 - MA models are stationary for all values of θ
