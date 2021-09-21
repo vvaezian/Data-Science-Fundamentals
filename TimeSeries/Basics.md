@@ -7,6 +7,7 @@ If the type of the date column is string we need to convert it first: `df.date =
 new_index = pd.date_range(start='2020', periods=12, freq='M')
 df.reindex(new_index)  # there is a 'method' option with possible values {None, ‘backfill’/’bfill’, ‘pad’/’ffill’, ‘nearest’}
                        # which determines how the null values should be treated (default None, i.e. don't change them)
+                       # frequencies: https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#anchored-offsets
 ```
 ### Timestamp
 ```python
