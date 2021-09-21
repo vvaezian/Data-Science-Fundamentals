@@ -50,7 +50,7 @@ To model non-stationary data we need to make it stationary (for example by takin
 ```python
 model = SARIMAX(df, order=(p, d, q))  # the value of parameter d tells the model how many times the diff should be applied.
 ```
-We use the Dicky-Fuller test to find the best value for d. We start by 0 and increment, and choose the first value that gives good result. We don't want to overfit.
+We use the Dicky-Fuller test to find the best value for d. We start by 0 and increment, and choose the first value that gives good result. We don't want to overfit though.
 
 Cumulative Sum (`np.cumsum`) is the opossite of differencing (in case we want to do this manually).
 
