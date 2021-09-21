@@ -66,7 +66,7 @@ plot_pacf(earthquake, lags=15, zero=False, ax=ax2)
 Note that in the third case, the values of p and q is not determined using the plots.
 
 So for detecting value of p in MA(p) models we can use acf but for AR models acf doesn't work and we need pacf.  
-The reason that acf doesn't work for AR models is that all previous values affect the current value (although the further back we go the effect decreases), because of the formulation of AR models. But in MA models only previous noises affect the current value which is negligible.
+The reason that acf doesn't work for AR models is that due to the formulation of AR models, all previous values affect the current value (although the further back we go the effect decreases). But in MA models only previous noises affect the current value which is negligible.
 
 - Using AIC and BIC
   - These penalize the complicated models, so prevent overfitting
