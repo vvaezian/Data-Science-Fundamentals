@@ -1,6 +1,6 @@
-# Gradient Descent on simplest linear model y(x, w) = w0 + w1*x1 + ... + wn*xn
+# Gradient Descent polynomial regression (e.g. 1 dimentional independent variable, degree 2 polynomial: y(x, w) = w0 + w1*x + w2*x**2)
 # we start with an initial guess for w
-# and update it by taking steps in opposite of the gradient of error function
+# and update it by taking steps in the direction of the gradient of error function (for maximization problem we take step toward the opposite of gradient).
 # The error function we use here is sum of squared errors
 
 from matplotlib import pyplot as plt
@@ -13,18 +13,24 @@ import numpy as np
 # data = [ eval(line.rstrip('\n')) for line in d ]
 # X, Y = zip(*data)
 
-data = [(5.0, 5582.42),
- (16.0, 3864.75),
- (29.5, 3588.7),
- (45.0, 2955.4),
- (63.5, 2512.09),
- (87.0, 1860.81),
- (120.0, 1288.25),
- (176.0, 688.24),
- (285.0, 346.5),
- (696.0, 74.21),
- (1000, 0.01),
- (1200, -10)]
+data = [
+        (5.0, 5582.42),
+        (16.0, 3864.75),
+        (29.5, 3588.7),
+        (45.0, 2955.4),
+        (63.5, 2512.09),
+        (87.0, 1860.81),
+        (120.0, 1288.25),
+        (176.0, 688.24),
+        (285.0, 346.5),
+        (696.0, 74.21),
+        (1000, 0.01),
+        (1200, -10)
+       ]
+
+#data = [ (x, (x - 5) ** 2 + random.uniform(-2, 2)) for x in range(11) ]
+data = [ (x, (x - 5) ** 2) for x in range(11) ]
+n = len(data)
 
 X, Y = zip(*data)
 
@@ -34,7 +40,7 @@ def step(w, direction, step_size):
           for w_i, direction_i in zip(w, direction)]
 
 
-def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
+def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.000000001):
   """
   use gradient descent to find theta that minimizes target function.
   tolerance: to stop the program if the pace of the improvement is less than this number
@@ -42,7 +48,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
   
   w = w_0  # initial guess for weights
   ws = [w_0]  # list containing all weights
-  step_size = -0.0000000000001  # to minimize, move towards opposite of gradient
+  step_size = -0.00007  # to minimize, move towards opposite of gradient
   errs = [target_fn(w_0)]  # list containing all squared errors
   mae = calc_mae(w_0)  
   MAE_errs = [mae]  # list containing all MAE errors
@@ -53,7 +59,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
 
   min_X = min(i[0] for i in data)
   max_X = max(i[0] for i in data)
-  
+  counter = 0
   while True:
     gradient = gradient_fn(w)
     grads.append(gradient)
@@ -67,22 +73,19 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.01):
       return (ws, MAE_errs, errs, grads)
     else:
       w, mae = next_w, next_mae  
-      # plot the fitted curve with the current weights
-      xs = np.linspace(min_X, max_X, 100)
-      ys = [ f_x(w, i) for i in xs ] 
-      clear_output(wait=True)  # to update the current plot
-      plt.scatter(X, Y)
-      plt.plot(xs, ys, color='green')
-      plt.show()
+      if counter % 10000 == 0:
+        # plot the fitted curve with the current weights
+        xs = np.linspace(min_X, max_X, 100)
+        ys = [ f_x(w, i) for i in xs ] 
+        clear_output(wait=True)  # to update the current plot
+        plt.scatter(X, Y)
+        plt.plot(xs, ys, color='green')
+        plt.show()
+      counter += 1
       
       
 def f_x(coefs, x):
-  #coefs[0] + coefs[1] * x + coefs[2] * x**2 + coefs[3] * x**3
-  return sum([ coefs[0] * x**d for d in range(deg + 1) ])
-
-
-def calc_mae(w):
-  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ]) / len(data)
+  return sum([ coefs[d] * x**d for d in range(deg + 1) ])
 
 
 def error(w):
@@ -96,14 +99,19 @@ def error_grad(w):
   # grad_error = [Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
   
   return [ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
-#        [  sum((f_x(w, item[0]) - item[1])                for item in data),
-#           sum((f_x(w, item[0]) - item[1]) * item[0]      for item in data),
-#           sum((f_x(w, item[0]) - item[1]) * item[0] ** 2 for item in data),
-#           sum((f_x(w, item[0]) - item[1]) * item[0] ** 3 for item in data)]
 
-deg = 4
-all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad, [random.uniform(-1000, 1000) for _ in range(deg + 1) ])
+
+def calc_mae(w):
+  return sum([ abs(f_x(w, i[0]) - i[1] ) for i in data ]) / len(data)
+
+
+deg = 2
+random_weights = [random.uniform(-30, 30) for _ in range(deg + 1)]
+#random_weights = [24, -9, 1]
+all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad, random_weights)
 print('# of Iterations: {}'.format(len(all_mae)))
+print('Random Initial Weights: ', random_weights) 
 print('Last MAE: {}'.format(all_mae[-1]))
-for i in zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]):
-  print(i)
+# for i in zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]):
+#   print(i)
+print(list(zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]))[-1])
