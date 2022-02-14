@@ -33,7 +33,7 @@ Visualizing Recall and precision
 
 ### Ensemble, bagging, boosting
 - Ensemble: Any method that uses multipe models for the task in hand. Example: Bagging, Boosting.
-- Bagging (Bootstrap Aggregating): Train multiple models *in parallel* (based on a porions of the data) and use majority vote (classification) or average (regression) of output of these models.  
+- Bagging (Bootstrap Aggregating): Train multiple models *in parallel* (based on a subset of columns) and use majority vote (classification) or average (regression) of output of these models.  
   - Example: Random Forest.  
   - The idea is that averaging reduces variance and leaves bias unchanged.
   - In randmon Forests if there are M input variables, m<<M variables are selected at random and the best split on these m is used to split the node. Increasing m on one hand insreases the correlation between any two trees in the forest which increases the total error, on the other hand decreases the error of each individual tree which decrease the total error. This is the only adjustable parameter.
