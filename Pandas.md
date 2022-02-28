@@ -10,6 +10,7 @@ reviews.region_1.fillna('Unknown').value_counts().sort_values(ascending=False)
 reviews.price.idxmax()  # index of the row with highest price
 reviews.rename({'col1_name':'new_col1_name', 'col2_name':'new_col2_name'}, axis=1)  # renameing columns
 reviews.rename_axis('wines')  # renaming index col
+reviews.isnull().sum() / reviews.count  # ratio of nulls
 
 # how many times 'tropical' appears in the description column:
 len(reviews.loc[reviews.description.str.contains('tropical')])  # or reviews.description.map(lambda desc: "tropical" in desc).sum()
