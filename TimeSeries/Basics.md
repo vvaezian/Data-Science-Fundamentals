@@ -120,7 +120,7 @@ percentile_funcs = { i:partial(np.percentile, q=i) for i in [10, 20, 30] }
    # we use `partial` to make new functions from np.percentile with different values of q.
 res = rolling_window.agg(percentile_funcs)
 
-### .expanding 
+### .expanding  # we can set min_periods
 df.col.expanding.sum()  # same as df.col.cumsum()
 df.col.expanding.max()  # running maximum
 ```
