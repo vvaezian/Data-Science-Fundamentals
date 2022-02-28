@@ -1,8 +1,38 @@
+### Kaggle Mini-course
+```python
+reviews[['country', 'province', 'region_1', 'region_2']].iloc[[0, 1, 10, 100]]
+reviews.loc[(reviews.points >= 95) & (reviews.country.isin(['Australia', 'New Zealand'])) ]
+reviews.country.unique()
+reviews.country.value_counts()
+reviews.price.idxmax()  # index of the row with highest price
+
+# how many times 'tropical' appears in the description column:
+len(reviews.loc[reviews.description.str.contains('tropical')])  # or reviews.description.map(lambda desc: "tropical" in desc).sum()
+
+# A score of 95 or higher counts as 3 stars, a score of at least 85 but less than 95 is 2 stars. Any other score is 1 star. Also, any wines from Canada should automatically get 3 stars, regardless of points.
+def transform_to_star_rating(row):
+    if row.country == 'Canada' or row.points >= 95:
+        return 3
+    elif row.points >= 85:
+        return 2
+    else:
+        return 1
+star_ratings = reviews.apply(transform_to_star_rating, axis='columns')
+
+reviews.groupby('col1').size()  #  or: reviews.groupby('col1').col1.count()
+                                # similar: reviews.col1.value_counts()
+                                
+reviews.groupby('price').points.max()  # SQL: select max(points) from reviews group by price
+```
+
+---------------------------------
+
 #### Creating DataFrames
 ````Python
-pd.DataFrame(np.random.random(12).reshape(3,4), columns=['A', 'B', 'C', 'D'])  # random data
 pd.DataFrame({'a':[True, False, True], 'b':[4, 5, 6], 'c':[7, 8, 9]})  # defining column by column
 pd.DataFrame([[True, 4, 7], [False, 5, 8], [True, 6, 9]], columns=['a', 'b', 'c'])  # defining row by row
+pd.DataFrame({'Apples':[1, 2], 'Bananas':[7, 5]}, index=['2017 Sales', '2018 Sales'])  # specifying index names
+pd.DataFrame(np.random.random(12).reshape(3,4), columns=['A', 'B', 'C', 'D'])  # random data
 
 x = np.arange(0,50)
 pd.DataFrame({'x':x})
