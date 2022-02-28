@@ -1,5 +1,7 @@
 ### Kaggle Mini-course
 ```python
+reviews.price.dtype
+reviews.price.astype('float64')  # for sting: .astype(str) 
 reviews[['country', 'province', 'region_1', 'region_2']].iloc[[0, 1, 10, 100]]
 reviews.loc[(reviews.points >= 95) & (reviews.country.isin(['Australia', 'New Zealand'])) ]
 reviews.country.unique()
@@ -19,10 +21,14 @@ def transform_to_star_rating(row):
         return 1
 star_ratings = reviews.apply(transform_to_star_rating, axis='columns')
 
-reviews.groupby('col1').size()  #  or: reviews.groupby('col1').col1.count()
+reviews.groupby('col1').size()  # SQL: selest count(*) from reviews group by col1
+                                # or: reviews.groupby('col1').col1.count()
                                 # similar: reviews.col1.value_counts()
-                                
-reviews.groupby('price').points.max()  # SQL: select max(points) from reviews group by price
+reviews.groupby('variety').points.max()  # SQL: select max(points) from reviews group by variety
+reviews.groupby('variety').points.agg([max, min])  # SQL: select max(points), min(points) from reviews group by variety
+reviews.groupby(['variety1', 'variety2']).points.max()  # SQL: select max(points) from reviews group by variety1, variety2
+
+reviews.region_1.fillna('Unknown').value_counts().sort_values(ascending=False)
 ```
 
 ---------------------------------
