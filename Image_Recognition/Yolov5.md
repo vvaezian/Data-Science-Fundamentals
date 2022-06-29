@@ -1,6 +1,6 @@
 ```
 # to see all the options, see detect.py
-python detect.py --conf-thres 0.01 --iou-thres 0.45 --source test_images --save-crop --project Results --agnostic-nms
+python detect.py --conf-thres 0.01 --iou-thres 0.15 --source test_images --save-crop --project Results --agnostic-nms
 ```
 - `iou_thres` (default 0.45) is NMS (Non Maximum Suppression) IOU (Intersetion over Union) threshold.  
 `IOU(Box1, Box2) = Intersection_Size(Box1, Box2) / Union_Size(Box1, Box2)`  
