@@ -1,5 +1,6 @@
 ```
-python detect.py --conf-thres 0.01 --iou-thres 0.2 --source test_images/rtd_on.jpg --save-crop --project ../SKU_Detection_From_Image/bounding_boxes
+# to see all the options, see detect.py
+python detect.py --conf-thres 0.01 --iou-thres 0.45 --source test_images --save-crop --project Results --agnostic-nms
 ```
 - `iou_thres` (default 0.45) is NMS (Non Maximum Suppression) IOU (Intersetion over Union) threshold.  
 `IOU(Box1, Box2) = Intersection_Size(Box1, Box2) / Union_Size(Box1, Box2)`  
