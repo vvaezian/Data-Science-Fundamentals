@@ -1,7 +1,7 @@
 ```
 python detect.py --conf-thres 0.01 --iou-thres 0.2 --source test_images/rtd_on.jpg --save-crop --project ../SKU_Detection_From_Image/bounding_boxes
 ```
-- `iou_thres` is NMS (Non Maximum Suppression) IOU (Intersetion over Union) threshold.  
+- `iou_thres` (default 0.45) is NMS (Non Maximum Suppression) IOU (Intersetion over Union) threshold.  
 `IOU(Box1, Box2) = Intersection_Size(Box1, Box2) / Union_Size(Box1, Box2)`  
 NMS Alg ([source](https://learnopencv.com/non-maximum-suppression-theory-and-implementation-in-pytorch/#:~:text=Non%20Maximum%20Suppression%20(NMS)%20is,arrive%20at%20the%20desired%20results.)):
   - Step 1: Select the prediction S with highest confidence score and remove it from P and add it to the final prediction list K. (K is empty initially).
