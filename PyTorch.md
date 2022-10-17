@@ -35,11 +35,25 @@ tensor[:,1] = 0  # sets the second column to zero
 t = torch.cat([t1, t2, t3], dim=1)
 
 # element-wise product
-t1.mul(t2)  # alternatively `t1 * t2`
+t1.mul(t2)  # alternatively, `t1 * t2`
 
 # matric multiplication
 t1.matmul(t2)  # alternatily, `t1 @ t2`
 
 # transpose
 t.T
+
+# In-place operations (their use is discouraged)
+# Operations that have a _ suffix are in-place. For example: x.copy_(y), x.t_(), will change x.
+```
+
+#### Remarks
+Tensors on the CPU and NumPy arrays can share their underlying memory locations, and changing one will change the other.
+```py
+t = torch.ones(5)
+n = t.numpy()
+t.add_(1)
+
+# t: tensor([2., 2., 2., 2., 2.])
+# n: [2. 2. 2. 2. 2.]
 ```
