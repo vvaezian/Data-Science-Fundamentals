@@ -22,7 +22,7 @@ x_rand = torch.rand_like(x_data, dtype=torch.float) # overrides the datatype of
 ```py
 tensor.shape
 tensor.dtype
-tensor.device  # cou/gpu/tpu
+tensor.device  # cpu/gpu/tpu
 ```
 
 #### Tensor Operations
