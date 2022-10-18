@@ -27,7 +27,7 @@ tensor.device  # cpu/gpu/tpu
 
 #### Tensor Operations
 ```py
-# numpi-like indexing and slicing
+# numpy-like indexing and slicing
 tensor = torch.ones(4, 4)
 tensor[:,1] = 0  # sets the second column to zero
 
