@@ -8,4 +8,4 @@ stats.t.interval(alpha=0.95,  # confidence
                  loc=np.mean(a), 
                  scale=stats.sem(a)
                  )
-#
+```
