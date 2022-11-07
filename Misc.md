@@ -1,6 +1,7 @@
 #### Condifence Interval
 ```py
 from scipy import stats
+
 a = range(10)
 print(np.mean(a))
 stats.t.interval(alpha=0.95,  # confidence
