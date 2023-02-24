@@ -26,6 +26,8 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
 ### Services ###
 #### Amazon **Redshift** 
 - Uses a columnar storage
+- Has two types of storage DC2 and RA3. In DC2 storage and compure are NOT decoupled. It's suitable for data sizes under 1 TB. For more than 1 TB RA3 should be used where storage and compute are decoupled.
+- Using Redshift Spectrum we can query S3 data (like Athena)
 #### Kinesis Firehose 
 - Moves the incoming data to S3, Redshift or Elasticsearch.  
 #### Kinesis Streams
@@ -39,7 +41,8 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
   - *document-store* (`MongoDB`, `CouchDB`)
   - *graph* (`Neo4j`, `OrientDB`)  
   
-DynamoDB uses three basic data model units: Tables, Items, and Attributes. Tables are collections of Items, and Items are collections of Attributes. Attributes are basic units of information, like key-value pairs. Items are like rows in an RDBMS table, except that DynamoDB requires a Primary Key. Tables are like tables in relational databases, except that in DynamoDB, tables do not have fixed schemas associated with them. 
+- DynamoDB uses three basic data model units: Tables, Items, and Attributes. Tables are collections of Items, and Items are collections of Attributes. Attributes are basic units of information, like key-value pairs. Items are like rows in an RDBMS table, except that DynamoDB requires a Primary Key. Tables are like tables in relational databases, except that in DynamoDB, tables do not have fixed schemas associated with them. 
+
 ### ML services ###
 - Amazon **Rekognition** for images and video
 - Amazon **Lex** for chatbot integration
