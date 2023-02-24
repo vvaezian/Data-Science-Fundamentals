@@ -24,11 +24,16 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
 - The main difference between Data Lakes and Data Warehouses seems to be that Data Lakes store unprocessed data while Data Warehoues store processed data.
 
 ### Services ###
-- Amazon **Redshift** is the best service to use when you need to perform *complex queries* (-> OLAP) on massive collections of *structured data* and get superfast performance. ([source](https://aws.amazon.com/redshift/faqs/))
-- **Kinesis Firehose** Moves the incoming data to S3, Redshift or Elasticsearch.  
-**Kinesis Streams** Collects and process incoming data (holds for 24 hours). The processed data then can be stored in S3 or others. A common use-case is the real-time aggregation of data followed by loading the aggregate data into a data warehouse or map-reduce cluster.  
-**Kinesis Analytics** to process and analyze the streaming data continuously  
-- Amazon **DynamoDB** is a NoSQL database. NoSQL DB's can be grouped into the following categories: 
+#### Amazon **Redshift** 
+- Uses a columnar storage
+#### Kinesis Firehose 
+- Moves the incoming data to S3, Redshift or Elasticsearch.  
+#### Kinesis Streams
+- Collects and process incoming data (holds for 24 hours). The processed data then can be stored in S3 or others. A common use-case is the real-time aggregation of data followed by loading the aggregate data into a data warehouse or map-reduce cluster.  
+#### Kinesis Analytics
+- To process and analyze the streaming data continuously  
+#### Amazon DynamoDB
+- It is a NoSQL database. NoSQL DB's can be grouped into the following categories: 
   - *columnar* (`Cassandra`, `HBase`)
   - *key-value store* (`DynamoDB`, `Riak`) 
   - *document-store* (`MongoDB`, `CouchDB`)
