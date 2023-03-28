@@ -53,6 +53,7 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
   - Analyze events from streaming data sources in real time to create long-running, highly available, and fault-tolerant streaming data pipelines.
   - Analyze data using open-source ML frameworks such as Apache Spark MLlib, TensorFlow, and Apache MXNet. Connect to Amazon SageMaker Studio for large-scale model training, analysis, and reporting.
 - With one-click access to the Apache Spark UI, you can monitor and debug Spark jobs running on EMR right from SageMaker Studio Notebooks.
+- Apache Hadoop, Apache Spark, Apache Hive, and Presto
 
 ### ML services ###
 - Amazon **Rekognition** for images and video
