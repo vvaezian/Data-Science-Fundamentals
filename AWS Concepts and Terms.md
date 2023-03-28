@@ -46,6 +46,7 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
 #### EMR
 - Nodes can be primary (coordinate the distribution of data and tasks among other nodes for processing) or core (runs tasks and stores data in the HDFS) or task (optional. runs tasks but doesn't store data in HDFS).
 - Amazon EMR clusters process data from the native HDFS as well as from the EMRFS (Amazon S3).
+- Tools such as EMR Studio, EMR notebooks, and Apache Zeppelin provide an IDE that can help data scientists and data engineers develop, visualize, and debug data engineering and data science applications written in R, Python, Scala, and PySpark. 
 
 ### ML services ###
 - Amazon **Rekognition** for images and video
