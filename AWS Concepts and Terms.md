@@ -47,6 +47,11 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
 - Nodes can be primary (coordinate the distribution of data and tasks among other nodes for processing) or core (runs tasks and stores data in the HDFS) or task (optional. runs tasks but doesn't store data in HDFS).
 - Amazon EMR clusters process data from the native HDFS as well as from the EMRFS (Amazon S3).
 - Tools such as EMR Studio, EMR notebooks, and Apache Zeppelin provide an IDE that can help data scientists and data engineers develop, visualize, and debug data engineering and data science applications written in R, Python, Scala, and PySpark. 
+- Typical use-case:
+  - Run large-scale data processing and what-if analysis using statistical algorithms and predictive models
+  - Extract data from a variety of sources, process it at petabyte scale, and make it available for applications and users.
+  - Analyze events from streaming data sources in real time to create long-running, highly available, and fault-tolerant streaming data pipelines.
+  - Analyze data using open-source ML frameworks such as Apache Spark MLlib, TensorFlow, and Apache MXNet. Connect to Amazon SageMaker Studio for large-scale model training, analysis, and reporting.
 
 ### ML services ###
 - Amazon **Rekognition** for images and video
