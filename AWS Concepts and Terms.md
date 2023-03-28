@@ -43,6 +43,10 @@ In non-big data Hadoop can be useful: ([source](https://community.hortonworks.co
   
 - DynamoDB uses three basic data model units: Tables, Items, and Attributes. Tables are collections of Items, and Items are collections of Attributes. Attributes are basic units of information, like key-value pairs. Items are like rows in an RDBMS table, except that DynamoDB requires a Primary Key. Tables are like tables in relational databases, except that in DynamoDB, tables do not have fixed schemas associated with them. 
 
+#### EMR
+- Nodes can be primary (coordinate the distribution of data and tasks among other nodes for processing) or core (runs tasks and stores data in the HDFS) or task (optional. runs tasks but doesn't store data in HDFS).
+- Amazon EMR clusters process data from the native HDFS as well as from the EMRFS (Amazon S3).
+
 ### ML services ###
 - Amazon **Rekognition** for images and video
 - Amazon **Lex** for chatbot integration
