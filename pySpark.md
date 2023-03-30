@@ -29,7 +29,10 @@ spark_df.createOrReplaceTempView("temp_table_name")  # stored on the cluster.
 ```                                                       
 Import **CSV**
 ```python
-df = spark.read.csv(file_path, header=True)
+df = spark.read.csv(file_path, header=True)  # json, parquest works in a similar way
+# To run SQL commands on the imported data it seems we need to create a view first:
+parquetFile.createOrReplaceTempView("view_name")
+
 ```
 
 Spark DataFrames are **immutable**
