@@ -31,8 +31,9 @@ Import **CSV**
 ```python
 df = spark.read.csv(file_path, header=True)  # json, parquest works in a similar way
 # To run SQL commands on the imported data it seems we need to create a view first:
-parquetFile.createOrReplaceTempView("view_name")
-
+df.createOrReplaceTempView("view_name")
+res = spark.sql("SELECT * FROM view_name WHERE ...")
+res.show()
 ```
 
 Spark DataFrames are **immutable**
