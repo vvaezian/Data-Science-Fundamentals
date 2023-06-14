@@ -103,7 +103,7 @@ def error_grad(w):
   
   # error = 1/(2*m) Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = 1/m[Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
-  return 1/m[ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
+  # return 1/m[ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
         
         
 def calc_mae(w):
