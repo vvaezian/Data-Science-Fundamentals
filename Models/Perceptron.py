@@ -70,8 +70,8 @@ while counter != len(x):  # while not all points are classified correctly
 
     graph(equation, range(0, 6))
     plt.title('iteration {}'.format(iter_count))
-    plt.plot([1, 2, 3], [3, 4, 3], 'ro', color='blue')
-    plt.plot([1, 2, 3], [1, 0, 1], 'ro', color='red')
+    plt.plot([1, 2, 3], [3, 4, 3], 'bo')
+    plt.plot([1, 2, 3], [1, 0, 1], 'ro')
     fig.canvas.draw()
 
 plt.show(block=True)    # keep the plot window open at the end
