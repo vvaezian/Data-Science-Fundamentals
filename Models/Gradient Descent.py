@@ -95,15 +95,12 @@ def error(w):
 
 
 def error_grad(w):
+  # sum of squared errors
   # error = 1/2 Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = [Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
   return [ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
   
-  # we should actually do mean squared error. i.e. should divide by the number of instances
-  
-  # error = 1/(2*m) Sigma (y(x_n,w) - t_n) ** 2
-  # grad_error = 1/m[Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
-  #return 1/m[ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
+  # return [ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
         
         
 def calc_mae(w):
