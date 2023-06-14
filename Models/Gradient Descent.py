@@ -40,7 +40,7 @@ def step(w, direction, step_size):
           for w_i, direction_i in zip(w, direction)]
 
 
-def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.000000001):
+def minimize_batch(loss_fn, gradient_loss_fn, w_0, tolerance=.000000001):
   """
   use gradient descent to find theta that minimizes target function.
   tolerance: to stop the program if the pace of the improvement is less than this number
@@ -49,7 +49,7 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.000000001):
   w = w_0  # initial guess for weights
   ws = [w_0]  # list containing all weights
   step_size = -0.00007  # to minimize, move towards opposite of gradient
-  errs = [target_fn(w_0)]  # list containing all squared errors
+  errs = [loss_fn(w_0)]  # list containing all squared errors
   mae = calc_mae(w_0)  
   MAE_errs = [mae]  # list containing all MAE errors
   grads = []  # list containing all gradients
@@ -61,11 +61,11 @@ def minimize_batch(target_fn, gradient_fn, w_0, tolerance=.000000001):
   max_X = max(i[0] for i in data)
   counter = 0
   while True:
-    gradient = gradient_fn(w)
+    gradient = gradient_loss_fn(w)
     grads.append(gradient)
     next_w = step(w, gradient, step_size)
     ws.append(next_w)
-    errs.append(target_fn(next_w))
+    errs.append(loss_fn(next_w))
     next_mae = calc_mae(next_w)
     MAE_errs.append(next_mae)
     
@@ -103,7 +103,7 @@ def error_grad(w):
   
   # error = 1/(2*m) Sigma (y(x_n,w) - t_n) ** 2
   # grad_error = 1/m[Sigma(y(x_n,w) - t_n), Sigma x_n(y(x_n,w) - t_n)]
-  # return 1/m[ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
+  #return 1/m[ sum((f_x(w, item[0]) - item[1]) * item[0] ** d for item in data) for d in range(deg + 1) ]
         
         
 def calc_mae(w):
@@ -117,6 +117,4 @@ all_weights, all_mae, all_errors, all_grads = minimize_batch(error, error_grad, 
 print('# of Iterations: {}'.format(len(all_mae)))
 print('Random Initial Weights: ', random_weights) 
 print('Last MAE: {}'.format(all_mae[-1]))
-# for i in zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]):
-#   print(i)
 print(list(zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]))[-1])
