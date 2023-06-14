@@ -8,6 +8,60 @@ from IPython.display import clear_output
 import random
 import numpy as np
 
+
+
+############################################
+######## using matrix notation #############
+############################################
+
+import numpy as np
+
+def least_squares(X, y, learning_rate=0.001, num_iterations=10000):
+    # Initialize the parameters with zeros
+    weights = np.zeros((X.shape[1], 1))
+
+    # Perform gradient descent
+    for _ in range(num_iterations):
+        # Compute the predicted y values
+        y_pred = np.dot(X, weights)
+
+        # Compute the error (difference between predicted and actual y values)
+        error = y_pred - y
+
+        # Compute the gradient
+        gradient = 2 * np.dot(X.T, error)
+
+        # Update the parameters
+        weights -= learning_rate * gradient
+
+    return weights
+
+# Example usage
+# Assume X is a matrix of features (shape: m x n) and y is a column vector of target values (shape: m x 1)
+X = np.array([[1], [4], [6]])
+y = np.array([[5], [8], [15]])
+
+# Add a column of ones to X for the bias term
+X = np.hstack((np.ones((X.shape[0], 1)), X))
+
+# Call the least_squares function
+weights = least_squares(X, y)
+print(*weights)
+
+
+def f(x):
+    return weights[0] + weights[1] * x
+
+plt.scatter(X[:, 1], y)
+plt.plot((0, 6), (f(0), f(6)))
+
+
+#################################################
+########## without matrix notation ##############
+#################################################
+
+
+
 # with open('...') as f:
 #   d = f.readlines()[1:]  # [1:] to exclude header
 # data = [ eval(line.rstrip('\n')) for line in d ]
