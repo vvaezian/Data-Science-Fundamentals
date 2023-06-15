@@ -169,3 +169,85 @@ print('# of Iterations: {}'.format(len(all_mae)))
 print('Random Initial Weights: ', random_weights) 
 print('Last MAE: {}'.format(all_mae[-1]))
 print(list(zip([list(i) for i in all_weights], all_errors, all_mae, all_grads + [[]]))[-1])
+
+
+###################################################################################################################
+########## if the function is not differentiable or the derivative is not straightforward to calculate ############
+###################################################################################################################
+
+# we want to fit lines to some data. the loss for each point is the distance to the closest line.
+
+def calc_loss(weights_set):  # slightly slower than the next function, but easier to understand
+    y_preds = []
+    for weights in weights_set:
+        y_pred = np.dot(X, weights)
+        y_preds.append(y_pred)
+    error = np.minimum.reduce([ (y - i) ** 2 for i in y_preds])
+    return np.sum(error)
+
+def calc_loss(weights_set): 
+    weights_set = np.array(weights_set)
+    y_pred = np.dot(X, weights_set.reshape(weights_set.shape[:2]).T)
+    error = np.min(np.subtract(y_pred, y) ** 2, axis=1)
+    return np.sum(error)
+
+
+
+X_ = np.array([[0], [1], [1.5], [2], [3], [4]])
+y = np.array([[1.5], [2], [2], [0], [.5], [.5]])
+
+# Add a column of ones to X for the bias term
+X = np.hstack((np.ones((X_.shape[0], 1)), X_))
+
+# Initialize the parameters
+weights1 = np.array([[1.], [0.]])
+weights2 = np.array([[2.], [0.]])
+
+def fit(weights, learning_rate, purturbation_rate, epsilon, n=1000, plot=False):
+
+    weights1, weights2 = weights
+
+    for i in range(n + 1):
+
+        if plot:
+            if i % 500 == 0:
+                print(weights1[1])
+                print(weights2[1])
+                clear_output(wait=True)  # to update the current plot
+                plt.scatter(X_, y)
+                plt.plot([0, 4], (weights1[0], weights1[0] + weights1[1] * 4) )
+                plt.plot([0, 4], (weights2[0], weights2[0] + weights2[1] * 4) )
+                plt.show()
+
+        # Compute the gradient
+        # For a given parameter, we perturb it slightly and evaluate the change in the 
+        # loss function. The gradient with respect to that parameter is then approximated 
+        # by the ratio of the change in the loss function to the perturbation.
+        current_loss = calc_loss([weights1, weights2])
+
+        new_weights1_0 = weights1 * [[purturbation_rate], [1]]
+        new_weights1_1 = weights1 * [[1], [purturbation_rate]] + [[0], [np.random.choice([epsilon, -epsilon])]]
+
+        grad1_0 = (calc_loss([new_weights1_0, weights2]) - current_loss) / current_loss
+        grad1_1 = (calc_loss([new_weights1_1, weights2]) - current_loss) / current_loss
+
+        new_weights2_0 = weights2 * [[purturbation_rate], [1]]
+        new_weights2_1 = weights2 * [[1], [purturbation_rate]] + [[0], [np.random.choice([epsilon, -epsilon])]]
+
+        grad2_0 = (calc_loss([weights1, new_weights2_0]) - current_loss) / current_loss
+        grad2_1 = (calc_loss([weights1, new_weights2_1]) - current_loss) / current_loss
+
+        gradients1 = np.array([[grad1_0], [grad1_1]])
+        gradients2 = np.array([[grad2_0], [grad2_1]])
+
+        # Update the parameters
+        weights1 -= learning_rate * gradients1
+        weights2 -= learning_rate * gradients2
+    
+    return current_loss
+
+learning_rate = .01
+purturbation_rate = 1.01
+epsilon = -.0000001
+
+fit([weights1, weights2], learning_rate, purturbation_rate, epsilon, 10000, plot=True)
